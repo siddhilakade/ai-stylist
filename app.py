@@ -48,6 +48,7 @@ from src.features import (  # noqa: E402
 from src.recommender import (  # noqa: E402
     complete_the_look,
     grounding_payload,
+    hard_filter,
     outfit_reasons,
     recommend_outfits,
     score_breakdown,
@@ -89,6 +90,10 @@ def init_state() -> None:
 
 
 def goto(view: str) -> None:
+    # A nav click is a fresh start. Without this the guided finder kept its
+    # step, so leaving it on step three and coming back through the nav dropped
+    # you straight into "Budget and palette" with no visible way back.
+    reset_finder()
     if view in ("men", "women", "kids"):
         st.session_state["browse_gender"] = view.capitalize()
         view = "browse" if view != "kids" else "kids"
@@ -114,10 +119,10 @@ def occasion_label(prefs: StylePreferences) -> str:
 
 def render_outfit(outfit, prefs: StylePreferences, index: int, key_prefix: str) -> None:
     """One complete look: banner, garments, grounded reasons, stylist note."""
-    ui.look_header(outfit, prefs, index, occasion_label(prefs))
-    ui.outfit_items_row(outfit, goto_product=goto_product, key_prefix=f"{key_prefix}_{index}")
+    ui.look(outfit, prefs, index, occasion_label(prefs))
+    ui.look_shop_row(outfit, goto_product, key_prefix=f"{key_prefix}_{index}")
 
-    st.markdown("<div style='height:10px'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='height:18px'></div>", unsafe_allow_html=True)
     left, right = st.columns(2, gap="medium")
     with left:
         ui.why_panel(outfit_reasons(outfit, prefs))
@@ -131,7 +136,7 @@ def render_outfit(outfit, prefs: StylePreferences, index: int, key_prefix: str) 
 
     # TECHNICAL LEVEL. Collapsed by default so the product surface stays clean,
     # but complete: every number the ranker used, and the exact LLM payload.
-    with st.expander("🔍  Show scoring details"):
+    with st.expander("Show scoring details"):
         breakdown_col, signal_col = st.columns(2)
         with breakdown_col:
             st.markdown("**Final score — transparent weighted sum**")
@@ -284,7 +289,7 @@ def render_understanding(extraction) -> None:
     if prefs.notes:
         st.caption(f"Also noted: _{prefs.notes}_")
     if extraction.warning:
-        st.info(f"ℹ️ {extraction.warning}")
+        st.info(extraction.warning)
 
 
 def run_recommendation(prefs: StylePreferences) -> None:
@@ -300,14 +305,14 @@ def render_results() -> None:
     if not extraction or not result:
         return
 
-    ui.section("What the system understood")
+    ui.section("What the system understood", kicker="Before anything was chosen")
     render_understanding(extraction)
 
     prefs = st.session_state["prefs"]
     for conflict in result.diagnostics.get("conflicts", []):
-        st.warning(f"⚠️ **Conflicting request** — {conflict}")
+        st.warning(f"**Conflicting request** — {conflict}")
     for note in result.diagnostics.get("relaxed", []):
-        st.info(f"ℹ️ {note}")
+        st.info(note)
 
     if not result.ok:
         render_failure(result, prefs)
@@ -328,8 +333,9 @@ def render_look_carousel(result, prefs: StylePreferences, key_prefix: str) -> No
     index = st.session_state.get(state_key, 0) % total
 
     ui.section(
-        "Your AI-styled look",
+        "Styled for you",
         f"Look {index + 1} of {total} · assembled in {result.latency_ms:.0f} ms",
+        kicker="The result",
     )
     render_outfit(result.outfits[index], prefs, index, key_prefix=key_prefix)
 
@@ -371,14 +377,18 @@ def use_example(example: str) -> None:
 
 def style_me_input(key_prefix: str) -> None:
     """The hero natural-language input. The primary GenAI interaction."""
+    # Seed through session state rather than `value=`. Passing both a default
+    # AND writing the same key from `use_example` makes Streamlit render a
+    # warning banner above the input on every run.
+    widget_key = f"{key_prefix}_request"
+    st.session_state.setdefault(widget_key, st.session_state["request_text"])
     text = st.text_area(
         "request",
-        value=st.session_state["request_text"],
         placeholder="I need a smart casual outfit for a college presentation "
                     "under ₹3000, preferably black and white…",
         height=86,
         label_visibility="collapsed",
-        key=f"{key_prefix}_request",
+        key=widget_key,
     )
 
     action, gender_col, _ = st.columns([1.15, 1.15, 3.2], vertical_alignment="bottom")
@@ -390,7 +400,7 @@ def style_me_input(key_prefix: str) -> None:
         # Deliberately NOT "Style me": that is the nav item's label, and two
         # controls with the same name on one page is ambiguous for users and
         # for accessibility tooling alike.
-        go = st.button("✨ Style my outfit", type="primary",
+        go = st.button("Style my outfit", type="primary",
                        use_container_width=True, key=f"{key_prefix}_go")
 
     st.caption("Or try one of these:")
@@ -420,18 +430,30 @@ def style_me_input(key_prefix: str) -> None:
             st.rerun()
 
 
+def hero_collage_products() -> list:
+    """Four colourful pieces, one per slot, for the hero composition."""
+    picks, seen = [], set()
+    for slot in ("onepiece", "top", "footwear", "bottom"):
+        for product in catalog_records():
+            if (product["outfit_slot"] == slot and not product["is_neutral"]
+                    and product["color_family"] not in seen):
+                picks.append(product)
+                seen.add(product["color_family"])
+                break
+    return picks
+
+
 def view_home() -> None:
-    st.markdown(
-        """
-        <div class="ais-hero">
-          <div class="ais-kicker">GEMINI + A DETERMINISTIC STYLING ENGINE</div>
-          <h1>Your personal AI stylist</h1>
-          <p>Marketplaces show you products. We tell you what actually goes
-             <em>together</em> — a complete, budget-aware outfit, with the
-             reasoning shown.</p>
-        </div>
-        """,
-        unsafe_allow_html=True,
+    ui.hero(
+        kicker="Outfits, not search results",
+        headline_html="Dress for the <em>occasion</em>, not the algorithm.",
+        body="A marketplace shows you products. This tells you what actually goes "
+             "together — a complete outfit, inside your budget, with every reason "
+             "it was chosen shown alongside it.",
+        pills=[f"<b>{len(catalog_records())}</b> pieces styled",
+               "Budget honoured, <b>always</b>",
+               "Every choice <b>explained</b>"],
+        collage=hero_collage_products(),
     )
 
     style_me_input("home")
@@ -442,73 +464,217 @@ def view_home() -> None:
         return
 
     products = catalog_records()
-    ui.section("Shop by category", "Pick anything — we build the outfit around it")
-    showcase = []
-    for slot in ("top", "bottom", "footwear", "onepiece"):
+
+    # Deliberately NOT filtered to neutrals. The previous build picked
+    # `is_neutral` items here, so a fashion homepage opened on four grey
+    # garments - the same monotony bias that was fixed in ranking (D13), left
+    # sitting in the shop window.
+    ui.section(
+        "Start anywhere", "Pick a piece and the stylist builds the outfit around it",
+        kicker="Shop by category",
+    )
+    showcase, seen_colours = [], set()
+    for slot in ("top", "onepiece", "bottom", "footwear"):
         for product in products:
-            if (product["outfit_slot"] == slot and product["is_neutral"]
-                    and product["id"] not in {p["id"] for p in showcase}):
+            colour = product["color_family"]
+            if (product["outfit_slot"] == slot and not product["is_neutral"]
+                    and colour not in seen_colours):
                 showcase.append(product)
+                seen_colours.add(colour)
                 break
     ui.product_grid(showcase[:4], goto_product, columns=4, key_prefix="home_a")
 
-    ui.section("Trending now", "A slice of the catalog")
-    trending = [p for p in products if p.get("discount_pct", 0) >= 40][:4]
-    ui.product_grid(trending, goto_product, columns=4, key_prefix="home_b")
+    # Named for what the filter actually is. This rail was previously labelled
+    # "Trending now" while selecting on discount_pct - there is no popularity
+    # signal anywhere in this dataset to justify the word "trending".
+    ui.section(
+        "Biggest reductions in the catalog", kicker="On sale",
+        subtitle="Ranked by discount — the dataset carries no popularity signal",
+    )
+    on_sale = sorted(products, key=lambda p: -int(p.get("discount_pct", 0)))[:4]
+    ui.product_grid(on_sale, goto_product, columns=4, key_prefix="home_b")
+
+
+FINDER_STEPS = ["Who it's for", "The occasion", "Budget & palette"]
+
+
+def finder_matches(**overrides) -> tuple[int, int]:
+    """(pieces surviving the hard filters, of those how many suit the palette).
+
+    Shown live between steps: it lets a user see a request collapsing toward
+    zero *before* they commit to it, which beats the most carefully worded
+    failure message.
+
+    Two numbers because one would mislead. Colour is deliberately a ranking
+    signal and never a hard filter, so the survivor count is identical for
+    "blue", "red" and no colour at all — which reads as a broken control. The
+    second number is what the palette actually does: how much of the surviving
+    pool either sits in a requested family or is a neutral that coordinates
+    with it.
+    """
+    prefs = StylePreferences(**overrides)
+    survivors = hard_filter(list(catalog_records()), prefs)
+    if not prefs.preferred_colors:
+        return len(survivors), 0
+    in_palette = sum(
+        1 for p in survivors
+        if p["color_family"] in prefs.preferred_colors or p["is_neutral"]
+    )
+    return len(survivors), in_palette
+
+
+def finder_signature() -> tuple:
+    """Everything in the finder that changes the answer."""
+    return (
+        st.session_state.get("finder_gender"),
+        st.session_state.get("finder_occasion"),
+        st.session_state.get("f_budget"),
+        tuple(st.session_state.get("f_colors") or ()),
+        st.session_state.get("f_style"),
+        st.session_state.get("f_acc"),
+    )
+
+
+def reset_finder() -> None:
+    """Send the guided finder back to step one.
+
+    Called from `goto`, because leaving mid-flow and returning through the nav
+    used to resume on step three with no way back except the Back control.
+    """
+    st.session_state["finder_step"] = 0
+
+
+def _finder_goto(step: int, **state) -> None:
+    st.session_state.update(state)
+    st.session_state["finder_step"] = step
+
+
+def guided_finder() -> None:
+    """Three tappable steps instead of a row of dropdowns.
+
+    Buttons rather than selectboxes is a deliberate choice: dropdowns hide their
+    options until opened, so users routinely miss them entirely.
+    """
+    step = int(st.session_state.get("finder_step", 0))
+    ui.stepper(step, FINDER_STEPS)
+
+    gender = st.session_state.get("finder_gender", "Women")
+    occasion = st.session_state.get("finder_occasion", DEFAULT_OCCASION)
+
+    if step == 0:
+        ui.section("Who are you styling?", kicker="Step one")
+        cols = st.columns(3, gap="small")
+        for col, choice in zip(cols, ["Women", "Men", "Unisex"]):
+            with col:
+                st.button(
+                    choice, key=f"step_who_{choice}", use_container_width=True,
+                    on_click=_finder_goto, args=(1,),
+                    kwargs={"finder_gender": choice},
+                )
+        ui.match_count(len(catalog_records()), "pieces in the catalog",
+                       "Narrowed at each step, then assembled into complete looks")
+        return
+
+    if step == 1:
+        ui.section("What's the occasion?", kicker="Step two")
+        keys = list(OCCASION_PROFILES)
+        for start in range(0, len(keys), 3):
+            cols = st.columns(3, gap="small")
+            for col, key in zip(cols, keys[start:start + 3]):
+                with col:
+                    st.button(
+                        OCCASION_PROFILES[key]["label"],
+                        key=f"step_occ_{key}", use_container_width=True,
+                        on_click=_finder_goto, args=(2,),
+                        kwargs={"finder_occasion": key},
+                    )
+        survivors, _ = finder_matches(gender=gender)
+        ui.match_count(survivors, f"pieces fit {gender.lower()}")
+        st.button("← Back", key="finder_back_1", on_click=_finder_goto, args=(0,))
+        return
+
+    ui.section("Budget and palette", kicker="Step three")
+    col1, col2, col3 = st.columns(3)
+    budget = col1.slider("Budget (₹)", 500, 20000, 5000, step=250, key="f_budget")
+    colours = col2.multiselect(
+        "Preferred colours", list(COLOR_FAMILIES), format_func=str.title,
+        max_selections=3, key="f_colors",
+    )
+    style = col3.selectbox(
+        "Style", ["auto", *STYLE_TARGET_FORMALITY],
+        format_func=lambda s: "Let the occasion decide" if s == "auto"
+        else s.replace("_", " ").title(),
+        key="f_style",
+    )
+    accessory = st.checkbox("Include an accessory", value=True, key="f_acc")
+
+    resolved_style = None if style == "auto" else style
+    survivors, in_palette = finder_matches(
+        gender=gender, occasion=occasion, style=resolved_style,
+        budget=budget, preferred_colors=colours,
+    )
+    if colours:
+        detail = (
+            f"{in_palette} of them sit in your palette or are coordinating "
+            "neutrals — colour guides the ranking, it never rules a piece out"
+        )
+    else:
+        detail = "Budget removes single pieces priced above the whole outfit"
+    ui.match_count(survivors, "pieces to build from", detail)
+
+    # Filters changed since the last build, so anything still on screen below is
+    # stale. Clearing it is better than showing outfits that no longer match the
+    # controls the user is looking at.
+    if st.session_state.get("finder_built") not in (None, finder_signature()):
+        st.session_state["result"] = None
+        st.session_state["extraction"] = None
+        st.session_state["finder_built"] = None
+
+    go_col, back_col, _ = st.columns([1.4, 1, 3])
+    with go_col:
+        go = st.button("Build my outfits", type="primary", key="f_go",
+                       use_container_width=True)
+    with back_col:
+        st.button("← Back", key="finder_back_2", on_click=_finder_goto, args=(1,))
+
+    if go:
+        prefs = StylePreferences(
+            gender=gender, occasion=occasion, style=resolved_style,
+            budget=budget, preferred_colors=colours, include_accessory=accessory,
+        )
+        st.session_state["extraction"] = ExtractionResult(
+            preferences=prefs, source=ExtractionSource.FORM
+        )
+        st.session_state["finder_built"] = finder_signature()
+        run_recommendation(prefs)
 
 
 def view_style_me() -> None:
-    tab_ai, tab_form = st.tabs(["✨  AI Stylist", "🎛️  Set preferences manually"])
+    tab_ai, tab_form = st.tabs(["Describe it in your own words", "Guided finder"])
 
     with tab_ai:
         st.markdown(
-            '<div class="ais-hero" style="padding:20px 24px 16px">'
-            '<div class="ais-kicker">TELL US WHAT YOU WANT TO WEAR</div>'
-            "<h1 style='font-size:24px'>Describe the occasion in your own words</h1>"
-            "<p>Gemini turns free text into structured preferences. The outfit "
-            "itself is then chosen by a deterministic engine.</p></div>",
+            '<div class="ais-hero" style="padding:34px 36px 30px">'
+            '<div class="ais-kicker">Tell us what you want to wear</div>'
+            "<h1 style='font-size:38px'>Say it however you'd say it "
+            "to a <em>friend</em>.</h1>"
+            "<p>A language model reads your sentence and turns it into structured "
+            "preferences. The outfit itself is chosen by a deterministic engine — "
+            "so the same request always returns the same look.</p></div>",
             unsafe_allow_html=True,
         )
         style_me_input("sm")
 
     with tab_form:
-        col1, col2, col3 = st.columns(3)
-        gender = col1.selectbox("Shopping for", ["Women", "Men", "Unisex"], key="f_gender")
-        occasion = col2.selectbox(
-            "Occasion", list(OCCASION_PROFILES),
-            format_func=lambda key: OCCASION_PROFILES[key]["label"], key="f_occasion",
-        )
-        style = col3.selectbox(
-            "Style", ["auto", *STYLE_TARGET_FORMALITY],
-            format_func=lambda s: "Let the occasion decide" if s == "auto"
-            else s.replace("_", " ").title(),
-            key="f_style",
-        )
-        col4, col5, col6 = st.columns(3)
-        budget = col4.slider("Budget (₹)", 500, 20000, 5000, step=250, key="f_budget")
-        colours = col5.multiselect(
-            "Preferred colours", list(COLOR_FAMILIES), format_func=str.title,
-            max_selections=3, key="f_colors",
-        )
-        accessory = col6.checkbox("Include an accessory", value=True, key="f_acc")
-
-        if st.button("Build outfits", type="primary", key="f_go"):
-            prefs = StylePreferences(
-                gender=gender, occasion=occasion,
-                style=None if style == "auto" else style,
-                budget=budget, preferred_colors=colours, include_accessory=accessory,
-            )
-            st.session_state["extraction"] = ExtractionResult(
-                preferences=prefs, source=ExtractionSource.FORM
-            )
-            run_recommendation(prefs)
+        guided_finder()
 
     st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
     render_results()
 
 
 def view_browse(gender: str) -> None:
-    ui.section(f"{gender}'s catalog", "Filter, then pick anything to style around")
+    ui.section(f"{gender}'s catalog", "Filter, then pick anything to style around",
+               kicker="Browse")
 
     col1, col2, col3 = st.columns([2, 1.2, 1.2])
     query = col1.text_input("Search this catalog", key="browse_q",
@@ -543,7 +709,7 @@ def view_placeholder(title: str, headline: str, body: str) -> None:
     st.markdown(
         f"""
         <div class="ais-hero" style="padding:30px 34px">
-          <div class="ais-kicker">NOT IN THIS PROTOTYPE</div>
+          <div class="ais-kicker">Not in this prototype</div>
           <h1 style="font-size:24px">{headline}</h1>
           <p>{body}</p>
         </div>
@@ -559,7 +725,7 @@ def view_placeholder(title: str, headline: str, body: str) -> None:
         if st.button("Shop Women", use_container_width=True, key="ph_women"):
             goto("women")
     with c:
-        if st.button("✨ Style me", type="primary", use_container_width=True,
+        if st.button("Style me", type="primary", use_container_width=True,
                      key="ph_style"):
             goto("style_me")
 
@@ -602,24 +768,33 @@ def view_product() -> None:
             unsafe_allow_html=True,
         )
 
+        # Shopper-facing, so it shows the derived attributes but not the raw
+        # numbers behind them: "Casual · 0.75/4" leaked the internal formality
+        # float onto a product page. The full scoring detail stays in the
+        # expander under each recommendation, where it belongs.
+        colour = str(product["baseColour"])
+        family = str(product["color_family"])
         facts = {
             "Category": SLOT_LABELS[product["outfit_slot"]],
             "Type": product["articleType"],
-            "Colour": f"{product['baseColour']} ({product['color_family']})",
-            "Style": f"{product['formality_tier']} · {product['formality']}/4",
+            "Colour": colour if colour.lower() == family.lower()
+                      else f"{colour} · {family} family",
+            "Style": product["formality_tier"],
             "Occasion tag": product["usage"],
             "Gender": product["gender"],
         }
-        left, right = st.columns(2)
-        for index, (label, value) in enumerate(facts.items()):
-            (left if index % 2 == 0 else right).markdown(
-                f'<dl class="ais-attr"><dt>{label}</dt><dd>{value}</dd></dl>',
-                unsafe_allow_html=True,
-            )
+        # A single full-width specification table rather than two stacked
+        # columns of definition lists: every derived feature the engine actually
+        # reasons with, in one scannable block.
+        rows = "".join(
+            f'<div class="row"><dt>{label}</dt><dd>{value}</dd></div>'
+            for label, value in facts.items()
+        )
+        st.markdown(f'<dl class="ais-attr">{rows}</dl>', unsafe_allow_html=True)
 
         action1, action2 = st.columns(2)
         wishlisted = int(product["id"]) in st.session_state["wishlist"]
-        if action1.button("✨ Build complete outfit", type="primary",
+        if action1.button("Build the complete outfit", type="primary",
                           use_container_width=True):
             suggested = int(round(product["price"] * 3.5 / 500) * 500)
             st.session_state["ctl_budget"] = max(1000, min(20000, suggested))
@@ -629,7 +804,8 @@ def view_product() -> None:
             st.session_state["wishlist"] ^= {int(product["id"])}
             st.rerun()
 
-    ui.section("✨ Complete the look", "AI-selected pieces that work with this item")
+    ui.section("Complete the look", "Pieces the engine selected to work with this item",
+               kicker="Styled around it")
     st.caption(
         "This product is **pinned** as the only candidate for its slot, so it can "
         "never be swapped out. Everything else runs through the same filtering, "
@@ -645,7 +821,7 @@ def view_product() -> None:
         result = complete_the_look(int(product["id"]), budget=budget)
 
     for note in result.diagnostics.get("relaxed", []):
-        st.info(f"ℹ️ {note}")
+        st.info(note)
 
     if not result.ok:
         render_failure(result, StylePreferences(budget=budget))
@@ -656,7 +832,8 @@ def view_product() -> None:
         )
         render_look_carousel(result, prefs, key_prefix="ctl")
 
-    ui.section("Similar products", "TF-IDF over product metadata — a separate feature")
+    ui.section("Similar products", "TF-IDF over product metadata — a separate feature",
+               kicker="More like this")
     st.caption(
         "Similarity answers “what looks like this?”. Complete the Look answers "
         "“what goes **with** this?”. They are deliberately different features."
@@ -673,14 +850,14 @@ The language model handles language. A deterministic engine handles selection.
 Neither does the other's job.
 
 ```
-  free text ──► Gemini ──► StylePreferences ──► hard filters ──► candidates
+  free text ──►  LLM   ──► StylePreferences ──► hard filters ──► candidates
    (user)      (Task A)     validated,           gender            per slot
                             closed vocab         formality             │
                                                  ethnic                ▼
                                                  budget         greedy assembly
                                                                 (budget lookahead)
                                                                        │
-   stylist note ◄── Gemini ◄── grounding payload ◄── ranking ◄─────────┘
+   stylist note ◄──  LLM   ◄── grounding payload ◄── ranking ◄─────────┘
       (shown)      (Task B)    real items + real     weighted sum
                                computed scores
 ```
@@ -689,7 +866,7 @@ Neither does the other's job.
 
     col1, col2 = st.columns(2, gap="large")
     with col1:
-        st.markdown("#### What Gemini does")
+        st.markdown("#### What the language model does")
         st.markdown(
             "- **Task A — understanding.** Free text → a closed-vocabulary\n"
             "  `StylePreferences` object via structured output. An invalid\n"
@@ -698,7 +875,7 @@ Neither does the other's job.
             "  chose plus the real scores, it writes one paragraph."
         )
     with col2:
-        st.markdown("#### What Gemini never does")
+        st.markdown("#### What it never does")
         st.markdown(
             "- Choose products, or see the catalog at all\n"
             "- Decide compatibility, or set any score\n"
@@ -708,14 +885,14 @@ Neither does the other's job.
             "hallucinated product cannot reach the screen."
         )
 
-    ui.section("Gemini status")
+    ui.section("Language model status")
     has_key = llm_client.has_api_key()
     tripped = llm_client.circuit_is_open()
     status_col, toggle_col, test_col = st.columns([2, 1, 1], vertical_alignment="bottom")
     with status_col:
         if tripped:
             st.error(
-                "**API key configured, but Gemini is unreachable — running on the "
+                "**API key configured, but no provider is reachable — running on the "
                 "fallback path.**\n\n"
                 f"Last error: `{llm_client.circuit_error()}`\n\n"
                 "After two consecutive failures the client stops retrying, so a "
@@ -724,23 +901,33 @@ Neither does the other's job.
                 "rules and explanations are generated from the engine's own signals."
             )
         elif has_key:
-            st.success(f"API key detected · model `{llm_client.get_model_name()}`")
+            # Name the provider that will ACTUALLY answer, not just the first one
+            # holding a key. With both configured this panel used to report
+            # Gemini while every request was in fact being served by Groq.
+            active = llm_client.active_provider()
+            configured = llm_client.configured_providers()
+            others = [p for p in configured if p != active]
+            detail = f" · fallback: {', '.join(others)}" if others else ""
+            st.success(
+                f"Active provider: **{active}** · model "
+                f"`{llm_client.provider_model(active)}`{detail}"
+            )
         else:
             st.warning(
-                "No `GEMINI_API_KEY` found. The app runs fully — requests fall back "
-                "to a keyword parser and explanations come from the engine's own "
-                "signals. Add a key to `.env` for the full GenAI path."
+                "No `GROQ_API_KEY` or `GEMINI_API_KEY` found. The app runs fully — "
+                "requests fall back to a keyword parser and explanations come from "
+                "the engine's own signals. Add a key to `.env` for the full GenAI path."
             )
     with toggle_col:
         st.session_state["use_llm"] = st.toggle(
-            "Use Gemini", value=st.session_state["use_llm"] and has_key,
+            "Use the language model", value=st.session_state["use_llm"] and has_key,
             disabled=not has_key,
             help="Turn off to compare the LLM path against the rule-based fallback.",
         )
     with test_col:
         if has_key and st.button("Test connection", use_container_width=True):
             llm_client.reset_circuit()
-            with st.spinner("Calling Gemini…"):
+            with st.spinner("Calling the provider…"):
                 status = llm_client.check_connection()
             if status["ok"]:
                 st.success(f"{status['latency_ms']} ms")
@@ -782,10 +969,10 @@ real prices. The budget logic is real; the numbers it operates on are simulated.
   will miss deliberate, fashion-forward clashing.
 - **Metadata only, no vision.** Compatibility uses `baseColour` and category
   labels, not pixels. Two items labelled "Blue" may be very different blues.
-- **Low-resolution imagery.** Source images are 60×80 px. They are resampled and
+- **Metadata-only imagery.** Product shots are flat catalog images at 720x960,
   displayed at a capped size rather than blown up, but they are not studio
   photography.
-- **Small catalog.** 520 products means genuinely sparse cells, so tight
+- **Small catalog.** 536 products means genuinely sparse cells, so tight
   constraints can legitimately fail — by design, with an explanation.
         """
     )
@@ -838,6 +1025,7 @@ def main() -> None:
 
     ui.header(goto, wishlist_count=len(st.session_state["wishlist"]))
     VIEWS.get(st.session_state["view"], view_home)()
+    ui.footer(goto)
 
 
 if __name__ == "__main__":

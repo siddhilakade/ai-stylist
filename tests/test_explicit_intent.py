@@ -223,6 +223,43 @@ class TestConstraintResolution:
         assert "saree" in result.failure.message
         assert result.outfits == []
 
+    def test_a_named_garment_priced_above_the_whole_budget_fails_by_name(self):
+        """The named slot is exempt from the formality band, not from the budget.
+
+        Every saree in the catalog costs more than 1,000, so this request cannot
+        be satisfied. It must say so in the user's own words. Previously the
+        over-budget sarees survived `hard_filter`, `unsatisfied_constraints`
+        concluded the request was satisfiable, and the user got the generic
+        "no one-piece matches all of your constraints" instead.
+        """
+        prefs = StylePreferences(
+            gender="Women", occasion="wedding_festive", budget=1000,
+            required_items=[{"garment": "saree", "colour": None}],
+        )
+        result = recommend_outfits(prefs)
+        assert not result.ok
+        assert result.failure.reason_code == "unsatisfiable_item_request"
+        assert "saree" in result.failure.message
+        assert "1,000" in result.failure.message
+
+    def test_failure_messages_never_expose_internal_slot_keys(self):
+        """`outfit_slot` values are identifiers, not English. "onepiece" and
+        "outerwear" must never reach a shopper."""
+        scenarios = [
+            StylePreferences(gender="Women", occasion="wedding_festive",
+                             budget=1000,
+                             required_items=[{"garment": "saree", "colour": None}]),
+            StylePreferences(gender="Men", occasion="work_office", budget=400),
+            StylePreferences(gender="Women", occasion="party", budget=350),
+        ]
+        for prefs in scenarios:
+            result = recommend_outfits(prefs)
+            if result.ok:
+                continue
+            text = f"{result.failure.message} {result.failure.suggestion}"
+            for raw in ("onepiece", "outerwear", "outfit_slot"):
+                assert raw not in text.lower(), f"{raw!r} leaked into: {text}"
+
     def test_template_follows_the_requested_garment(self):
         prefs = parse_request("red dress", default_gender="Women")
         result = recommend_outfits(prefs)
@@ -238,6 +275,41 @@ class TestConstraintResolution:
 # --------------------------------------------------------------------------
 # Catalog coverage that these requests depend on
 # --------------------------------------------------------------------------
+
+class TestStatedColoursSurviveIntoTheOutfit:
+    """A soft colour preference is not a filter, but it must still be visible in
+    the result - especially in the OPTIONAL slots, which are a bonus and should
+    never be the thing that breaks the brief."""
+
+    def test_a_neutral_request_does_not_gain_a_coloured_accessory(self):
+        """The reported bug: "smart casual, black and white, under 3000"
+        returned a white dress, grey shoes and a GREEN bangle - because the
+        dress and shoes left only 252 rupees and the bangle was the one
+        accessory that fit. An optional extra that fights the request should be
+        dropped, not squeezed in."""
+        prefs = parse_request(
+            "College presentation tomorrow - smart casual, black and white, under 3000",
+            default_gender="Women",
+        )
+        assert prefs.preferred_colors == ["neutral"]
+        result = recommend_outfits(prefs)
+        assert result.ok
+
+        best = result.outfits[0]
+        offenders = [
+            f"{i['baseColour']} {i['articleType']}"
+            for slot, i in best.items.items()
+            if slot in ("accessory", "outerwear") and not i["is_neutral"]
+        ]
+        assert not offenders, f"off-brief optional pieces: {offenders}"
+
+    def test_the_best_look_for_a_neutral_request_is_actually_neutral(self):
+        prefs = parse_request("Party outfit for a woman, black, 6000",
+                              default_gender="Women")
+        best = recommend_outfits(prefs).outfits[0]
+        neutral_share = sum(1 for i in best.items.values() if i["is_neutral"])
+        assert neutral_share == len(best.items)
+
 
 class TestStapleCoverage:
     """Guaranteed by scripts/build_catalog.py's STAPLES table."""

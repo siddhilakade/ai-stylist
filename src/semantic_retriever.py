@@ -365,13 +365,3 @@ def rerank_candidates(
     return kept, diagnostics
 
 
-def similar_products_semantic(product_id: int, top_k: int = 6) -> list[int]:
-    """Nearest neighbours of one product - the semantic counterpart to TF-IDF."""
-    index = load_index()
-    from src.data import get_product
-
-    product = get_product(product_id)
-    if product is None:
-        return []
-    results = index.search(product_document(product), top_k=top_k + 1)
-    return [pid for pid, _ in results if pid != int(product_id)][:top_k]

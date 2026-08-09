@@ -3,9 +3,11 @@
 [theme]
 base = "light"
 primaryColor = "#FF3F6C"
-backgroundColor = "#FFFFFF"
-secondaryBackgroundColor = "#F5F5F6"
-textColor = "#282C3F"
+# Must match --ground in src/ui.py. Streamlit paints this before the injected
+# stylesheet lands, so a mismatch shows as a white flash on every page load.
+backgroundColor = "#FAF8F4"
+secondaryBackgroundColor = "#F2EDE5"
+textColor = "#17161B"
 font = "sans serif"
 
 [server]

@@ -70,6 +70,56 @@ class TestColour:
         ]
         assert outfit_signals(busy)["color"] < outfit_signals(calm)["color"]
 
+    def test_all_neutral_outfits_are_penalised_too(self, make_item):
+        """The other extreme. An all-neutral outfit pairs perfectly with itself
+        (every pair is neutral+neutral = 1.00), which made "all grey" the safest
+        answer to every request and the single biggest cause of repetitive
+        results. A colour accent should now edge it out."""
+        all_neutral = [
+            make_item("Shirts", "White"),
+            make_item("Trousers", "Black"),
+            make_item("Casual Shoes", "Grey"),
+        ]
+        one_accent = [
+            make_item("Shirts", "White"),
+            make_item("Trousers", "Black"),
+            make_item("Casual Shoes", "Blue"),
+        ]
+        assert outfit_signals(all_neutral)["color"] < outfit_signals(one_accent)["color"]
+
+    def test_the_monotony_penalty_can_be_switched_off(self, make_item):
+        """It must not fire when the user asked for neutrals.
+
+        Penalising an all-neutral outfit for a "black and white" request marks
+        down compliance with the brief - and made adding a coloured accessory
+        *raise* compatibility, which is how a green bangle ended up on a
+        black-and-white outfit.
+        """
+        neutral = [
+            make_item("Shirts", "White"),
+            make_item("Trousers", "Black"),
+            make_item("Casual Shoes", "Grey"),
+        ]
+        penalised = outfit_signals(neutral)["color"]
+        exempt = outfit_signals(neutral, penalise_monotony=False)["color"]
+        assert exempt > penalised
+        assert exempt == 1.0
+
+    def test_the_penalty_is_mild_enough_to_keep_neutrals_viable(self, make_item):
+        """An all-black outfit is a real look, not an error. It must stay ahead
+        of a genuine colour clash, or we have traded one bias for another."""
+        all_neutral = [
+            make_item("Shirts", "White"),
+            make_item("Trousers", "Black"),
+            make_item("Casual Shoes", "Grey"),
+        ]
+        clashing = [
+            make_item("Shirts", "Red"),
+            make_item("Trousers", "Green"),
+            make_item("Casual Shoes", "Purple"),
+        ]
+        assert outfit_signals(all_neutral)["color"] > outfit_signals(clashing)["color"]
+
 
 class TestFormality:
     def test_identical_formality_scores_one(self, make_item):

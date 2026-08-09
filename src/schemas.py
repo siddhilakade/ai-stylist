@@ -39,7 +39,7 @@ COLOR_FAMILY_VALUES = tuple(COLOR_FAMILIES.keys())
 
 # Guard rails on budget. A budget below this cannot buy a complete outfit from
 # this catalog (cheapest top + bottom + footwear is around Rs.850), and one above
-# it is meaningless for a 520-item demo catalog.
+# it is meaningless for a 536-item demo catalog.
 MIN_SENSIBLE_BUDGET = 300
 MAX_SENSIBLE_BUDGET = 100_000
 

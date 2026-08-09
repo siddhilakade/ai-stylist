@@ -324,7 +324,22 @@ class TestNoHallucination:
         payload = grounding_payload(outfit, prefs)
 
         # No ids leave the system, so the model cannot echo one back as a choice.
-        assert "id" not in str(payload).lower().split('"slot"')[0]
+        # Asserted on the payload's KEYS, recursively. Two weaker checks were
+        # tried and rejected: a substring search for "id" matches real product
+        # names ("Men ID Yarn Dyed Black Trousers"), and comparing against the
+        # id VALUES is flaky because a price and a product id can coincidentally
+        # be the same number. The structural claim is about fields, so test that.
+        def id_like_keys(node: object) -> list[str]:
+            if isinstance(node, dict):
+                return [
+                    k for k in node
+                    if k == "id" or k.endswith(("_id", "_ids"))
+                ] + [k for v in node.values() for k in id_like_keys(v)]
+            if isinstance(node, list):
+                return [k for v in node for k in id_like_keys(v)]
+            return []
+
+        assert id_like_keys(payload) == []
         names = {item["name"] for item in payload["selected_items"]}
         assert names == {i["productDisplayName"] for i in outfit.items.values()}
         assert payload["total_price_inr"] == outfit.total_price

@@ -50,7 +50,7 @@ def test_style_me_end_to_end_renders_outfits():
     assert not app.exception, [str(e.value) for e in app.exception]
     rendered = " ".join(block.value for block in app.markdown)
     assert "Why this look works" in rendered
-    assert "Your AI-styled look 1" in rendered
+    assert "Look 01" in rendered
 
 
 def test_style_me_reports_failure_instead_of_crashing():

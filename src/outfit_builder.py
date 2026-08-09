@@ -20,6 +20,7 @@ closing the optimality gap.
 
 from __future__ import annotations
 
+import hashlib
 from dataclasses import dataclass, field
 from typing import Any, Callable, Mapping, Sequence
 
@@ -28,6 +29,7 @@ from src.features import (
     SLOT_ACCESSORY,
     SLOT_BOTTOM,
     SLOT_FOOTWEAR,
+    SLOT_LABELS,
     SLOT_ONEPIECE,
     SLOT_OUTERWEAR,
     SLOT_TOP,
@@ -123,6 +125,17 @@ def _join_naturally(words: Sequence[str]) -> str:
     return f"{', '.join(words[:-1])} or {words[-1]}"
 
 
+def slot_label(slot: str) -> str:
+    """Internal slot key -> the word a shopper would use.
+
+    `outfit_slot` values are identifiers, not English: "onepiece" and "outerwear"
+    are fine in a dict key and wrong in a sentence shown to a user. Failure
+    messages are the one place these strings escape the engine, so they are
+    translated here rather than rendered raw.
+    """
+    return SLOT_LABELS.get(slot, slot).lower()
+
+
 def _cheapest(candidates: Sequence[Product]) -> int:
     return min((int(c["price"]) for c in candidates), default=0)
 
@@ -144,8 +157,17 @@ def build_outfit(
     budget: int | None,
     solo_score: Callable[[Product], float],
     exclude_ids: frozenset[int] = frozenset(),
+    tiebreak_salt: str = "",
+    penalise_monotony: bool = True,
 ) -> Outfit | BuildFailure:
-    """Assemble one outfit greedily. Returns an Outfit or a BuildFailure."""
+    """Assemble one outfit greedily. Returns an Outfit or a BuildFailure.
+
+    `tiebreak_salt` decides which candidate wins when several score identically -
+    see `_tiebreak`. Callers pass a string derived from the request; the default
+    reproduces the old catalog-order behaviour.
+    """
+
+    salt_key = _salt_key(tiebreak_salt)
 
     # ---- 0. prune ------------------------------------------------------
     pool: dict[str, list[Product]] = {}
@@ -165,7 +187,7 @@ def build_outfit(
             reason_code="empty_slot",
             message=(
                 "No "
-                + _join_naturally(empty)
+                + _join_naturally([slot_label(s) for s in empty])
                 + " in the catalog matches all of your constraints."
             ),
             suggestion=(
@@ -211,7 +233,9 @@ def build_outfit(
             if any(is_hard_clash(candidate, picked) for picked in chosen.values()):
                 continue
 
-            value = _candidate_value(candidate, chosen, solo_score)
+            value = (_candidate_value(candidate, chosen, solo_score,
+                                      penalise_monotony)
+                     + _tiebreak(candidate, salt_key))
             if value > best_value:
                 best_value, best_item = value, candidate
 
@@ -245,18 +269,35 @@ def build_outfit(
         if not affordable:
             continue
 
-        best = max(affordable, key=lambda c: _candidate_value(c, chosen, solo_score))
+        best = max(
+            affordable,
+            key=lambda c: (_candidate_value(c, chosen, solo_score,
+                                            penalise_monotony)
+                           + _tiebreak(c, salt_key)),
+        )
         # Only add an optional item if it genuinely fits the look. A weak
         # accessory makes the outfit worse, not better.
-        if _candidate_value(best, chosen, solo_score) < OPTIONAL_SLOT_THRESHOLD:
+        if (_candidate_value(best, chosen, solo_score, penalise_monotony)
+                < OPTIONAL_SLOT_THRESHOLD):
             continue
         # And it must not drag the outfit down. Without this an optional layer
         # can clear the bar on its own merits while still being wrong for the
         # look - a denim waistcoat over a saree scores acceptably in isolation
         # and ruins the outfit in context.
-        before = outfit_compatibility(list(chosen.values()))
-        after = outfit_compatibility([best, *chosen.values()])
+        before = outfit_compatibility(list(chosen.values()), penalise_monotony)
+        after = outfit_compatibility([best, *chosen.values()], penalise_monotony)
         if after < before - OPTIONAL_SLOT_MAX_COMPATIBILITY_DROP:
+            continue
+        # ...and it must not drag down how well the outfit answers the REQUEST.
+        # Compatibility alone was not enough: for "black and white, under 3000"
+        # the dress and shoes left 252 rupees, and the only accessory that fit
+        # was a green bangle. It sat happily beside two neutrals on the
+        # compatibility signals while missing the one thing the user actually
+        # asked for. An optional extra is a bonus - if the only affordable one
+        # fights the brief, the right outfit is the one without it.
+        before_fit = sum(solo_score(i) for i in chosen.values()) / len(chosen)
+        after_fit = (before_fit * len(chosen) + solo_score(best)) / (len(chosen) + 1)
+        if after_fit < before_fit - OPTIONAL_SLOT_MAX_PREFERENCE_DROP:
             continue
         chosen[slot] = best
         spent += int(best["price"])
@@ -266,8 +307,8 @@ def build_outfit(
         template=template.key,
         items=chosen,
         total_price=spent,
-        compatibility=outfit_compatibility(items),
-        signals=outfit_signals(items),
+        compatibility=outfit_compatibility(items, penalise_monotony),
+        signals=outfit_signals(items, penalise_monotony),
         preference_match=round(sum(solo_score(i) for i in items) / len(items), 4),
         budget_fit=budget_fit(spent, budget),
         final_score=0.0,  # filled in by the ranker, which owns the weights
@@ -286,11 +327,61 @@ OPTIONAL_SLOT_THRESHOLD = 0.60
 # meaningful downgrade.
 OPTIONAL_SLOT_MAX_COMPATIBILITY_DROP = 0.02
 
+# The same idea applied to request fit rather than internal coherence. An
+# accessory a little below the outfit's average is fine; one far below it is
+# answering a different question than the one asked.
+OPTIONAL_SLOT_MAX_PREFERENCE_DROP = 0.05
+
+
+# --------------------------------------------------------------------------
+# Tie-breaking
+# --------------------------------------------------------------------------
+# Candidate scores are coarse: `preference_match` takes only 3-12 distinct values
+# across a whole filtered pool, so on average 10 of 29 candidates tie at the exact
+# maximum, and for a formal request it is routinely ALL of them. Something has to
+# break those ties, and until now it was `>` keeping the first item in pool order
+# - i.e. the lowest catalog id. Measured over 31 slot fills, the winner was the
+# lowest tied id 31 times out of 31. The same handful of low-id products therefore
+# won almost every request, which is what made results feel repetitive.
+#
+# Catalog id is an arbitrary basis for that choice. A hash of (request, id) is
+# equally arbitrary but varies BETWEEN requests, which is the property we want:
+#
+#   same request  -> same salt -> same nudge -> identical output (determinism,
+#                    reproducibility and every existing test are preserved)
+#   different request -> different salt -> a different member of the tied group
+#
+# The magnitude is the safety argument. Every real score is rounded to 4 decimals
+# before it reaches here, so the smallest genuine difference between two
+# candidates is 5e-5. The nudge is capped at 1e-6, fifty times smaller - it can
+# only ever reorder candidates that are already exactly equal, and can never
+# promote a genuinely worse item over a better one.
+TIEBREAK_EPSILON = 1e-6
+
+
+def _salt_key(salt: str) -> bytes:
+    """Compress the request signature to 8 bytes, once per build.
+
+    The signature is the whole serialised request, so hashing it per candidate
+    would rebuild a ~200 character string a few hundred times per recommendation.
+    """
+    return hashlib.blake2b(salt.encode(), digest_size=8).digest()
+
+
+def _tiebreak(product: Product, salt_key: bytes) -> float:
+    """A deterministic, request-dependent nudge in [0, TIEBREAK_EPSILON)."""
+    digest = hashlib.blake2b(
+        salt_key + int(product["id"]).to_bytes(8, "big", signed=True),
+        digest_size=8,
+    ).digest()
+    return int.from_bytes(digest, "big") / 2**64 * TIEBREAK_EPSILON
+
 
 def _candidate_value(
     candidate: Product,
     chosen: Mapping[str, Product],
     solo_score: Callable[[Product], float],
+    penalise_monotony: bool = True,
 ) -> float:
     """How good is this candidate given what we have already picked?
 
@@ -301,7 +392,7 @@ def _candidate_value(
     fit = solo_score(candidate)
     if not chosen:
         return fit
-    compat = outfit_compatibility([candidate, *chosen.values()])
+    compat = outfit_compatibility([candidate, *chosen.values()], penalise_monotony)
     return 0.5 * compat + 0.5 * fit
 
 

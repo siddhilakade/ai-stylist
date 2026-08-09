@@ -485,7 +485,7 @@ def write_markdown(report: dict[str, Any]) -> None:
         "- **No relevance ground truth.** Everything above measures constraint\n"
         "  satisfaction, not whether a human would call the outfit stylish. That\n"
         "  judgement would need a user study or expert annotation.\n"
-        "- **30 scenarios is small.** They were chosen to cover the design's\n"
+        "- **34 scenarios is small.** They were chosen to cover the design's\n"
         "  decision boundaries (sparse cells, conflicting constraints, budget\n"
         "  edges), not to be a statistically powered sample.\n"
         "- **The author wrote both the system and the labels.** The expectations\n"

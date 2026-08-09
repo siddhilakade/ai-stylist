@@ -173,3 +173,102 @@ result already known to be a fallback.
 
 **Measured:** 1,150 ms for the one real failed call, then 357 ms for three
 explanations with no network at all.
+
+---
+
+### D12 — Break scoring ties on the request, not on catalog order
+
+**Symptom.** Different requests kept returning the same products. Across 12
+varied requests only 86 distinct products appeared (16% of the catalog), one pair
+of grey shoes in 5 of them.
+
+**Diagnosis.** Not a shortage of candidates — pools held 37–41 items per slot. The
+scores are *coarse*: `preference_match` takes only 3–12 distinct values across a
+whole filtered pool, so on average **10 of 29 candidates tie at the exact
+maximum**, and for a formal request it was routinely all of them (20/20 tops,
+16/16 bottoms). Ties were settled by `>` keeping the first item in pool order —
+i.e. the lowest catalog id. Measured over 31 slot fills, the winner was the
+lowest tied id **31 times out of 31**.
+
+**Decision.** Break ties with a hash of (serialised request, product id), scaled
+to at most 1e-6.
+
+**Why that is safe.** Every score is rounded to 4dp before assembly, so the
+smallest genuine gap between two candidates is 5e-5 — fifty times the nudge. It
+can only reorder candidates that are already exactly equal. Determinism is
+preserved exactly: the same request yields the same salt and the same outfit.
+
+**Rejected:** random jitter (destroys reproducibility and regression tests);
+a cross-request "recently shown" penalty (hidden mutable state, and the same
+request would stop being reproducible).
+
+**Cost.** +0.12 ms per request, measured by interleaved A/B over 96 runs each.
+
+---
+
+### D13 — Penalise all-neutral outfits, not just busy ones
+
+**Symptom.** Selected items were **92.7% neutral** against 46.1% in the candidate
+pool — the ranker preferred neutrals twice as often as chance.
+
+**Diagnosis.** `color_pair_score` gives neutral+neutral a perfect 1.00, so an
+outfit of nothing but neutrals scored a flawless colour signal. "All grey" was
+the mathematically optimal answer to almost every request. The busy-outfit
+penalty guarded one end of the range and nothing guarded the other.
+
+**Decision.** A mild 0.92 multiplier when an outfit contains *no* strong colour
+family, mirroring `BUSY_OUTFIT_PENALTY` at the opposite extreme.
+
+**Why 0.92 and not 0.85.** An all-neutral outfit is a real look, not an error. At
+0.92 a single colour accent (0.95) edges out total neutrality (0.92), which
+breaks the monopoly — while an all-black outfit still beats a genuine clash and
+still wins when it is the better answer on formality, occasion and budget. Both
+bounds have tests.
+
+**Result of D12 + D13 together.** Catalog coverage in the evaluation rose from
+29.9% to 36.6% (160 → 196 products), preference match 0.919 → 0.953, diversity
+0.649 → 0.673. Validity, completeness, constraint satisfaction, budget
+compliance, explicit-item satisfaction and graceful failure all stayed at 100%.
+
+---
+
+### D14 — The monotony penalty must not fire on an explicit neutral request
+
+**Symptom.** "College presentation tomorrow — smart casual, black and white,
+under ₹3000" returned a white dress, grey shoes and a **green bangle**, ranked
+*above* an all-neutral grey-tee / black-skirt / silver-flats look.
+
+**Diagnosis.** Two independent faults compounding:
+
+1. [D13](#d13--penalise-all-neutral-outfits-not-just-busy-ones) was fighting the
+   brief. "black and white" resolves to the `neutral` family, so the requested
+   outfit *is* all-neutral — and D13 marked it down 0.92 for exactly that. Worse,
+   it inverted the accessory gate: dress + shoes scored 1.00 on colour, was
+   penalised to 0.92, and adding a green bangle *raised* compatibility to 0.93.
+   The guard that should have rejected the bangle (`MAX_COMPATIBILITY_DROP`)
+   never saw a drop.
+2. The optional-slot gate only ever checked **compatibility**, never **request
+   fit**. The bangle scored 0.5025 on preference against ~0.80 for its
+   neighbours and still got in, because it sat happily beside two neutrals on
+   the four compatibility signals.
+
+Budget is what surfaced it: the dress and shoes left ₹252, and that bangle was
+the only accessory that fit.
+
+**Decision.**
+- `outfit_signals` / `outfit_compatibility` / `build_outfit` take
+  `penalise_monotony`, and the recommender passes `False` when `neutral` is in
+  `preferred_colors`. Penalising a user for complying with their own stated
+  preference is always wrong.
+- Added `OPTIONAL_SLOT_MAX_PREFERENCE_DROP = 0.05`, mirroring the compatibility
+  guard on request fit. An optional extra is a bonus; if the only affordable one
+  fights the brief, the better outfit is the one without it.
+
+**Result.** The top look becomes white dress + grey shoes, scoring 0.9300 (was
+0.8863 with the bangle). Evaluation preference match **0.953 → 0.965**, every
+constraint metric unchanged at 100%.
+
+**Known remainder.** Colour is still soft in *required* slots, so a third-choice
+look can carry orange flats when nothing neutral is affordable. That is the
+correct trade — hard-filtering colour empties slots — and it now only shows up
+below two better-ranked, on-brief looks.

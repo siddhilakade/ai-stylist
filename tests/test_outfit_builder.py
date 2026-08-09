@@ -152,6 +152,57 @@ class TestFailures:
             assert result.reason_code == "slot_unfillable"
 
 
+class TestTieBreaking:
+    """Candidate scores are coarse, so ties are the norm rather than the
+    exception and something arbitrary has to settle them. What matters is that
+    the arbitrariness varies BETWEEN requests, never within one, and can never
+    outrank a genuine difference in score."""
+
+    def _tied_pools(self, make_item):
+        # Ten tops identical in every field the scorer reads, differing only in
+        # id - i.e. a ten-way tie, which is roughly what real pools produce.
+        return pools(make_item, **{SLOT_TOP: [
+            make_item("Tshirts", "Black", usage="Casual", price=400,
+                      product_id=1000 + i)
+            for i in range(10)
+        ]})
+
+    def test_the_same_salt_gives_the_same_outfit(self, make_item):
+        catalog = self._tied_pools(make_item)
+        first = build_outfit(catalog, TEMPLATE_STANDARD, 8000, flat_score,
+                             tiebreak_salt="request-a")
+        second = build_outfit(catalog, TEMPLATE_STANDARD, 8000, flat_score,
+                              tiebreak_salt="request-a")
+        assert first.product_ids == second.product_ids
+
+    def test_different_salts_reach_different_tied_candidates(self, make_item):
+        catalog = self._tied_pools(make_item)
+        chosen = {
+            build_outfit(catalog, TEMPLATE_STANDARD, 8000, flat_score,
+                         tiebreak_salt=f"request-{i}").items[SLOT_TOP]["id"]
+            for i in range(20)
+        }
+        # Before request-dependent tie-breaking this set had exactly one member
+        # - the lowest catalog id - no matter how many requests you made.
+        assert len(chosen) > 1
+
+    def test_the_tiebreak_never_beats_a_real_score_difference(self, make_item):
+        catalog = self._tied_pools(make_item)
+        favourite = 1007
+
+        def scored(item) -> float:
+            # 1e-4 is the smallest gap two real scores can have, since every
+            # score is rounded to 4dp before it reaches the builder. The
+            # tiebreak is capped at 1e-6, fifty times smaller after the 0.5
+            # weighting inside _candidate_value.
+            return 0.8 + (1e-4 if item["id"] == favourite else 0.0)
+
+        for i in range(50):
+            outfit = build_outfit(catalog, TEMPLATE_STANDARD, 8000, scored,
+                                  tiebreak_salt=f"request-{i}")
+            assert outfit.items[SLOT_TOP]["id"] == favourite
+
+
 class TestDeterminism:
     def test_same_input_gives_the_same_outfit(self, make_item):
         catalog = pools(make_item)

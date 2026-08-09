@@ -43,6 +43,7 @@ from src.outfit_builder import (
     Outfit,
     OutfitTemplate,
     build_outfit,
+    slot_label,
 )
 from src.schemas import StylePreferences
 
@@ -96,6 +97,18 @@ RELATIVE_QUALITY_FLOOR = 0.80
 FORMALITY_RELAXATION_STEP = 0.75
 
 DEFAULT_NUM_OUTFITS = 3
+
+
+def request_salt(prefs: StylePreferences, extra: str = "") -> str:
+    """A stable string identifying this request, used to break scoring ties.
+
+    Ties are frequent (see `outfit_builder._tiebreak`) and something arbitrary
+    has to settle them. Deriving that arbitrariness from the request rather than
+    from catalog order means two different requests land on different members of
+    a tied group, while the same request always lands on the same one - so the
+    engine stays fully deterministic and reproducible.
+    """
+    return f"{prefs.model_dump_json()}|{extra}"
 
 
 # --------------------------------------------------------------------------
@@ -212,14 +225,24 @@ def hard_filter(
             colours = constraint["base_colours"]
             if colours and product["baseColour"] not in colours:
                 continue
-            # ...and that is the ONLY filter this slot gets. The formality band
-            # comes from an occasion we usually INFERRED rather than were told,
-            # so applying it here could only discard items the user named
+            # This slot is exempt from the FORMALITY band, and only that. The
+            # band comes from an occasion we usually INFERRED rather than were
+            # told, so applying it here could only discard items the user named
             # outright: "white shirt" would fail, because most white shirts in
             # the catalog are tagged Formal while the default occasion is
             # casual. Formality still shapes every other slot and still SCORES
             # this one, so the outfit built around the requested garment stays
             # coherent - we just never veto the thing that was asked for.
+            #
+            # Budget is NOT exempt, because it is stated rather than inferred: an
+            # item costing more than the entire outfit cannot appear in any valid
+            # outfit, whoever asked for it. Keeping those items here used to make
+            # `unsatisfied_constraints` believe a request was satisfiable when it
+            # was not, so "a saree, budget 1000" failed later with the generic
+            # "no one-piece matches your constraints" instead of the specific
+            # "the catalog has no saree for Women under 1,000".
+            if prefs.budget is not None and int(product["price"]) > prefs.budget:
+                continue
             kept.append(product)
             continue
 
@@ -464,6 +487,12 @@ def recommend_outfits(
     used_ids: set[int] = set()
     last_failure: BuildFailure | None = None
     constrained_slots = set(prefs.constraints_by_slot())
+    salt = request_salt(prefs)
+    # "black and white" resolves to the neutral family, so an all-neutral outfit
+    # is exactly what was asked for. Leaving the monotony penalty on would mark
+    # compliance down - and, worse, make adding a coloured accessory *raise*
+    # compatibility. See MONOTONY_PENALTY in compatibility.py.
+    penalise_monotony = "neutral" not in prefs.preferred_colors
 
     templates = applicable_templates(prefs, pools)
     if not prefs.include_accessory:
@@ -493,6 +522,8 @@ def recommend_outfits(
             # Simple, guarantees visibly different results, and needs no
             # similarity metric between outfits.
             exclude_ids=frozenset(used_ids),
+            tiebreak_salt=salt,
+            penalise_monotony=penalise_monotony,
         )
         if isinstance(result, BuildFailure):
             last_failure = result
@@ -538,7 +569,10 @@ def _generic_failure(prefs: StylePreferences, pools: Mapping[str, Sequence[Produ
     if empty:
         return BuildFailure(
             reason_code="empty_slot",
-            message=f"The catalog has no {', '.join(empty)} matching this request.",
+            message=(
+                "The catalog has no "
+                f"{', '.join(slot_label(s) for s in empty)} matching this request."
+            ),
             suggestion="Try a different occasion, gender or budget.",
             detail={"empty_slots": empty},
         )
@@ -652,6 +686,10 @@ def complete_the_look(
     outfits: list[Outfit] = []
     used_ids: set[int] = set()
     last_failure: BuildFailure | None = None
+    # The anchor is part of the request here, so two different anchors that
+    # happen to infer the same preferences still get different tie-breaks.
+    salt = request_salt(prefs, extra=str(anchor["id"]))
+    penalise_monotony = "neutral" not in prefs.preferred_colors
 
     for _ in range(num_outfits):
         result = build_outfit(
@@ -660,6 +698,8 @@ def complete_the_look(
             budget=prefs.budget,
             solo_score=solo,
             exclude_ids=frozenset(used_ids),
+            tiebreak_salt=salt,
+            penalise_monotony=penalise_monotony,
         )
         if isinstance(result, BuildFailure):
             last_failure = result

@@ -255,8 +255,33 @@ def pair_compatibility(item_a: Item, item_b: Item) -> float:
 BUSY_OUTFIT_PENALTY = 0.85
 MAX_STRONG_COLOR_FAMILIES = 2
 
+# The counterpart at the other extreme. An outfit built entirely from neutrals
+# scores a perfect 1.00 on colour - every pair is neutral+neutral - which makes
+# "all grey" the mathematically safest answer to almost any request. Measured
+# over 10 varied requests, selected items were 92.7% neutral against 46.1% in the
+# candidate pool: the ranker was not preferring neutrals a little, it was
+# preferring them twice as often as chance.
+#
+# An all-neutral outfit is a genuine look, not an error, so this is deliberately
+# mild rather than symmetric with the busy penalty. At 0.92 a single colour
+# accent (three neutral pairs at 1.00 plus three accent pairs at 0.90, averaging
+# 0.95) now edges out total neutrality (0.92) - enough to break the monopoly,
+# not enough to stop an all-black outfit winning when it is genuinely the better
+# answer on formality, occasion and budget.
+#
+# IT MUST NOT APPLY WHEN THE USER ASKED FOR NEUTRALS. `penalise_monotony=False`
+# is passed for those requests, and the reason is a bug this caused: for
+# "smart casual, black and white", a white dress plus grey shoes scored 1.00 on
+# colour, was penalised to 0.92, and adding a GREEN bangle then RAISED
+# compatibility to 0.93 - so the ranker attached a green accessory to a
+# black-and-white request and put that look first. Penalising a user for
+# complying with their own stated preference is always wrong.
+MONOTONY_PENALTY = 0.92
 
-def outfit_signals(items: Sequence[Item]) -> dict[str, float]:
+
+def outfit_signals(
+    items: Sequence[Item], penalise_monotony: bool = True
+) -> dict[str, float]:
     """Average each signal over every pair in the outfit.
 
     This dict is the *grounding payload*: it is what the UI renders as bullet
@@ -280,13 +305,17 @@ def outfit_signals(items: Sequence[Item]) -> dict[str, float]:
     }
     if len(strong_families) > MAX_STRONG_COLOR_FAMILIES:
         averaged["color"] = round(averaged["color"] * BUSY_OUTFIT_PENALTY, 4)
+    elif not strong_families and penalise_monotony:
+        averaged["color"] = round(averaged["color"] * MONOTONY_PENALTY, 4)
 
     return averaged
 
 
-def outfit_compatibility(items: Sequence[Item]) -> float:
+def outfit_compatibility(
+    items: Sequence[Item], penalise_monotony: bool = True
+) -> float:
     """Single compatibility number for a whole outfit, in [0, 1]."""
-    signals = outfit_signals(items)
+    signals = outfit_signals(items, penalise_monotony=penalise_monotony)
     return round(sum(signals[name] * w for name, w in SIGNAL_WEIGHTS.items()), 4)
 
 

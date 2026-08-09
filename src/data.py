@@ -2,7 +2,7 @@
 
 The catalog is a plain CSV produced by `scripts/build_catalog.py`, with product
 images stored next to it on disk. No database, no vector store, no network call
-at runtime: 520 rows fit comfortably in memory, and every extra moving part
+at runtime: 536 rows fit comfortably in memory, and every extra moving part
 would be one more thing to explain and one more thing to fail in deployment.
 
 All paths are resolved relative to this file, so the app runs identically from

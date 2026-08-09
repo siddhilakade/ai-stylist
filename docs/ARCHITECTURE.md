@@ -58,16 +58,22 @@ non-determinism into the one part that most needs to be testable.
   │                                  │  │                   │  │                │
   │  free text                       │  │  hard filters     │  │  stylist note  │
   │      ▼                           │  │      ▼            │  │       ▲        │
-  │  Gemini (Task A)                 │  │  compatibility    │  │  Gemini (B)    │
-  │      ▼                           │  │      ▼            │  │       ▲        │
-  │  StylePreferences ───────────────┼─►│  greedy assembly  │  │  grounding     │
-  │  validated, closed vocabulary    │  │      ▼            │  │  payload       │
-  │                                  │  │  ranking ─────────┼─►│  (real items,  │
-  │  fallback: keyword parser        │  │                   │  │   real scores) │
+  │  Groq / Gemini (Task A)          │  │  semantic         │  │  Groq/Gemini(B)│
+  │      ▼                           │  │  retrieval        │  │       ▲        │
+  │  StylePreferences ───────────────┼─►│      ▼            │  │  grounding     │
+  │  validated, closed vocabulary    │  │  compatibility    │  │  payload       │
+  │                                  │  │      ▼            │  │  (real items,  │
+  │  fallback: keyword parser        │  │  greedy assembly  │  │   real scores) │
+  │                                  │  │      ▼            │  │                │
+  │                                  │  │  ranking ─────────┼─►│                │
   └──────────────────────────────────┘  └───────────────────┘  └────────────────┘
                                           deterministic,
-                                          testable, ~4 ms
+                                          testable, ~57 ms
 ```
+
+Semantic retrieval sits **inside** the deterministic block on purpose: it is a
+pretrained encoder with fixed weights and an exact index, so it is as
+reproducible as the rules around it. See §7.5.
 
 The LLM is used where language is genuinely hard, and excluded where correctness
 is genuinely hard.
@@ -81,7 +87,7 @@ that could carry a product** — no `product`, `product_id`, `name`, `price` or
 is that a hallucinated product has nowhere to go.
 
 Tested in [`TestNoHallucination`](../tests/test_recommender.py) and
-[`test_schema_has_no_field_that_could_carry_a_product`](../tests/test_gemini.py).
+[`test_schema_has_no_field_that_could_carry_a_product`](../tests/test_llm.py).
 
 ---
 
@@ -181,7 +187,7 @@ asserting colour never changes the size of the filtered set.
 
 Compatibility 0.45 / preference 0.35 / budget 0.20, and within compatibility
 0.30 / 0.30 / 0.25 / 0.15. Each has a stated reason. They are **not** tuned
-against the evaluation set — fitting seven weights to 30 scenarios would fit
+against the evaluation set — fitting seven weights to 34 scenarios would fit
 noise and produce a number that looks earned but is not.
 
 ---
@@ -197,9 +203,9 @@ parameter with no principled way to choose it and makes the algorithm markedly
 harder to explain.
 
 Greedy with **most-constrained-slot-first** ordering plus **budget lookahead**
-gets results that pass every constraint check in the evaluation, in ~4 ms, and
-can be explained in ninety seconds. For a 536-product catalog the optimality gap
-is not what limits recommendation quality — the rules are.
+gets results that pass every constraint check in the evaluation, in ~4 ms of
+assembly time, and can be explained in ninety seconds. For a 536-product catalog
+the optimality gap is not what limits recommendation quality — the rules are.
 
 ### Budget lookahead is the non-obvious part
 
@@ -212,6 +218,51 @@ naive greedy actually work under a hard budget, and it has a dedicated test.
 
 Outfit *k* may not reuse any item from outfits *1…k−1*. Guaranteed-distinct
 results, no inter-outfit similarity metric, no tuning parameter.
+
+That handles diversity *within* one result set. Diversity *between* different
+requests turned out to be a separate problem with a separate cause — see
+[D12 in the decision log](decision_log.md): the scores are coarse enough that
+~10 of 29 candidates routinely tie, and ties were being settled by catalog id.
+
+---
+
+## 7.5 Semantic retrieval
+
+Added after the rule engine was complete and evaluated, which is why it appears
+as a distinct layer rather than being woven through.
+
+**Where it sits.** Strictly *after* hard filtering. It receives products that
+already satisfy gender, explicit garment and colour, formality band, ethnic rules
+and budget, and it may only reorder and shorten that list. It can never add a
+product back or overrule a constraint — the direction of the dependency is what
+makes it safe to add to a system whose main claim is determinism.
+
+**What it is for.** The part the rule engine structurally cannot do: act on the
+free-text remainder of a request. "Nothing too flashy" has no structured field to
+live in, and no filter can be written for it.
+
+**Three non-obvious design choices:**
+
+- **Per slot, never global.** A global top-K would happily return 40 tops and
+  zero footwear, manufacturing a failure out of a satisfiable request.
+- **The cheapest item in each slot always survives.** Otherwise narrowing can
+  raise the price floor of the whole outfit and break a budget that was
+  satisfiable — a retrieval heuristic silently overruling a hard constraint.
+- **Pretrained, not fine-tuned.** There are no compatibility labels to fine-tune
+  on. A general-purpose encoder over short product descriptions is the honest
+  tool; anything else would be a number without a basis.
+
+**Cost.** This is the expensive part of the system: the encoder forward pass is
+~84% of request latency (measured), which is what moved p50 from ~4 ms to ~57 ms.
+`IndexFlatIP` search over 536 vectors is 0.3 ms — 0.5% of the request. The index
+is not the cost; the embedding is.
+
+**Honest result.** Measured against the TF-IDF baseline it is a **tie** —
+attribute hit-rate 0.690 vs 0.680 over 10 probes. The split is the interesting
+part: semantic wins on paraphrase ("business meeting clothes" 0.50 vs 0.10),
+TF-IDF wins on literal keywords ("formal outfit" 0.30 vs 1.00). Overlap@10 is
+0.22, so they rank very differently. Both are kept: semantic for retrieval,
+TF-IDF for the "similar products" rail on a product page.
 
 ---
 
@@ -228,7 +279,7 @@ How-it-works page.
 ### Stratified sampling, not random
 
 Detailed in the README. The short version: the source is severely skewed, and a
-random 520-row sample would leave whole cells empty — making the recommender fail
+random 536-row sample would leave whole cells empty — making the recommender fail
 for reasons that have nothing to do with the recommender.
 
 ### Images committed to the repo
@@ -243,11 +294,11 @@ and no dependency on a third party staying up.
 | Not built | Why |
 |---|---|
 | CLIP / image embeddings | Not on the critical path. A working, explainable, evaluated system is worth more than an unfinished embedding pipeline. Listed as the top future improvement. |
-| Vector database / FAISS | 536 products fit in memory; cosine similarity over a 536×536 matrix is instant. A vector DB would be infrastructure with no user-visible benefit. |
+| **Hosted** vector database (Pinecone, pgvector, Supabase) | FAISS *was* built — see §7.5 — but as a local index file, not a service. At 536 vectors, search is 0.3 ms in-process; a network round trip is 8–220 ms depending on region. It would make the system measurably slower to solve a problem it does not have. |
 | Collaborative filtering | No interaction data exists in the dataset. Building it would mean fabricating users. |
 | Learned ranking / LTR | No relevance labels. Same reason. |
 | Agents / multi-agent orchestration | The pipeline is a fixed sequence of five deterministic steps. An agent loop would add non-determinism and latency to solve a problem that does not exist here. |
-| RAG | The "knowledge" is a 520-row CSV that fits in memory. Retrieval augmentation over it would be theatre. |
+| RAG | The "knowledge" is a 536-row CSV that fits in memory, and the LLM is deliberately never given the catalog. Retrieval augmentation over it would be theatre. |
 | Auth / cart / checkout / inventory | Explicitly out of scope; they demonstrate nothing about recommendation quality. |
 | Docker | `pip install -r requirements.txt && streamlit run app.py` already works from a clean environment. |
 
@@ -263,8 +314,8 @@ this buy the user, and can I explain it?"**
 | **Streamlit** | Fastest path to an interactive testing UI, which the brief requires; pure Python so the engine and interface share types | Limited layout control; custom CSS needed for a marketplace look |
 | **Gemini Flash** | Low latency matters when the call is inline in a UI interaction; native structured output with response schemas | Vendor dependency — mitigated by the fallback path and a `GEMINI_MODEL` env override |
 | **Pydantic** | Turns the LLM contract into a validated type, and generates the response schema from the same definition | — |
-| **pandas + scikit-learn** | Already the right size for 520 rows; TF-IDF is one import | — |
-| **CSV, no database** | 520 rows; a database would be one more thing to explain, provision and fail | Does not scale — correctly, since this is a prototype |
+| **pandas + scikit-learn** | Already the right size for 536 rows; TF-IDF is one import | — |
+| **CSV, no database** | 536 rows; a database would be one more thing to explain, provision and fail | Does not scale — correctly, since this is a prototype |
 
 ---
 
