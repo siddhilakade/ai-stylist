@@ -1,4 +1,5 @@
 # Secrets — never commit
+.env
 .env.example
 .streamlit/secrets.toml
 *.key
@@ -22,8 +23,8 @@ Thumbs.db
 .vscode/
 *.log
 
-# The trained model IS committed: it is ~1 MB and the app must never retrain at
-# page load. Anything larger than a few MB should be regenerated instead.
+# The trained model IS committed: it is a few MB and the app must never retrain
+# at page load. Anything larger should be regenerated instead.
 models/*.joblib.tmp
 
 # Assessment source material (not part of the deliverable)

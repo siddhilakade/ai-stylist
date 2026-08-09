@@ -1,4 +1,4 @@
-# AI Stylist
+﻿# AI Stylist
 
 Outfit recommendation for a fashion marketplace. You describe an occasion in
 plain English and get back complete, budget-valid outfits with the reasoning
@@ -66,8 +66,11 @@ uvicorn api:app --port 8000              # API → localhost:8000/docs
 Works with no API key — requests fall back to a keyword parser and the UI says
 which path answered. For the LLM path:
 
-```bash
-cp .env.example .env        # add GROQ_API_KEY and/or GEMINI_API_KEY
+Create a `.env` file in the project root:
+
+```ini
+GROQ_API_KEY=your_key_here
+GEMINI_API_KEY=your_key_here
 ```
 
 Providers are tried in order and each has its own circuit breaker, so a
@@ -182,4 +185,3 @@ More detail: [architecture](docs/ARCHITECTURE.md) ·
 
 Independent prototype. Not affiliated with any marketplace; no third-party
 branding or assets are used.
-"# ai-stylist" 
