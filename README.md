@@ -182,3 +182,4 @@ More detail: [architecture](docs/ARCHITECTURE.md) ·
 
 Independent prototype. Not affiliated with any marketplace; no third-party
 branding or assets are used.
+"# ai-stylist" 
