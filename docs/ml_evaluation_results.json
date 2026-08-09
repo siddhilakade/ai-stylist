@@ -1,0 +1,101 @@
+{
+  "held_out_synthetic_labels": [
+    {
+      "system": "Rule baseline",
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "n": 7134,
+      "roc_auc": 1.0
+    },
+    {
+      "system": "ML model",
+      "accuracy": 0.9406,
+      "precision": 0.9493,
+      "recall": 0.9136,
+      "f1": 0.9311,
+      "n": 7134,
+      "roc_auc": 0.9744
+    }
+  ],
+  "human_reviewed_labels": [
+    {
+      "system": "0. Always-compatible",
+      "accuracy": 0.6,
+      "precision": 0.6,
+      "recall": 1.0,
+      "f1": 0.75,
+      "n": 65,
+      "roc_auc": 0.5
+    },
+    {
+      "system": "A. Rule baseline",
+      "accuracy": 0.5692,
+      "precision": 0.6774,
+      "recall": 0.5385,
+      "f1": 0.6,
+      "n": 65,
+      "roc_auc": 0.6366
+    },
+    {
+      "system": "B. ML model",
+      "accuracy": 0.5385,
+      "precision": 0.6667,
+      "recall": 0.4615,
+      "f1": 0.5455,
+      "n": 65,
+      "roc_auc": 0.5611
+    },
+    {
+      "system": "C. Hybrid (0.6ML+0.4rule)",
+      "accuracy": 0.5077,
+      "precision": 0.6129,
+      "recall": 0.4872,
+      "f1": 0.5429,
+      "n": 65,
+      "roc_auc": 0.5907
+    }
+  ],
+  "human_set_positive_rate": 0.6,
+  "adversarial_subset": [
+    {
+      "system": "A. Rule baseline",
+      "accuracy": 0.2857,
+      "precision": 0.25,
+      "recall": 0.3333,
+      "f1": 0.2857,
+      "n": 14,
+      "roc_auc": 0.1667
+    },
+    {
+      "system": "B. ML model",
+      "accuracy": 0.3571,
+      "precision": 0.2857,
+      "recall": 0.3333,
+      "f1": 0.3077,
+      "n": 14,
+      "roc_auc": 0.2292
+    },
+    {
+      "system": "C. Hybrid",
+      "accuracy": 0.2857,
+      "precision": 0.25,
+      "recall": 0.3333,
+      "f1": 0.2857,
+      "n": 14,
+      "roc_auc": 0.1875
+    }
+  ],
+  "verdict": {
+    "trivial_f1": 0.75,
+    "rule_f1": 0.6,
+    "ml_f1": 0.5455,
+    "hybrid_f1": 0.5429,
+    "rule_auc": 0.6366,
+    "ml_auc": 0.5611,
+    "ml_improves_over_rules": false,
+    "anything_beats_trivial_on_f1": false,
+    "decision": "Do NOT integrate. Keep the rule engine as the production recommender; retain the ML model as a documented, reproducible experiment."
+  }
+}

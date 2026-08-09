@@ -1,0 +1,20 @@
+# Myntra-inspired light theme. No secrets here — secrets live in
+# .streamlit/secrets.toml (git-ignored) or platform environment variables.
+[theme]
+base = "light"
+primaryColor = "#FF3F6C"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F5F5F6"
+textColor = "#282C3F"
+font = "sans serif"
+
+[server]
+headless = true
+# Product images are served as ordinary static files from static/products/
+# rather than base64-embedded in the HTML. With 536 images at 720px, embedding a
+# 48-card grid would push ~4 MB of image data through the websocket on every
+# rerun; as static files the browser fetches and caches them normally.
+enableStaticServing = true
+
+[browser]
+gatherUsageStats = false

@@ -1,0 +1,105 @@
+{
+  "summary": {
+    "top_k": 10,
+    "probes": 10,
+    "semantic_attribute_hit_rate": 0.69,
+    "tfidf_attribute_hit_rate": 0.68,
+    "semantic_latency_ms_median": 21.77,
+    "tfidf_latency_ms_median": 36.7,
+    "mean_overlap": 0.22,
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "caveat": "Attribute hit-rate is a PROXY for relevance. There are no relevance judgements for this catalog, so Precision@K, Recall@K, NDCG and MAP are not computable and are not reported."
+  },
+  "rows": [
+    {
+      "query": "formal outfit for the office",
+      "attribute": "formal",
+      "semantic_hit_rate": 0.3,
+      "tfidf_hit_rate": 1.0,
+      "semantic_ms": 29.78,
+      "tfidf_ms": 43.35,
+      "overlap": 0.0
+    },
+    {
+      "query": "business meeting clothes",
+      "attribute": "formal",
+      "semantic_hit_rate": 0.5,
+      "tfidf_hit_rate": 0.1,
+      "semantic_ms": 22.31,
+      "tfidf_ms": 30.67,
+      "overlap": 0.0
+    },
+    {
+      "query": "traditional Indian ethnic wear for a wedding",
+      "attribute": "ethnic",
+      "semantic_hit_rate": 1.0,
+      "tfidf_hit_rate": 1.0,
+      "semantic_ms": 30.23,
+      "tfidf_ms": 52.39,
+      "overlap": 0.0
+    },
+    {
+      "query": "festive kurta for diwali",
+      "attribute": "ethnic",
+      "semantic_hit_rate": 1.0,
+      "tfidf_hit_rate": 1.0,
+      "semantic_ms": 25.8,
+      "tfidf_ms": 32.76,
+      "overlap": 0.4
+    },
+    {
+      "query": "gym and running clothes",
+      "attribute": "sports",
+      "semantic_hit_rate": 0.3,
+      "tfidf_hit_rate": 0.2,
+      "semantic_ms": 19.17,
+      "tfidf_ms": 39.26,
+      "overlap": 0.1
+    },
+    {
+      "query": "comfortable sportswear for training",
+      "attribute": "sports",
+      "semantic_hit_rate": 0.7,
+      "tfidf_hit_rate": 0.1,
+      "semantic_ms": 21.0,
+      "tfidf_ms": 34.15,
+      "overlap": 0.0
+    },
+    {
+      "query": "black clothing",
+      "attribute": "black",
+      "semantic_hit_rate": 1.0,
+      "tfidf_hit_rate": 1.0,
+      "semantic_ms": 21.22,
+      "tfidf_ms": 53.16,
+      "overlap": 0.4
+    },
+    {
+      "query": "white top",
+      "attribute": "white",
+      "semantic_hit_rate": 0.6,
+      "tfidf_hit_rate": 1.0,
+      "semantic_ms": 23.73,
+      "tfidf_ms": 39.53,
+      "overlap": 0.4
+    },
+    {
+      "query": "blue denim jeans",
+      "attribute": "blue",
+      "semantic_hit_rate": 0.5,
+      "tfidf_hit_rate": 0.4,
+      "semantic_ms": 19.48,
+      "tfidf_ms": 32.39,
+      "overlap": 0.9
+    },
+    {
+      "query": "relaxed casual weekend outfit",
+      "attribute": "casual",
+      "semantic_hit_rate": 1.0,
+      "tfidf_hit_rate": 1.0,
+      "semantic_ms": 19.32,
+      "tfidf_ms": 32.99,
+      "overlap": 0.0
+    }
+  ]
+}

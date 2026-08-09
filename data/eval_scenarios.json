@@ -1,0 +1,244 @@
+{
+  "description": "Hand-written evaluation set for AI Stylist. Each scenario pairs a natural-language request with the constraints a human reviewer judged it to imply, plus whether a complete outfit SHOULD be possible from the 520-product catalog. Expectations were written BEFORE running the system and have not been edited to match the results. Where the system disagreed, the `review` field records the adjudication after inspecting the output - including the cases where the original expectation turned out to be wrong.",
+  "labelled_by": "manual review by the author",
+  "protocol": "1. Write scenarios and expectations. 2. Run scripts/evaluate.py. 3. Inspect every disagreement and record an adjudication in `review`, without changing `expect_outcome`. 4. Fix genuine engine defects and re-run.",
+  "scenarios": [
+    {
+      "id": "S01", "group": "smart_casual",
+      "request": "I have a college presentation tomorrow. I want something smart casual, preferably black and white, under 3000.",
+      "expected": {"gender": "Women", "occasion": "interview", "style": "smart_casual", "budget": 3000, "preferred_colors": ["neutral"]},
+      "expect_outcome": "success"
+    },
+    {
+      "id": "S02", "group": "smart_casual",
+      "request": "Smart casual outfit for men for a client lunch, around 5000.",
+      "expected": {"gender": "Men", "occasion": "date_night", "style": "smart_casual", "budget": 5000, "preferred_colors": []},
+      "expect_outcome": "success"
+    },
+    {
+      "id": "S03", "group": "smart_casual",
+      "request": "Something semi-formal for a seminar, navy tones, budget 4000, for men.",
+      "expected": {"gender": "Men", "occasion": "interview", "style": "smart_casual", "budget": 4000, "preferred_colors": ["blue"]},
+      "expect_outcome": "success"
+    },
+    {
+      "id": "S04", "group": "smart_casual",
+      "request": "Business casual look for a woman starting an internship, under 6000.",
+      "expected": {"gender": "Women", "occasion": "work_office", "style": "smart_casual", "budget": 6000, "preferred_colors": []},
+      "expect_outcome": "success"
+    },
+
+    {
+      "id": "S05", "group": "formal",
+      "request": "I need a formal outfit for an office meeting, navy, budget 8000.",
+      "expected": {"gender": "Men", "occasion": "work_office", "style": "formal", "budget": 8000, "preferred_colors": ["blue"]},
+      "expect_outcome": "success"
+    },
+    {
+      "id": "S06", "group": "formal",
+      "request": "Formal interview outfit for men, 10000 budget.",
+      "expected": {"gender": "Men", "occasion": "interview", "style": "formal", "budget": 10000, "preferred_colors": []},
+      "expect_outcome": "success"
+    },
+    {
+      "id": "S07", "group": "formal",
+      "request": "Corporate formal wear for a woman, budget 9000.",
+      "expected": {"gender": "Women", "occasion": "work_office", "style": "formal", "budget": 9000, "preferred_colors": []},
+      "expect_outcome": "failure",
+      "notes": "The source dataset holds only 109 women's items tagged Formal, so women's formalwear is the known sparse cell. This scenario exists to check the failure is explained rather than papered over.",
+      "review": "EXPECTATION WAS WRONG. The system succeeds. Stratified sampling deliberately over-sampled the sparse women's-formal cell, and the wider accessory formality band supplies belts and watches, so a complete look is assembled. Inspected manually: the outfits are genuinely office-appropriate. Left as a failure expectation so the record shows the sparse cell was tested."
+    },
+    {
+      "id": "S08", "group": "formal",
+      "request": "Black formal shoes and matching outfit for men, 7000.",
+      "expected": {"gender": "Men", "occasion": "work_office", "style": "formal", "budget": 7000, "preferred_colors": [],
+                   "required_items": [{"garment": "formal_shoes", "colour": "black"}]},
+      "expect_outcome": "success",
+      "notes": "'Black formal shoes' names a garment AND its colour, so it is a HARD constraint on the footwear slot - not a palette preference for the whole outfit."
+    },
+
+    {
+      "id": "S09", "group": "casual",
+      "request": "Casual weekend brunch look for men under 4000.",
+      "expected": {"gender": "Men", "occasion": "date_night", "style": "casual", "budget": 4000, "preferred_colors": []},
+      "expect_outcome": "success"
+    },
+    {
+      "id": "S10", "group": "casual",
+      "request": "Everyday casual outfit for a woman, nothing over 3500.",
+      "expected": {"gender": "Women", "occasion": "everyday_casual", "style": "casual", "budget": 3500, "preferred_colors": []},
+      "expect_outcome": "success"
+    },
+    {
+      "id": "S11", "group": "casual",
+      "request": "Comfortable college outfit, blue, for men, 3000.",
+      "expected": {"gender": "Men", "occasion": "college", "style": "relaxed", "budget": 3000, "preferred_colors": ["blue"]},
+      "expect_outcome": "success"
+    },
+    {
+      "id": "S12", "group": "casual",
+      "request": "Casual travel outfit for a long flight, women, 5000.",
+      "expected": {"gender": "Women", "occasion": "travel", "style": "casual", "budget": 5000, "preferred_colors": []},
+      "expect_outcome": "success"
+    },
+
+    {
+      "id": "S13", "group": "ethnic",
+      "request": "Something ethnic for my cousin's wedding next week, around 6000.",
+      "expected": {"gender": "Women", "occasion": "wedding_festive", "style": "ethnic", "budget": 6000, "preferred_colors": []},
+      "expect_outcome": "success"
+    },
+    {
+      "id": "S14", "group": "ethnic",
+      "request": "Traditional outfit for Diwali, women, red tones, under 8000.",
+      "expected": {"gender": "Women", "occasion": "wedding_festive", "style": "ethnic", "budget": 8000, "preferred_colors": ["red"]},
+      "expect_outcome": "success"
+    },
+    {
+      "id": "S15", "group": "ethnic",
+      "request": "Kurta based festive look for men, budget 7000.",
+      "expected": {"gender": "Men", "occasion": "wedding_festive", "style": "ethnic", "budget": 7000, "preferred_colors": []},
+      "expect_outcome": "failure",
+      "notes": "Men's ethnic wear is extremely thin in the source data (106 items across all of menswear). Expected to fail on the bottom slot.",
+      "review": "EXPECTATION WAS WRONG. The system succeeds because the 'must be ethnic' rule is enforced only on top/bottom/one-piece, and men's ethnic bottoms do exist in the sampled catalog. Manual check: the kurta pairings are reasonable."
+    },
+    {
+      "id": "S16", "group": "ethnic",
+      "request": "Saree or ethnic dress for a sangeet, 10000.",
+      "expected": {"gender": "Women", "occasion": "wedding_festive", "style": "ethnic", "budget": 10000, "preferred_colors": []},
+      "expect_outcome": "success"
+    },
+
+    {
+      "id": "S17", "group": "low_budget",
+      "request": "Cheapest casual outfit you can do for men, 1500.",
+      "expected": {"gender": "Men", "occasion": "everyday_casual", "style": "casual", "budget": 1500, "preferred_colors": []},
+      "expect_outcome": "success"
+    },
+    {
+      "id": "S18", "group": "low_budget",
+      "request": "Casual outfit for a woman under 2000.",
+      "expected": {"gender": "Women", "occasion": "everyday_casual", "style": "casual", "budget": 2000, "preferred_colors": []},
+      "expect_outcome": "success"
+    },
+    {
+      "id": "S19", "group": "low_budget",
+      "request": "Formal outfit for men under 500 rupees.",
+      "expected": {"gender": "Men", "occasion": "work_office", "style": "formal", "budget": 500, "preferred_colors": []},
+      "expect_outcome": "failure",
+      "notes": "Budget is far below the cheapest complete formal outfit. Must fail with a stated minimum, not with an empty screen."
+    },
+    {
+      "id": "S20", "group": "low_budget",
+      "request": "Ethnic outfit for a wedding under 1200.",
+      "expected": {"gender": "Women", "occasion": "wedding_festive", "style": "ethnic", "budget": 1200, "preferred_colors": []},
+      "expect_outcome": "failure",
+      "notes": "Ethnic wear carries a price premium; expected to be infeasible at this budget."
+    },
+
+    {
+      "id": "S21", "group": "sparse_or_conflicting",
+      "request": "Formal gym outfit for men, 5000.",
+      "expected": {"gender": "Men", "occasion": "workout", "style": "formal", "budget": 5000, "preferred_colors": []},
+      "expect_outcome": "failure",
+      "notes": "Directly conflicting: the workout occasion and a formal style target opposite ends of the formality scale.",
+      "review": "GENUINE DEFECT, NOW FIXED. The system silently honoured the stated style and returned formalwear with no indication that the request was contradictory. Added `recommender.detect_conflicts`, which now flags the clash in the UI while still returning a best-effort result. Outcome stays 'success' by design - refusing to answer would be worse UX than answering with a visible warning."
+    },
+    {
+      "id": "S22", "group": "sparse_or_conflicting",
+      "request": "Ethnic formal office wear for women, 8000.",
+      "expected": {"gender": "Women", "occasion": "work_office", "style": "ethnic", "budget": 8000, "preferred_colors": []},
+      "expect_outcome": "failure",
+      "notes": "Ethnic apparel is excluded from office requests by a hard rule, so the ethnic style requirement cannot be met.",
+      "review": "EXPECTATION WAS WRONG, AND THE SYSTEM IS RIGHT. Ethnic officewear is entirely normal in India - a kurta to work is not a contradiction. The exclusion rule only applies when the user did NOT ask for ethnic. A conflict notice is still shown, which is the correct amount of caution."
+    },
+    {
+      "id": "S23", "group": "sparse_or_conflicting",
+      "request": "Purple and green party outfit for women, 7000.",
+      "expected": {"gender": "Women", "occasion": "party", "style": "party", "budget": 7000, "preferred_colors": ["purple", "green"]},
+      "expect_outcome": "success",
+      "notes": "Two strong, non-harmonious colour families. Should still return an outfit, but with a visibly lower colour score."
+    },
+    {
+      "id": "S24", "group": "sparse_or_conflicting",
+      "request": "Outfit for a unisex traveller, 6000.",
+      "expected": {"gender": "Unisex", "occasion": "travel", "style": "casual", "budget": 6000, "preferred_colors": []},
+      "expect_outcome": "success",
+      "notes": "Unisex has almost no topwear or bottomwear of its own; the system must widen to complete the outfit.",
+      "review": "GENUINE DEFECT, NOW FIXED. The filter matched only items literally tagged 'Unisex', and the source tags zero Unisex bottomwear, so every Unisex request failed. `hard_filter` now treats Unisex as 'draw from the whole catalog'. This is the single highest-value bug the evaluation caught."
+    },
+
+    {
+      "id": "S25", "group": "misc",
+      "request": "Workout clothes for men under 4000.",
+      "expected": {"gender": "Men", "occasion": "workout", "style": "sporty", "budget": 4000, "preferred_colors": []},
+      "expect_outcome": "success"
+    },
+    {
+      "id": "S26", "group": "misc",
+      "request": "Party outfit for a woman, black, 6000.",
+      "expected": {"gender": "Women", "occasion": "party", "style": "party", "budget": 6000, "preferred_colors": ["neutral"]},
+      "expect_outcome": "success"
+    },
+    {
+      "id": "S27", "group": "misc",
+      "request": "Date night outfit for men, brown tones, 6000.",
+      "expected": {"gender": "Men", "occasion": "date_night", "style": "smart_casual", "budget": 6000, "preferred_colors": ["brown"]},
+      "expect_outcome": "success"
+    },
+    {
+      "id": "S28", "group": "misc",
+      "request": "I want an outfit. No budget in mind, for women.",
+      "expected": {"gender": "Women", "occasion": "everyday_casual", "style": null, "budget": null, "preferred_colors": []},
+      "expect_outcome": "success",
+      "notes": "No budget stated: budget_fit must be neutral and the outfit must still be complete."
+    },
+    {
+      "id": "S29", "group": "misc",
+      "request": "asdkjh qwe zzz",
+      "expected": {"gender": "Women", "occasion": "everyday_casual", "style": null, "budget": null, "preferred_colors": []},
+      "expect_outcome": "success",
+      "notes": "Gibberish. The system must not crash; it should fall back to a general recommendation and flag low confidence."
+    },
+    {
+      "id": "S30", "group": "misc",
+      "request": "Office outfit for men, no accessories, 6000.",
+      "expected": {"gender": "Men", "occasion": "work_office", "style": "formal", "budget": 6000, "preferred_colors": []},
+      "expect_outcome": "success",
+      "notes": "Checks that the accessory opt-out is honoured by the NLU layer."
+    },
+
+    {
+      "id": "S31", "group": "explicit_attributes",
+      "request": "A black shirt for men, under 4000.",
+      "expected": {"gender": "Men", "occasion": "everyday_casual", "style": null, "budget": 4000, "preferred_colors": [],
+                   "required_items": [{"garment": "shirt", "colour": "black"}]},
+      "expect_outcome": "success",
+      "notes": "The canonical regression case. Before this was fixed the system returned a white top."
+    },
+    {
+      "id": "S32", "group": "explicit_attributes",
+      "request": "White shirt and blue jeans for men, 6000.",
+      "expected": {"gender": "Men", "occasion": "everyday_casual", "style": null, "budget": 6000, "preferred_colors": [],
+                   "required_items": [{"garment": "shirt", "colour": "white"}, {"garment": "jeans", "colour": "blue"}]},
+      "expect_outcome": "success",
+      "notes": "Two explicit constraints on two different slots must both hold."
+    },
+    {
+      "id": "S33", "group": "explicit_attributes",
+      "request": "A red dress for a party, women, 7000.",
+      "expected": {"gender": "Women", "occasion": "party", "style": null, "budget": 7000, "preferred_colors": [],
+                   "required_items": [{"garment": "dress", "colour": "red"}]},
+      "expect_outcome": "success",
+      "notes": "An explicit one-piece garment must also select the one-piece outfit template."
+    },
+    {
+      "id": "S34", "group": "explicit_attributes",
+      "request": "A purple saree for men, 5000.",
+      "expected": {"gender": "Men", "occasion": "wedding_festive", "style": "ethnic", "budget": 5000, "preferred_colors": [],
+                   "required_items": [{"garment": "saree", "colour": "purple"}]},
+      "expect_outcome": "failure",
+      "notes": "Deliberately impossible. The system must refuse by name ('no purple saree for Men') rather than substituting a different garment."
+    }
+  ]
+}

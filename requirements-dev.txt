@@ -1,0 +1,8 @@
+# Dev-only dependencies: dataset preparation + tests.
+# Not needed to run the deployed app.
+-r requirements.txt
+datasets==3.2.0
+pyarrow==19.0.0
+pytest==8.3.4
+# fastapi.testclient is built on httpx; without it tests/test_api.py cannot run.
+httpx==0.28.1

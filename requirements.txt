@@ -1,0 +1,24 @@
+# Runtime dependencies for the AI Stylist Streamlit app.
+# Kept deliberately small: everything here is needed to serve the app.
+streamlit==1.42.0
+pandas==2.2.3
+numpy==2.2.2
+pillow==11.1.0
+scikit-learn==1.6.1
+pydantic==2.10.6
+python-dotenv==1.0.1
+joblib==1.5.3
+
+# Semantic retrieval. Both optional at runtime: without them the app skips
+# retrieval and behaves exactly as it did before, reported in diagnostics.
+sentence-transformers==5.7.0
+faiss-cpu==1.15.0
+
+# REST API. Streamlit remains the UI; this is a thin adapter over the same engine.
+fastapi==0.141.1
+uvicorn==0.52.1
+
+# LLM providers. Either is optional - the app runs fully without a key, falling
+# back to the deterministic keyword parser.
+google-genai==1.2.0
+groq==1.6.0

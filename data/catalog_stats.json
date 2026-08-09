@@ -1,0 +1,191 @@
+{
+  "source_dataset": "ashraq/fashion-product-images-small",
+  "source_rows": 44072,
+  "catalog_rows": 536,
+  "images_written": 536,
+  "by_gender": {
+    "Women": 259,
+    "Men": 237,
+    "Unisex": 40
+  },
+  "by_slot": {
+    "top": 150,
+    "footwear": 110,
+    "accessory": 105,
+    "bottom": 99,
+    "onepiece": 42,
+    "outerwear": 30
+  },
+  "by_usage": {
+    "Casual": 273,
+    "Formal": 118,
+    "Ethnic": 63,
+    "Sports": 57,
+    "Smart Casual": 13,
+    "Party": 10,
+    "Travel": 2
+  },
+  "by_formality_tier": {
+    "Casual": 210,
+    "Formal": 113,
+    "Smart Casual": 101,
+    "Relaxed": 90,
+    "Very Formal": 22
+  },
+  "by_color_family": {
+    "neutral": 136,
+    "blue": 92,
+    "brown": 70,
+    "green": 57,
+    "red": 41,
+    "pink": 36,
+    "purple": 36,
+    "yellow": 28,
+    "orange": 22,
+    "multi": 18
+  },
+  "article_types": 44,
+  "price_inr": {
+    "min": 249,
+    "median": 1299,
+    "max": 7149
+  },
+  "price_by_slot": {
+    "accessory": {
+      "min": 249,
+      "median": 849,
+      "max": 4699,
+      "count": 105
+    },
+    "bottom": {
+      "min": 249,
+      "median": 1149,
+      "max": 2999,
+      "count": 99
+    },
+    "footwear": {
+      "min": 249,
+      "median": 1549,
+      "max": 4599,
+      "count": 110
+    },
+    "onepiece": {
+      "min": 999,
+      "median": 2549,
+      "max": 4249,
+      "count": 42
+    },
+    "outerwear": {
+      "min": 1249,
+      "median": 2824,
+      "max": 7149,
+      "count": 30
+    },
+    "top": {
+      "min": 349,
+      "median": 1199,
+      "max": 2499,
+      "count": 150
+    }
+  },
+  "coverage_report": [
+    {
+      "gender": "Men",
+      "slot": "top",
+      "quota": 70,
+      "selected": 70,
+      "unfilled_specialist_quota": 0
+    },
+    {
+      "gender": "Men",
+      "slot": "bottom",
+      "quota": 50,
+      "selected": 50,
+      "unfilled_specialist_quota": 2
+    },
+    {
+      "gender": "Men",
+      "slot": "footwear",
+      "quota": 50,
+      "selected": 50,
+      "unfilled_specialist_quota": 2
+    },
+    {
+      "gender": "Men",
+      "slot": "outerwear",
+      "quota": 18,
+      "selected": 18,
+      "unfilled_specialist_quota": 1
+    },
+    {
+      "gender": "Men",
+      "slot": "accessory",
+      "quota": 40,
+      "selected": 40,
+      "unfilled_specialist_quota": 3
+    },
+    {
+      "gender": "Women",
+      "slot": "top",
+      "quota": 65,
+      "selected": 65,
+      "unfilled_specialist_quota": 0
+    },
+    {
+      "gender": "Women",
+      "slot": "bottom",
+      "quota": 45,
+      "selected": 45,
+      "unfilled_specialist_quota": 0
+    },
+    {
+      "gender": "Women",
+      "slot": "footwear",
+      "quota": 50,
+      "selected": 50,
+      "unfilled_specialist_quota": 0
+    },
+    {
+      "gender": "Women",
+      "slot": "outerwear",
+      "quota": 12,
+      "selected": 12,
+      "unfilled_specialist_quota": 2
+    },
+    {
+      "gender": "Women",
+      "slot": "accessory",
+      "quota": 40,
+      "selected": 40,
+      "unfilled_specialist_quota": 0
+    },
+    {
+      "gender": "Women",
+      "slot": "onepiece",
+      "quota": 40,
+      "selected": 40,
+      "unfilled_specialist_quota": 0
+    },
+    {
+      "gender": "Unisex",
+      "slot": "top",
+      "quota": 5,
+      "selected": 5,
+      "unfilled_specialist_quota": 3
+    },
+    {
+      "gender": "Unisex",
+      "slot": "footwear",
+      "quota": 10,
+      "selected": 10,
+      "unfilled_specialist_quota": 3
+    },
+    {
+      "gender": "Unisex",
+      "slot": "accessory",
+      "quota": 25,
+      "selected": 25,
+      "unfilled_specialist_quota": 9
+    }
+  ]
+}

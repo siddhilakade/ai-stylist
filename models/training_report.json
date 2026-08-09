@@ -1,0 +1,57 @@
+{
+  "model": "RandomForestClassifier(n_estimators=300, max_depth=12, min_samples_leaf=5, class_weight=balanced)",
+  "dataset_rows": 24000,
+  "train_rows": 16866,
+  "test_rows": 7134,
+  "held_out_article_types": [
+    "Formal Shoes",
+    "Sarees",
+    "Shirts",
+    "Skirts",
+    "Watches"
+  ],
+  "split_strategy": "group split by article type (not random)",
+  "label_provenance": "synthetic/heuristic from src/compatibility.py",
+  "in_distribution": {
+    "accuracy": 0.9681,
+    "precision": 0.9816,
+    "recall": 0.9711,
+    "f1": 0.9763,
+    "roc_auc": 0.9954,
+    "n": 16866
+  },
+  "held_out": {
+    "accuracy": 0.9406,
+    "precision": 0.9493,
+    "recall": 0.9136,
+    "f1": 0.9311,
+    "roc_auc": 0.9744,
+    "n": 7134
+  },
+  "feature_importance": {
+    "usage_a": 0.182,
+    "usage_b": 0.1756,
+    "same_usage": 0.1534,
+    "formality_b": 0.1247,
+    "formality_a": 0.1101,
+    "articleType_a": 0.0649,
+    "articleType_b": 0.0556,
+    "baseColour_a": 0.0156,
+    "price_a": 0.014,
+    "slot_a": 0.012,
+    "baseColour_b": 0.0104,
+    "is_neutral_a": 0.01,
+    "gender_b": 0.0092,
+    "is_ethnic_a": 0.0091,
+    "price_b": 0.009,
+    "season_a": 0.009,
+    "is_neutral_b": 0.0069,
+    "is_ethnic_b": 0.0061,
+    "slot_b": 0.006,
+    "season_b": 0.0058,
+    "gender_a": 0.0054,
+    "price_ratio": 0.004,
+    "same_season": 0.0007,
+    "same_colour": 0.0004
+  }
+}

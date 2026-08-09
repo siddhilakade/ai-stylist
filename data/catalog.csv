@@ -1,0 +1,537 @@
+id,productDisplayName,brand,gender,masterCategory,subCategory,articleType,baseColour,season,year,usage,outfit_slot,formality,formality_tier,color_family,is_neutral,is_ethnic,price,mrp,discount_pct,image_file
+1525,Puma Deck Navy Blue Backpack,Puma Deck,Unisex,Accessories,Bags,Backpacks,Navy Blue,Fall,2010.0,Casual,accessory,1.0,Casual,blue,True,False,849,2149,60,1525.jpg
+1531,Puma Men Grey Solid Round Neck T-Shirt,Puma,Men,Apparel,Topwear,Tshirts,Grey,Fall,2010.0,Casual,top,0.75,Casual,neutral,True,False,399,399,0,1531.jpg
+1534,Puma Men Black Leaping Cat T-shirt,Puma,Men,Apparel,Topwear,Tshirts,Black,Fall,2010.0,Casual,top,0.75,Casual,neutral,True,False,549,949,40,1534.jpg
+1538,Puma Men Ferrari Track Black T-shirt,Puma,Men,Apparel,Topwear,Tshirts,Blue,Fall,2010.0,Casual,top,0.75,Casual,blue,False,False,899,899,0,1538.jpg
+1543,Puma Men Basket-Biz Sneaker,Puma,Men,Footwear,Shoes,Casual Shoes,Black,Fall,2010.0,Casual,footwear,1.0,Casual,neutral,True,False,2449,3099,20,1543.jpg
+1559,Quechua Blue Light Backpack,Quechua Blue,Unisex,Accessories,Bags,Backpacks,Blue,Summer,2011.0,Travel,accessory,0.75,Casual,blue,False,False,1899,1899,0,1559.jpg
+1561,Quechua Women Sweat Proof White T-shirt,Quechua,Women,Apparel,Topwear,Tshirts,White,Fall,2010.0,Sports,top,0.5,Relaxed,neutral,True,False,449,449,0,1561.jpg
+1566,Artengo Men Black Cap,Artengo,Men,Accessories,Headwear,Caps,Black,Summer,2011.0,Sports,accessory,0.25,Relaxed,neutral,True,False,549,1399,60,1566.jpg
+1567,Artengo Men Training Shorts,Artengo,Men,Apparel,Bottomwear,Shorts,Black,Fall,2010.0,Sports,bottom,0.0,Relaxed,neutral,True,False,899,1499,40,1567.jpg
+1570,Artengo Women Tennis Singlet,Artengo,Women,Apparel,Topwear,Tshirts,Black,Fall,2010.0,Sports,top,0.5,Relaxed,neutral,True,False,949,1199,20,1570.jpg
+1575,Kipsta Men Sports White T-shirt,Kipsta,Men,Apparel,Topwear,Tshirts,White,Summer,2011.0,Casual,top,0.75,Casual,neutral,True,False,649,949,30,1575.jpg
+1591,Kipsta Men Red Shorts,Kipsta,Men,Apparel,Bottomwear,Shorts,Red,Fall,2010.0,Sports,bottom,0.0,Relaxed,red,False,False,949,949,0,1591.jpg
+1594,Newfeel Unisex Grey Mesh Lightweight Shoe,Newfeel,Unisex,Footwear,Shoes,Casual Shoes,Grey,Fall,2012.0,Casual,footwear,1.0,Casual,neutral,True,False,1599,2299,30,1594.jpg
+1603,Reebok Men Hoops Athletic Navy Sweatshirt,Reebok,Men,Apparel,Topwear,Sweatshirts,Navy Blue,Fall,2010.0,Casual,top,0.5,Relaxed,blue,True,False,699,699,0,1603.jpg
+1609,Reebok Women Boat-Neck Wildberry Sweatshirt,Reebok,Women,Apparel,Topwear,Sweatshirts,Pink,Fall,2010.0,Sports,top,0.25,Relaxed,pink,False,False,1499,2149,30,1609.jpg
+1610,Reebok Navy Jacket,Reebok Navy,Women,Apparel,Topwear,Jackets,Navy Blue,Summer,2011.0,Casual,outerwear,1.0,Casual,blue,True,False,2849,2849,0,1610.jpg
+1615,Reebok Men Navy Blue Polo T-shirt,Reebok,Men,Apparel,Topwear,Tshirts,Navy Blue,Fall,2010.0,Casual,top,0.75,Casual,blue,True,False,549,1099,50,1615.jpg
+1620,Reebok Men Micro Shorts,Reebok,Men,Apparel,Bottomwear,Shorts,Blue,Fall,2010.0,Sports,bottom,0.0,Relaxed,blue,False,False,649,649,0,1620.jpg
+1622,Reebok Navy Knit Rib Jacket,Reebok Navy,Men,Apparel,Topwear,Jackets,Navy Blue,Summer,2016.0,Casual,outerwear,1.0,Casual,blue,True,False,1799,2999,40,1622.jpg
+1623,Reebok Unisex Red Backpack,Reebok,Unisex,Accessories,Bags,Backpacks,Red,Summer,2011.0,Casual,accessory,1.0,Casual,red,False,False,1299,1649,20,1623.jpg
+1635,Newfeel Unisex Red Comfy Shoes,Newfeel,Unisex,Footwear,Shoes,Casual Shoes,Red,Spring,2011.0,Casual,footwear,1.0,Casual,red,False,False,1399,1999,30,1635.jpg
+1646,Quechua Ultralight Backpack 16 Ltr Grey Bag,Quechua Ultralight,Women,Accessories,Bags,Backpacks,Grey,Summer,2011.0,Sports,accessory,0.75,Casual,neutral,True,False,1899,1899,0,1646.jpg
+1648,Quechua  Ultralight Backpack Purple 16 ltr Bag,Quechua Ultralight,Women,Accessories,Bags,Backpacks,Pink,Summer,2011.0,Travel,accessory,0.75,Casual,pink,False,False,2099,2099,0,1648.jpg
+1649,Newfeel Unisex Comfy Cool Blue Shoe,Newfeel,Unisex,Footwear,Shoes,Casual Shoes,Blue,Spring,2012.0,Casual,footwear,1.0,Casual,blue,False,False,1249,1799,30,1649.jpg
+1658,Nike Men Windrunner Blue Jacket,Nike,Men,Apparel,Topwear,Jackets,Blue,Fall,2012.0,Sports,outerwear,0.75,Casual,blue,False,False,3199,6399,50,1658.jpg
+1678,Reebok Men Play Hard Cotton Green T-shirt,Reebok,Men,Apparel,Topwear,Tshirts,Green,Fall,2010.0,Casual,top,0.75,Casual,green,False,False,649,1099,40,1678.jpg
+1730,Reebok Women Black Pink Frisker Shoe,Reebok,Women,Footwear,Shoes,Sports Shoes,Black,Fall,2010.0,Sports,footwear,0.5,Relaxed,neutral,True,False,1299,1899,30,1730.jpg
+1783,Quechua Men Grey Sandal,Quechua,Men,Footwear,Sandal,Sandals,Grey,Spring,2011.0,Sports,footwear,0.25,Relaxed,neutral,True,False,1799,2249,20,1783.jpg
+1794,Newfeel Brown 22L Bag,Newfeel Brown,Unisex,Accessories,Bags,Backpacks,Brown,Summer,2011.0,Sports,accessory,0.75,Casual,brown,True,False,1099,1849,40,1794.jpg
+1795,Newfeel 22L Black Bag,Newfeel 22L,Men,Accessories,Bags,Backpacks,Black,Fall,2010.0,Sports,accessory,0.75,Casual,neutral,True,False,799,799,0,1795.jpg
+1806,Quechua Men Arpenaz Brown Sandal,Quechua,Men,Footwear,Sandal,Sandals,Brown,Spring,2011.0,Casual,footwear,0.5,Relaxed,brown,True,False,1099,1099,0,1806.jpg
+1854,Inkfruit Mens Pencho T-shirt,Inkfruit,Men,Apparel,Topwear,Tshirts,Purple,Summer,2011.0,Casual,top,0.75,Casual,purple,False,False,599,1499,60,1854.jpg
+1883,FIFA Mens Heritage Collection Grey Track Pants,FIFA,Men,Apparel,Bottomwear,Track Pants,Grey,Winter,2010.0,Casual,bottom,0.25,Relaxed,neutral,True,False,1249,1599,20,1883.jpg
+1884,FIFA Mens 1905 Heritage Collection Track Pants,FIFA,Men,Apparel,Bottomwear,Track Pants,Navy Blue,Winter,2010.0,Casual,bottom,0.25,Relaxed,blue,True,False,1299,1899,30,1884.jpg
+1885,FIFA Mens 1904 Heritage Shorts,FIFA,Men,Apparel,Bottomwear,Shorts,Grey,Winter,2010.0,Casual,bottom,0.25,Relaxed,neutral,True,False,1099,1599,30,1885.jpg
+1895,FIFA Men Full Sleeves Hoody Sweatshirt,FIFA,Men,Apparel,Topwear,Sweatshirts,Black,Winter,2010.0,Casual,top,0.5,Relaxed,neutral,True,False,1749,1749,0,1895.jpg
+1919,Puma Men's Choco Brown Casual Shoes,Puma,Men,Footwear,Shoes,Casual Shoes,Brown,Fall,2010.0,Casual,footwear,1.0,Casual,brown,True,False,2549,2549,0,1919.jpg
+1932,Quechua Women Arpenaz Flex Grey Shoe,Quechua,Women,Footwear,Shoes,Casual Shoes,Grey,Fall,2010.0,Casual,footwear,1.0,Casual,neutral,True,False,1599,3199,50,1932.jpg
+1964,ADIDAS Men's Blue Canvas Shoe,ADIDAS,Men,Footwear,Shoes,Casual Shoes,Blue,Winter,2010.0,Casual,footwear,1.0,Casual,blue,False,False,2699,3899,30,1964.jpg
+1973,Quechua Mens Brown T-shirt,Quechua,Men,Apparel,Topwear,Tshirts,Brown,Fall,2010.0,Casual,top,0.75,Casual,brown,True,False,499,849,40,1973.jpg
+2050,Lee Men Essential Black Shirt,Lee,Men,Apparel,Topwear,Shirts,Black,Winter,2010.0,Casual,top,1.5,Smart Casual,neutral,True,False,799,1599,50,2050.jpg
+2057,Lee Men's Saddle Storm T-shirt,Lee,Men,Apparel,Topwear,Tshirts,Orange,Winter,2010.0,Casual,top,0.75,Casual,orange,False,False,899,899,0,2057.jpg
+2058,Lee Men's Solo Storm Rider T-shirt,Lee,Men,Apparel,Topwear,Tshirts,Pink,Winter,2010.0,Casual,top,0.75,Casual,pink,False,False,649,1099,40,2058.jpg
+2093,Lee Men checks Blue Shirt,Lee,Men,Apparel,Topwear,Shirts,Blue,Winter,2010.0,Casual,top,1.5,Smart Casual,blue,False,False,599,599,0,2093.jpg
+2096,Lee Men Olive Green Shirt,Lee,Men,Apparel,Topwear,Shirts,Green,Winter,2010.0,Casual,top,1.5,Smart Casual,green,False,False,1399,2799,50,2096.jpg
+2100,Lee Men Checks Brown Shirt,Lee,Men,Apparel,Topwear,Shirts,Brown,Winter,2010.0,Casual,top,1.5,Smart Casual,brown,True,False,1599,2299,30,2100.jpg
+2119,Lee Women Pink Shirt,Lee,Women,Apparel,Topwear,Shirts,Pink,Winter,2010.0,Casual,top,1.5,Smart Casual,pink,False,False,1149,1449,20,2119.jpg
+2121,Lee Women Black Shirt,Lee,Women,Apparel,Topwear,Shirts,Black,Winter,2010.0,Casual,top,1.5,Smart Casual,neutral,True,False,1499,1899,20,2121.jpg
+2127,Basics Men Red Slim FitChecked Shirt,Basics,Men,Apparel,Topwear,Shirts,Red,Spring,2011.0,Casual,top,1.5,Smart Casual,red,False,False,1199,1999,40,2127.jpg
+2134,Basics Men Purple Slim Fit Checked Shirt,Basics,Men,Apparel,Topwear,Shirts,Purple,Spring,2011.0,Casual,top,1.5,Smart Casual,purple,False,False,1449,1449,0,2134.jpg
+2136,Basics Men Blue & White Slim Fit Checked Shirt,Basics,Men,Apparel,Topwear,Shirts,Navy Blue,Spring,2011.0,Casual,top,1.5,Smart Casual,blue,True,False,749,1099,30,2136.jpg
+2195,ADIDAS Women Black Capris,ADIDAS,Women,Apparel,Bottomwear,Capris,Black,Fall,2010.0,Sports,bottom,0.75,Casual,neutral,True,False,1099,2199,50,2195.jpg
+2199,ADIDAS Women Streaks Blue Shoe,ADIDAS,Women,Footwear,Shoes,Casual Shoes,Blue,Fall,2010.0,Casual,footwear,1.0,Casual,blue,False,False,999,2499,60,2199.jpg
+2208,Puma Mens Drifter Black Flip Flop,Puma,Men,Footwear,Flip Flops,Flip Flops,Black,Fall,2011.0,Casual,footwear,0.0,Relaxed,neutral,True,False,399,699,40,2208.jpg
+2211,Puma Men Trek Navy Blue Floater,Puma,Men,Footwear,Sandal,Sandals,Navy Blue,Fall,2010.0,Casual,footwear,0.5,Relaxed,blue,True,False,649,1099,40,2211.jpg
+2215,Puma Men Gypsy Olive Sandals,Puma,Men,Footwear,Sandal,Sandals,Olive,Fall,2010.0,Sports,footwear,0.25,Relaxed,green,False,False,1549,2249,30,2215.jpg
+2218,Puma Men F1 Black Sandal,Puma,Men,Footwear,Sandal,Sandals,Black,Fall,2010.0,Casual,footwear,0.5,Relaxed,neutral,True,False,1049,1749,40,2218.jpg
+2224,Puma Men's Trek Olive Green Sandal,Puma,Men,Footwear,Sandal,Sandals,Green,Fall,2010.0,Casual,footwear,0.5,Relaxed,green,False,False,1349,1349,0,2224.jpg
+2248,Puma Men's Drifter Black Green Flip Flops,Puma,Men,Footwear,Flip Flops,Flip Flops,Black,Fall,2011.0,Sports,footwear,0.0,Relaxed,neutral,True,False,399,699,40,2248.jpg
+2250,Puma Mens Winglet Red Flip Flop,Puma,Men,Footwear,Flip Flops,Flip Flops,Red,Fall,2010.0,Casual,footwear,0.0,Relaxed,red,False,False,449,749,40,2250.jpg
+2251,Puma Mens Winglet Brown Flip Flop,Puma,Men,Footwear,Flip Flops,Flip Flops,Brown,Fall,2010.0,Casual,footwear,0.0,Relaxed,brown,True,False,649,1649,60,2251.jpg
+2261,Nike Unisex Grey & Black Backpack,Nike,Unisex,Accessories,Bags,Backpacks,Grey,Fall,2010.0,Casual,accessory,1.0,Casual,neutral,True,False,1649,3299,50,2261.jpg
+2268,Nike Grey Women Sweatshirt,Nike Grey,Women,Apparel,Topwear,Sweatshirts,Grey,Fall,2010.0,Sports,top,0.25,Relaxed,neutral,True,False,1399,1399,0,2268.jpg
+2286,Nike Men Black Sweatshirt,Nike,Men,Apparel,Topwear,Sweatshirts,Black,Fall,2010.0,Sports,top,0.25,Relaxed,neutral,True,False,1299,1649,20,2286.jpg
+2294,Nike Women's Miller Top,Nike,Women,Apparel,Topwear,Tops,White,Fall,2010.0,Sports,top,0.75,Casual,neutral,True,False,849,1249,30,2294.jpg
+2359,ADIDAS Navy Blue Men Cap,ADIDAS Navy,Men,Accessories,Headwear,Caps,Navy Blue,Winter,2010.0,Sports,accessory,0.25,Relaxed,blue,True,False,499,849,40,2359.jpg
+2367,Red Tape Men's Brown Semi Formal Shoe,Red Tape,Men,Footwear,Shoes,Formal Shoes,Brown,Winter,2018.0,Formal,footwear,4.0,Very Formal,brown,True,False,4599,11499,60,2367.jpg
+2370,Red Tape Men's Semi Black Formal Shoe,Red Tape,Men,Footwear,Shoes,Formal Shoes,Black,Winter,2018.0,Formal,footwear,4.0,Very Formal,neutral,True,False,3549,7099,50,2370.jpg
+2372,Red Tape Formal Black Men's Shoe,Red Tape,Men,Footwear,Shoes,Formal Shoes,Black,Winter,2018.0,Formal,footwear,4.0,Very Formal,neutral,True,False,1949,3249,40,2372.jpg
+2373,Red Tape Brown Formal Men's Shoe,Red Tape,Men,Footwear,Shoes,Formal Shoes,Brown,Winter,2018.0,Formal,footwear,4.0,Very Formal,brown,True,False,1899,3199,40,2373.jpg
+2467,Nike Men White Cap,Nike,Men,Accessories,Headwear,Caps,White,Summer,2012.0,Casual,accessory,0.5,Relaxed,neutral,True,False,499,499,0,2467.jpg
+2501,Numero Uno Men's Casual Red Canvas Shoe,Numero Uno,Men,Footwear,Shoes,Casual Shoes,Red,Fall,2010.0,Casual,footwear,1.0,Casual,red,False,False,1099,1849,40,2501.jpg
+2543,Numero Uno Men's Casual Green Flip Flop,Numero Uno,Men,Footwear,Flip Flops,Flip Flops,Green,Fall,2010.0,Casual,footwear,0.0,Relaxed,green,False,False,399,399,0,2543.jpg
+2544,Numero Uno Men's Casual Blue Flip Flop,Numero Uno,Men,Footwear,Flip Flops,Flip Flops,Blue,Summer,2011.0,Casual,footwear,0.0,Relaxed,blue,False,False,499,499,0,2544.jpg
+2578,Domyos Women White Capri,Domyos,Women,Apparel,Bottomwear,Capris,White,Summer,2011.0,Casual,bottom,1.0,Casual,neutral,True,False,749,1099,30,2578.jpg
+2582,Kalenji Children's Red Cap,Kalenji Children's,Unisex,Accessories,Headwear,Caps,Red,Summer,2011.0,Casual,accessory,0.5,Relaxed,red,False,False,749,1899,60,2582.jpg
+2585,Kalenji Black Cap,Kalenji Black,Unisex,Accessories,Headwear,Caps,Black,Summer,2011.0,Casual,accessory,0.5,Relaxed,neutral,True,False,449,449,0,2585.jpg
+2590,Tribord Women Breeches Blue Capri,Tribord,Women,Apparel,Bottomwear,Capris,Navy Blue,Summer,2011.0,Casual,bottom,1.0,Casual,blue,True,False,1249,3149,60,2590.jpg
+2609,Carlton London Women Contemporary Silver Sandal,Carlton London,Women,Footwear,Shoes,Flats,Silver,Fall,2010.0,Casual,footwear,1.0,Casual,neutral,True,False,599,899,30,2609.jpg
+2616,Carlton London Women Gold Wedge Sandal,Carlton London,Women,Footwear,Shoes,Flats,Gold,Fall,2010.0,Sports,footwear,0.75,Casual,yellow,False,False,1399,2349,40,2616.jpg
+2625,Carlton London Women Wedge Gold Sandal,Carlton London,Women,Footwear,Shoes,Flats,Gold,Fall,2009.0,Casual,footwear,1.0,Casual,yellow,False,False,549,1399,60,2625.jpg
+2626,Carlton London Women Red Wedge Sandal,Carlton London,Women,Footwear,Shoes,Flats,Red,Fall,2010.0,Casual,footwear,1.0,Casual,red,False,False,849,1449,40,2626.jpg
+2632,Carlton London Women Pink Ballerinas Shoe,Carlton London,Women,Footwear,Shoes,Flats,Pink,Fall,2010.0,Casual,footwear,1.0,Casual,pink,False,False,1049,1049,0,2632.jpg
+2633,Carlton London Men Black Leather Casual Shoes.,Carlton London,Men,Footwear,Shoes,Heels,Black,Summer,2010.0,Smart Casual,footwear,2.5,Smart Casual,neutral,True,False,2099,2649,20,2633.jpg
+2802,iD Men Casual Leather Tmber Sandal,iD,Men,Footwear,Sandal,Sandals,Multi,Fall,2009.0,Casual,footwear,0.5,Relaxed,multi,False,False,949,2399,60,2802.jpg
+2820,Lee Cooper Men Formal Leather Black Sandal,Lee Cooper,Men,Footwear,Sandal,Sandals,Black,Summer,2012.0,Formal,footwear,2.5,Smart Casual,neutral,True,False,949,949,0,2820.jpg
+2821,Lee Cooper Men Formal Leather Brown Sandal,Lee Cooper,Men,Footwear,Sandal,Sandals,Brown,Summer,2012.0,Formal,footwear,2.5,Smart Casual,brown,True,False,1099,2749,60,2821.jpg
+2880,Catwalk Women Leather Formal Grey Heels,Catwalk,Women,Footwear,Shoes,Heels,Grey,Summer,2016.0,Formal,footwear,3.5,Formal,neutral,True,False,1299,3249,60,2880.jpg
+2886,Catwalk Women Leather Brown Flats,Catwalk,Women,Footwear,Shoes,Flats,Brown,Winter,2015.0,Casual,footwear,1.0,Casual,brown,True,False,1099,1099,0,2886.jpg
+2901,Catwalk Women Corporate Leather Black Heels,Catwalk,Women,Footwear,Shoes,Heels,Black,Winter,2015.0,Formal,footwear,3.5,Formal,neutral,True,False,2399,2399,0,2901.jpg
+2953,DUSG Women Rishikesh Organic Wheat Capri,DUSG,Women,Apparel,Bottomwear,Capris,Yellow,Fall,2010.0,Casual,bottom,1.0,Casual,yellow,False,False,949,1399,30,2953.jpg
+3013,Lee Men Arnold Black Grey Check Shirt,Lee,Men,Apparel,Topwear,Shirts,Grey,Summer,2011.0,Casual,top,1.5,Smart Casual,neutral,True,False,849,1449,40,3013.jpg
+3054,Tantra Men's Who Farted Blue T-shirt,Tantra,Men,Apparel,Topwear,Tshirts,Blue,Summer,2011.0,Formal,top,2.0,Smart Casual,blue,False,False,649,1099,40,3054.jpg
+3132,DUSG Men's Tadoba Organic Cotton Cappuccino T-shirt,DUSG,Men,Apparel,Topwear,Tshirts,Multi,Fall,2010.0,Casual,top,0.75,Casual,multi,False,False,499,1249,60,3132.jpg
+3214,Nike Men's Solarsoft Thong Blue Flip Flop,Nike,Men,Footwear,Flip Flops,Flip Flops,Blue,Fall,2010.0,Sports,footwear,0.0,Relaxed,blue,False,False,599,999,40,3214.jpg
+3223,Puma Women Axis Pink Dark Shadow Shoe,Puma,Women,Footwear,Shoes,Sports Shoes,Multi,Fall,2010.0,Sports,footwear,0.5,Relaxed,multi,False,False,2399,3449,30,3223.jpg
+3236,Puma Women Red Sneakers,Puma,Women,Footwear,Shoes,Casual Shoes,Red,Fall,2010.0,Casual,footwear,1.0,Casual,red,False,False,2349,3949,40,3236.jpg
+3375,Asics Women Gel Cushioning Active Running Blue Silver Shoe,Asics,Women,Footwear,Shoes,Sports Shoes,Blue,Spring,2012.0,Sports,footwear,0.5,Relaxed,blue,False,False,3299,5499,40,3375.jpg
+3390,Murcia Women Brown With Stitch Bag,Murcia,Women,Accessories,Bags,Handbags,Brown,Winter,2015.0,Formal,accessory,3.0,Formal,brown,True,False,3099,6199,50,3390.jpg
+3474,ADIDAS Men Navy Cobalt Backpack,ADIDAS,Men,Accessories,Bags,Backpacks,Navy Blue,Summer,2011.0,Sports,accessory,0.75,Casual,blue,True,False,2199,2199,0,3474.jpg
+3484,ADIDAS Women Darkcinde Brown Capri,ADIDAS,Women,Apparel,Bottomwear,Capris,Brown,Fall,2010.0,Sports,bottom,0.75,Casual,brown,True,False,649,1649,60,3484.jpg
+3490,ADIDAS Women Spry Dark Navy Black Sandal,ADIDAS,Women,Footwear,Sandal,Sports Sandals,Blue,Spring,2013.0,Sports,footwear,0.25,Relaxed,blue,False,False,1199,1499,20,3490.jpg
+3597,Converse Unisex Chuck Taylor OX Green Canvas Shoe,Converse,Unisex,Footwear,Shoes,Casual Shoes,Green,Summer,2011.0,Casual,footwear,1.0,Casual,green,False,False,2249,3249,30,3597.jpg
+3604,Converse Men's Chuck Taylor As Canvas OX Shoe,Converse,Men,Footwear,Shoes,Casual Shoes,Green,Summer,2012.0,Casual,footwear,1.0,Casual,green,False,False,2499,4199,40,3604.jpg
+3620,Puma Women's Coral Green White Flip Flop,Puma,Women,Footwear,Flip Flops,Flip Flops,Green,Summer,2011.0,Casual,footwear,0.0,Relaxed,green,False,False,549,549,0,3620.jpg
+3710,Lee Men Navy Blue Canvas Belt,Lee,Men,Accessories,Belts,Belts,Navy Blue,Summer,2011.0,Casual,accessory,1.0,Casual,blue,True,False,1249,1249,0,3710.jpg
+3721,Lee Men Black Canvas Belt,Lee,Men,Accessories,Belts,Belts,Black,Summer,2011.0,Casual,accessory,1.0,Casual,neutral,True,False,849,849,0,3721.jpg
+3736,Lotto Unisex Kochi Tuskers Orange Cap,Lotto,Unisex,Accessories,Headwear,Caps,Orange,Fall,2010.0,Casual,accessory,0.5,Relaxed,orange,False,False,799,1349,40,3736.jpg
+3909,Urban Yoga Women Yoga Red Capri,Urban Yoga,Women,Apparel,Bottomwear,Capris,Red,Summer,2011.0,Casual,bottom,1.0,Casual,red,False,False,999,1449,30,3909.jpg
+3910,Urban Yoga Women Yoga Green Capri,Urban Yoga,Women,Apparel,Bottomwear,Capris,Green,Summer,2011.0,Casual,bottom,1.0,Casual,green,False,False,699,999,30,3910.jpg
+3955,Jealous 21 Women Printed Red Top,Jealous 21,Women,Apparel,Topwear,Tops,Red,Summer,2011.0,Casual,top,1.0,Casual,red,False,False,1199,1749,30,3955.jpg
+4002,Spalding Men's Yellow And Black With Graphic Flip Flop,Spalding,Men,Footwear,Flip Flops,Flip Flops,Yellow,Summer,2011.0,Casual,footwear,0.0,Relaxed,yellow,False,False,299,449,30,4002.jpg
+4075,Numero Uno Women Green Shoe,Numero Uno,Women,Footwear,Shoes,Casual Shoes,Green,Summer,2011.0,Casual,footwear,1.0,Casual,green,False,False,1899,2749,30,4075.jpg
+4078,Numero Uno Women Pupmo Purple Shoe,Numero Uno,Women,Footwear,Shoes,Casual Shoes,Purple,Summer,2011.0,Casual,footwear,1.0,Casual,purple,False,False,2049,2949,30,4078.jpg
+4101,Puma Women Green Navy Baby Blue Floater,Puma,Women,Footwear,Sandal,Sports Sandals,Green,Summer,2011.0,Sports,footwear,0.25,Relaxed,green,False,False,1449,2449,40,4101.jpg
+4340,Fila Men Phoenix Red Shoes,Fila,Men,Footwear,Shoes,Casual Shoes,Red,Summer,2011.0,Sports,footwear,0.75,Casual,red,False,False,2699,2699,0,4340.jpg
+4346,Fila Men's Dusk Brown Flip Flop,Fila,Men,Footwear,Flip Flops,Flip Flops,Brown,Summer,2011.0,Sports,footwear,0.0,Relaxed,brown,True,False,299,749,60,4346.jpg
+4449,Nike Unisex Dry Fit Navy Blue Cap,Nike,Unisex,Accessories,Headwear,Caps,Navy Blue,Summer,2011.0,Casual,accessory,0.5,Relaxed,blue,True,False,449,1149,60,4449.jpg
+4468,Puma Men's Vibrant White Black Red Shoe,Puma,Men,Footwear,Shoes,Casual Shoes,White,Summer,2011.0,Sports,footwear,0.75,Casual,neutral,True,False,1699,3399,50,4468.jpg
+4567,Nike Unisex Triplefin Tho Flip Flop,Nike,Unisex,Footwear,Flip Flops,Flip Flops,Black,Summer,2011.0,Sports,footwear,0.0,Relaxed,neutral,True,False,649,1099,40,4567.jpg
+4582,Wildcraft Unisex Orange Daypack A4 Backpack,Wildcraft,Unisex,Accessories,Bags,Backpacks,Orange,Winter,2018.0,Casual,accessory,1.0,Casual,orange,False,False,2299,3299,30,4582.jpg
+4593,Wildcraft Unisex Olive & Black Backpack,Wildcraft,Unisex,Accessories,Bags,Backpacks,Olive,Winter,2015.0,Casual,accessory,1.0,Casual,green,False,False,1299,2199,40,4593.jpg
+4595,Wildcraft Men Blue & Black Backpack,Wildcraft,Men,Accessories,Bags,Backpacks,Blue,Winter,2015.0,Casual,accessory,1.0,Casual,blue,False,False,1549,3899,60,4595.jpg
+4599,Wildcraft Unisex Green & Grey Duffel Bag,Wildcraft,Unisex,Accessories,Bags,Duffel Bag,Green,Winter,2015.0,Casual,accessory,1.0,Casual,green,False,False,3099,3099,0,4599.jpg
+4605,Wildcraft Women Green Wiki Backpack,Wildcraft,Women,Accessories,Bags,Backpacks,Green,Winter,2015.0,Casual,accessory,1.0,Casual,green,False,False,2099,2099,0,4605.jpg
+4647,ADIDAS Men Neo Feather Lead Red Sandal,ADIDAS,Men,Footwear,Sandal,Sandals,Blue,Summer,2011.0,Sports,footwear,0.25,Relaxed,blue,False,False,1599,3999,60,4647.jpg
+4773,ADIDAS Women 3S Blue Capri,ADIDAS,Women,Apparel,Bottomwear,Capris,Blue,Summer,2011.0,Sports,bottom,0.75,Casual,blue,False,False,449,649,30,4773.jpg
+4847,ADIDAS Men Revo Black Jacket,ADIDAS,Men,Apparel,Topwear,Jackets,Black,Summer,2011.0,Casual,outerwear,1.0,Casual,neutral,True,False,2099,4199,50,4847.jpg
+4852,Newfeel Unisex Purple White Shoes,Newfeel,Unisex,Footwear,Shoes,Casual Shoes,Purple,Summer,2012.0,Casual,footwear,1.0,Casual,purple,False,False,2849,2849,0,4852.jpg
+4855,Newfeel Unisex Pink Grey Shoes,Newfeel,Unisex,Footwear,Shoes,Casual Shoes,Pink,Summer,2012.0,Casual,footwear,1.0,Casual,pink,False,False,2949,4249,30,4855.jpg
+5107,Wrangler Women Holly Checks Shirt,Wrangler,Women,Apparel,Topwear,Shirts,Yellow,Summer,2011.0,Casual,top,1.5,Smart Casual,yellow,False,False,1399,1999,30,5107.jpg
+5111,Wrangler Women Ditsy Polka Blue Grey Shirt,Wrangler,Women,Apparel,Topwear,Shirts,Blue,Summer,2011.0,Casual,top,1.5,Smart Casual,blue,False,False,1799,3599,50,5111.jpg
+5127,Wrangler Women Holly Checks Shirt,Wrangler,Women,Apparel,Topwear,Shirts,Red,Summer,2011.0,Casual,top,1.5,Smart Casual,red,False,False,999,999,0,5127.jpg
+5217,Wildcraft Unisex Brown & Black Backpack,Wildcraft,Unisex,Accessories,Bags,Backpacks,Brown,Winter,2015.0,Casual,accessory,1.0,Casual,brown,True,False,2349,2349,0,5217.jpg
+5227,Wildcraft Unisex Blue Duffel Bag,Wildcraft,Unisex,Accessories,Bags,Duffel Bag,Blue,Winter,2015.0,Casual,accessory,1.0,Casual,blue,False,False,2249,2249,0,5227.jpg
+5257,Quechua Unisex Purple Flame Backpack,Quechua,Unisex,Accessories,Bags,Backpacks,Purple,Summer,2011.0,Casual,accessory,1.0,Casual,purple,False,False,1499,3749,60,5257.jpg
+5300,Reebok Unisex Athletic Yellow Backpack,Reebok,Unisex,Accessories,Bags,Backpacks,Yellow,Summer,2011.0,Casual,accessory,1.0,Casual,yellow,False,False,749,749,0,5300.jpg
+5559,Reebok Men Reversible Blue & Yellow Jacket,Reebok,Men,Apparel,Topwear,Jackets,Yellow,Summer,2011.0,Casual,outerwear,1.0,Casual,yellow,False,False,2449,3099,20,5559.jpg
+5560,Reebok Men Sport Revesable Black Green Jacket,Reebok,Men,Apparel,Topwear,Jackets,Green,Summer,2011.0,Sports,outerwear,0.75,Casual,green,False,False,2699,3399,20,5560.jpg
+5630,ADIDAS Women's Adi Groove Blue Flip Flop,ADIDAS,Women,Footwear,Flip Flops,Flip Flops,Blue,Summer,2011.0,Casual,footwear,0.0,Relaxed,blue,False,False,499,999,50,5630.jpg
+5766,Jealous 21 Women Black Jegging,Jealous 21,Women,Apparel,Bottomwear,Jeans,Black,Summer,2011.0,Casual,bottom,1.0,Casual,neutral,True,False,2299,2899,20,5766.jpg
+5768,Jealous 21 Women Dark Blue Jeggning,Jealous 21,Women,Apparel,Bottomwear,Jeans,Blue,Summer,2011.0,Casual,bottom,1.0,Casual,blue,False,False,999,999,0,5768.jpg
+5873,Converse Uniex As Floral Print Ox Brown Shoe,Converse Uniex,Unisex,Footwear,Shoes,Casual Shoes,Brown,Summer,2011.0,Casual,footwear,1.0,Casual,brown,True,False,2299,4599,50,5873.jpg
+5883,Converse Unisex Speciality Ox Rust Shoe,Converse,Unisex,Footwear,Shoes,Casual Shoes,Orange,Summer,2011.0,Casual,footwear,1.0,Casual,orange,False,False,1599,3999,60,5883.jpg
+5954,Locomotive Men Pink Stripe Shirt,Locomotive,Men,Apparel,Topwear,Shirts,Pink,Summer,2011.0,Casual,top,1.5,Smart Casual,pink,False,False,1399,2349,40,5954.jpg
+5955,Locomotive Men Yellow Checked Shirt,Locomotive,Men,Apparel,Topwear,Shirts,Yellow,Summer,2011.0,Casual,top,1.5,Smart Casual,yellow,False,False,649,649,0,5955.jpg
+6124,Puma Men Motion MR Black  Shoulder Bag,Puma,Men,Accessories,Bags,Backpacks,Black,Summer,2011.0,Casual,accessory,1.0,Casual,neutral,True,False,1999,4999,60,6124.jpg
+6317,Catwalk Pink Slip-On Shoe,Catwalk Pink,Women,Footwear,Shoes,Casual Shoes,Pink,Winter,2015.0,Casual,footwear,1.0,Casual,pink,False,False,2549,6399,60,6317.jpg
+6392,Lotto Women Sofia Blue Black Floater,Lotto,Women,Footwear,Shoes,Flats,Blue,Summer,2011.0,Casual,footwear,1.0,Casual,blue,False,False,1049,2099,50,6392.jpg
+6559,Nike Unisex All Access HA Pink Backpack,Nike,Unisex,Accessories,Bags,Backpacks,Pink,Summer,2011.0,Casual,accessory,1.0,Casual,pink,False,False,899,1499,40,6559.jpg
+6566,Nike Men's Green Shorts,Nike,Men,Apparel,Bottomwear,Shorts,Green,Summer,2011.0,Sports,bottom,0.0,Relaxed,green,False,False,749,1249,40,6566.jpg
+6609,Spykar Men's Stripes White Top,Spykar,Men,Apparel,Topwear,Tops,White,Summer,2011.0,Casual,top,1.0,Casual,neutral,True,False,1099,1599,30,6609.jpg
+6657,Nike Women's Butterfly Thong Brown Flip Flop,Nike,Women,Footwear,Flip Flops,Flip Flops,Brown,Summer,2011.0,Casual,footwear,0.0,Relaxed,brown,True,False,399,399,0,6657.jpg
+6658,Nike Women Dunk Low Light Brown Shoe,Nike,Women,Footwear,Shoes,Casual Shoes,Brown,Summer,2011.0,Casual,footwear,1.0,Casual,brown,True,False,3099,3899,20,6658.jpg
+6785,Timberland Men Falmouth Cycling Jac Red Jacket,Timberland,Men,Apparel,Topwear,Jackets,Red,Summer,2011.0,Casual,outerwear,1.0,Casual,red,False,False,3649,3649,0,6785.jpg
+6807,Timberland Men's Prem Wheat Yellow Shoe,Timberland,Men,Footwear,Shoes,Casual Shoes,Yellow,Fall,2012.0,Casual,footwear,1.0,Casual,yellow,False,False,2899,4849,40,6807.jpg
+6808,Timberland Women's Prem Wheat Yellow Shoe,Timberland,Women,Footwear,Shoes,Casual Shoes,Yellow,Summer,2011.0,Casual,footwear,1.0,Casual,yellow,False,False,1799,1799,0,6808.jpg
+6863,Forever New Women Length Legging Black Capri,Forever New,Women,Apparel,Bottomwear,Capris,Black,Summer,2011.0,Ethnic,bottom,2.0,Smart Casual,neutral,True,True,1299,1299,0,6863.jpg
+6868,Forever New Women's Waterfall Sleeve Shift Black Dress,Forever New,Women,Apparel,Dress,Dresses,Black,Summer,2011.0,Casual,onepiece,1.0,Casual,neutral,True,False,2949,7399,60,6868.jpg
+6870,Forever New Women's Pink Dress,Forever New,Women,Apparel,Dress,Dresses,Pink,Summer,2011.0,Casual,onepiece,1.0,Casual,pink,False,False,1199,1999,40,6870.jpg
+6876,Forever New Women Peach Jacket,Forever New,Women,Apparel,Topwear,Jackets,Peach,Summer,2011.0,Casual,outerwear,1.0,Casual,pink,False,False,3299,8249,60,6876.jpg
+6880,Forever New Women Long Black Jacket,Forever New,Women,Apparel,Topwear,Jackets,Black,Summer,2011.0,Casual,outerwear,1.0,Casual,neutral,True,False,2549,6399,60,6880.jpg
+6885,Forever New Women Dye Crochet White Dress,Forever New,Women,Apparel,Dress,Dresses,White,Summer,2011.0,Casual,onepiece,1.0,Casual,neutral,True,False,1149,1949,40,6885.jpg
+6896,Forever New Women Black Trouser,Forever New,Women,Apparel,Bottomwear,Trousers,Black,Summer,2011.0,Casual,bottom,1.5,Smart Casual,neutral,True,False,1349,2249,40,6896.jpg
+6969,s.Oliver Women's Green Blouse Shirt,s.Oliver,Women,Apparel,Topwear,Shirts,Green,Summer,2011.0,Casual,top,1.5,Smart Casual,green,False,False,1999,4999,60,6969.jpg
+6977,s.Oliver Men Pin Striped Olive Green Cargo Shorts,s.Oliver,Men,Apparel,Bottomwear,Shorts,Green,Summer,2011.0,Casual,bottom,0.25,Relaxed,green,False,False,999,999,0,6977.jpg
+7136,Urban Yoga Men Bottom Olive Green Yoga Pants,Urban Yoga,Men,Apparel,Bottomwear,Track Pants,Green,Fall,2011.0,Casual,bottom,0.25,Relaxed,green,False,False,1199,1999,40,7136.jpg
+7142,Scullers For Her Women Light Work Purple Check Shirts,Scullers For,Women,Apparel,Topwear,Shirts,Purple,Fall,2011.0,Casual,top,1.5,Smart Casual,purple,False,False,1299,1899,30,7142.jpg
+7192,Jealous 21 Women Brown Jeggings,Jealous 21,Women,Apparel,Bottomwear,Jeans,Brown,Fall,2011.0,Casual,bottom,1.0,Casual,brown,True,False,1949,1949,0,7192.jpg
+7409,W Women Round Neck Short Sleeve Pink Kurta,W,Women,Apparel,Topwear,Kurtas,Pink,Summer,2011.0,Ethnic,top,2.0,Smart Casual,pink,False,True,1199,1199,0,7409.jpg
+7410,W Women Deep U Neck-Yarn Dyed Red Kurta,W,Women,Apparel,Topwear,Kurtas,Red,Summer,2011.0,Ethnic,top,2.0,Smart Casual,red,False,True,1499,1899,20,7410.jpg
+7411,W Women V Neck Short Sleeve Purple Kurta,W,Women,Apparel,Topwear,Kurtas,Purple,Summer,2011.0,Ethnic,top,2.0,Smart Casual,purple,False,True,1049,1749,40,7411.jpg
+7414,W Women V Neck Sleeve Black Kurta,W,Women,Apparel,Topwear,Kurtas,Black,Summer,2011.0,Ethnic,top,2.0,Smart Casual,neutral,True,True,1149,1949,40,7414.jpg
+7416,W Women V Neck Solid Short Sleeve White Kurta,W,Women,Apparel,Topwear,Kurtas,White,Summer,2011.0,Ethnic,top,2.0,Smart Casual,neutral,True,True,1649,1649,0,7416.jpg
+7417,W Women Sqaure Neck Short Sleeve Blue Kurta,W,Women,Apparel,Topwear,Kurtas,Blue,Summer,2011.0,Ethnic,top,2.0,Smart Casual,blue,False,True,749,1099,30,7417.jpg
+7418,W Women Mandarin Neck-Yarn Dyed Green Kurta,W,Women,Apparel,Topwear,Kurtas,Green,Summer,2011.0,Ethnic,top,2.0,Smart Casual,green,False,True,599,749,20,7418.jpg
+7429,W Women's Round Neck Sleeveless Pink Top,W,Women,Apparel,Topwear,Kurtas,Pink,Summer,2011.0,Casual,top,1.0,Casual,pink,False,True,649,949,30,7429.jpg
+7433,Proline Men Navy Shorts,Proline,Men,Apparel,Bottomwear,Shorts,Navy Blue,Summer,2011.0,Casual,bottom,0.25,Relaxed,blue,True,False,849,2149,60,7433.jpg
+7617,Wrangler Men Green Canvas Cap,Wrangler,Men,Accessories,Headwear,Caps,Green,Summer,2011.0,Casual,accessory,0.5,Relaxed,green,False,False,299,299,0,7617.jpg
+7619,Wrangler Men Light Blue Canvas Cap,Wrangler,Men,Accessories,Headwear,Caps,Blue,Summer,2011.0,Casual,accessory,0.5,Relaxed,blue,False,False,549,799,30,7619.jpg
+7624,Wrangler Men Dusky Rose Leather Belt,Wrangler,Men,Accessories,Belts,Belts,Brown,Summer,2011.0,Casual,accessory,1.0,Casual,brown,True,False,649,849,20,7624.jpg
+7736,Puma Men Ferrari Lifestyle Red Cap,Puma,Men,Accessories,Headwear,Caps,Red,Fall,2011.0,Casual,accessory,0.5,Relaxed,red,False,False,599,999,40,7736.jpg
+7890,Proline Men Brown Track Pants,Proline,Men,Apparel,Bottomwear,Track Pants,Brown,Fall,2011.0,Casual,bottom,0.25,Relaxed,brown,True,False,799,799,0,7890.jpg
+7896,Proline Men Blue Shorts,Proline,Men,Apparel,Bottomwear,Shorts,Blue,Fall,2011.0,Casual,bottom,0.25,Relaxed,blue,False,False,1149,1649,30,7896.jpg
+7898,Proline Men Red Shorts,Proline,Men,Apparel,Bottomwear,Shorts,Red,Fall,2011.0,Casual,bottom,0.25,Relaxed,red,False,False,1149,1949,40,7898.jpg
+7902,Proline Men Brown & Blue Checked Shorts,Proline,Men,Apparel,Bottomwear,Shorts,Brown,Fall,2011.0,Casual,bottom,0.25,Relaxed,brown,True,False,1149,1949,40,7902.jpg
+7957,Puma Women's USP Chest Cat Blue Top,Puma,Women,Apparel,Topwear,Tops,Green,Fall,2011.0,Sports,top,0.75,Casual,green,False,False,949,1599,40,7957.jpg
+8114,Fastrack Men Military Canvas Belt,Fastrack,Men,Accessories,Belts,Belts,Green,Winter,2016.0,Casual,accessory,1.0,Casual,green,False,False,699,1399,50,8114.jpg
+8222,Fastrack Men Red Nylon Backpack,Fastrack,Men,Accessories,Bags,Backpacks,Red,Winter,2016.0,Casual,accessory,1.0,Casual,red,False,False,1449,1449,0,8222.jpg
+8231,Fastrack Men Green Laptop Backpack,Fastrack,Men,Accessories,Bags,Backpacks,Green,Winter,2016.0,Casual,accessory,1.0,Casual,green,False,False,949,1899,50,8231.jpg
+8395,ADIDAS Men Sf Str Slv Fs Ca Grey Sweaters,ADIDAS,Men,Apparel,Topwear,Sweaters,Grey,Fall,2011.0,Sports,top,0.75,Casual,neutral,True,False,1499,2499,40,8395.jpg
+8483,Forever New Women Creme de Menthe Blue Dresses,Forever New,Women,Apparel,Dress,Dresses,Blue,Fall,2011.0,Casual,onepiece,1.0,Casual,blue,False,False,1349,2249,40,8483.jpg
+8484,Forever New Women Floral Purple Dress,Forever New,Women,Apparel,Dress,Dresses,Purple,Fall,2011.0,Casual,onepiece,1.0,Casual,purple,False,False,2249,2249,0,8484.jpg
+8500,Forever New Women GeoPrint Multi Coloured Dress,Forever New,Women,Apparel,Dress,Dresses,Multi,Fall,2011.0,Casual,onepiece,1.0,Casual,multi,False,False,2749,3949,30,8500.jpg
+8748,Indigo Nation Men Plain Orange Shirts,Indigo Nation,Men,Apparel,Topwear,Shirts,Orange,Fall,2011.0,Casual,top,1.5,Smart Casual,orange,False,False,1499,2999,50,8748.jpg
+8787,Indigo Nation Men Price catch Green White Shirts,Indigo Nation,Men,Apparel,Topwear,Shirts,White,Fall,2011.0,Formal,top,3.5,Formal,neutral,True,False,2499,2499,0,8787.jpg
+8788,Indigo Nation Men Price catch Red White Shirts,Indigo Nation,Men,Apparel,Topwear,Shirts,White,Fall,2011.0,Formal,top,3.5,Formal,neutral,True,False,1849,3099,40,8788.jpg
+8791,Indigo Nation Men Price catch Blue White Shirts,Indigo Nation,Men,Apparel,Topwear,Shirts,Blue,Fall,2011.0,Formal,top,3.5,Formal,blue,False,False,1949,2449,20,8791.jpg
+8832,Spykar Men Rts Grey White Pullover Grey Sweaters,Spykar,Men,Apparel,Topwear,Sweaters,Grey,Fall,2011.0,Casual,top,1.0,Casual,neutral,True,False,2199,2749,20,8832.jpg
+8834,Scullers Men Scul Brown Trousers,Scullers,Men,Apparel,Bottomwear,Trousers,Brown,Summer,2011.0,Formal,bottom,3.5,Formal,brown,True,False,2099,3499,40,8834.jpg
+8835,Scullers Men Scul Green Trousers,Scullers,Men,Apparel,Bottomwear,Trousers,Green,Summer,2011.0,Formal,bottom,3.5,Formal,green,False,False,2549,6399,60,8835.jpg
+8837,Scullers Men Scul Cream Trousers,Scullers,Men,Apparel,Bottomwear,Trousers,Cream,Summer,2011.0,Casual,bottom,1.5,Smart Casual,neutral,True,False,1149,1649,30,8837.jpg
+8844,Scullers Men Scul Brown Trousers,Scullers,Men,Apparel,Bottomwear,Trousers,Brown,Summer,2011.0,Casual,bottom,1.5,Smart Casual,brown,True,False,1599,1999,20,8844.jpg
+8881,Scullers Men Scul Navy Blue Trousers,Scullers,Men,Apparel,Bottomwear,Trousers,Navy Blue,Summer,2011.0,Casual,bottom,1.5,Smart Casual,blue,True,False,999,1449,30,8881.jpg
+8882,Scullers Men Scul Navy Blue Trousers,Scullers,Men,Apparel,Bottomwear,Trousers,Navy Blue,Summer,2011.0,Formal,bottom,3.5,Formal,blue,True,False,1499,2999,50,8882.jpg
+8883,Scullers Men Scul Grey Trousers,Scullers,Men,Apparel,Bottomwear,Trousers,Grey,Fall,2011.0,Formal,bottom,3.5,Formal,neutral,True,False,1049,2099,50,8883.jpg
+8884,Scullers Men Scul Cream Trousers,Scullers,Men,Apparel,Bottomwear,Trousers,Cream,Summer,2011.0,Formal,bottom,3.5,Formal,neutral,True,False,2999,2999,0,8884.jpg
+8885,Scullers Men Scul Green Trousers,Scullers,Men,Apparel,Bottomwear,Trousers,Green,Summer,2011.0,Formal,bottom,3.5,Formal,green,False,False,1049,1349,20,8885.jpg
+8887,John Miller Men Pink Shirt,John Miller,Men,Apparel,Topwear,Shirts,Pink,Fall,2011.0,Formal,top,3.5,Formal,pink,False,False,1599,1999,20,8887.jpg
+8888,John Miller Men Solid Pink Shirt,John Miller,Men,Apparel,Topwear,Shirts,Pink,Fall,2011.0,Formal,top,3.5,Formal,pink,False,False,2299,3299,30,8888.jpg
+8892,Scullers Men Navy Blue Trousers,Scullers,Men,Apparel,Bottomwear,Trousers,Navy Blue,Fall,2011.0,Formal,bottom,3.5,Formal,blue,True,False,2849,5699,50,8892.jpg
+8901,Indigo Nation Men PV stretch Grey Trousers,Indigo Nation,Men,Apparel,Bottomwear,Trousers,Grey,Fall,2011.0,Formal,bottom,3.5,Formal,neutral,True,False,2649,2649,0,8901.jpg
+8903,Indigo Nation Men Textura Olive Trousers,Indigo Nation,Men,Apparel,Bottomwear,Trousers,Olive,Fall,2011.0,Formal,bottom,3.5,Formal,green,False,False,1949,4899,60,8903.jpg
+8905,Indigo Nation Men Textura Brown Trousers,Indigo Nation,Men,Apparel,Bottomwear,Trousers,Brown,Fall,2011.0,Formal,bottom,3.5,Formal,brown,True,False,2549,2549,0,8905.jpg
+8928,Puma Men Ferrari Replica Red Belt,Puma,Men,Accessories,Belts,Belts,Red,Summer,2012.0,Casual,accessory,1.0,Casual,red,False,False,1249,3149,60,8928.jpg
+8937,Scullers Men Scul Brown Trousers,Scullers,Men,Apparel,Bottomwear,Trousers,Brown,Summer,2011.0,Formal,bottom,3.5,Formal,brown,True,False,1749,1749,0,8937.jpg
+8948,Indigo Nation Men ID Printed Navy Blue Trousers,Indigo Nation,Men,Apparel,Bottomwear,Trousers,Navy Blue,Fall,2011.0,Formal,bottom,3.5,Formal,blue,True,False,2949,4949,40,8948.jpg
+8950,Indigo Nation Men ID Yarn Dyed Olive Trousers,Indigo Nation,Men,Apparel,Bottomwear,Trousers,Olive,Fall,2011.0,Casual,bottom,1.5,Smart Casual,green,False,False,1349,2699,50,8950.jpg
+8951,Indigo Nation Men ID Yarn Dyed Black Trousers,Indigo Nation,Men,Apparel,Bottomwear,Trousers,Black,Fall,2011.0,Casual,bottom,1.5,Smart Casual,neutral,True,False,1499,2149,30,8951.jpg
+8954,Indigo Nation Men PV stretch Brown Trousers,Indigo Nation,Men,Apparel,Bottomwear,Trousers,Brown,Fall,2011.0,Formal,bottom,3.5,Formal,brown,True,False,1999,2499,20,8954.jpg
+9016,Fastrack Unisex Khaki Brown Canvas Belts,Fastrack,Unisex,Accessories,Belts,Belts,Brown,Winter,2016.0,Casual,accessory,1.0,Casual,brown,True,False,649,949,30,9016.jpg
+9017,Fastrack Unisex Non Leather Brown Belts,Fastrack,Unisex,Accessories,Belts,Belts,Black,Winter,2016.0,Casual,accessory,1.0,Casual,neutral,True,False,449,449,0,9017.jpg
+9022,Buckaroo Men Frio Multi Flip Flops,Buckaroo,Men,Footwear,Flip Flops,Flip Flops,Multi,Winter,2011.0,Casual,footwear,0.0,Relaxed,multi,False,False,549,549,0,9022.jpg
+9064,Mark Taylor Men Blue Striped Shirt,Mark Taylor,Men,Apparel,Topwear,Shirts,Blue,Fall,2011.0,Formal,top,3.5,Formal,blue,False,False,1599,1599,0,9064.jpg
+9065,Mark Taylor Men Blue Striped Shirt,Mark Taylor,Men,Apparel,Topwear,Shirts,Blue,Fall,2011.0,Formal,top,3.5,Formal,blue,False,False,2399,3999,40,9065.jpg
+9116,Puma Women Ikonis 2 White Sports Shoes,Puma,Women,Footwear,Shoes,Casual Shoes,White,Fall,2011.0,Sports,footwear,0.75,Casual,neutral,True,False,1149,2299,50,9116.jpg
+9158,Locomotive Men Cade Black Jeans,Locomotive,Men,Apparel,Bottomwear,Jeans,Black,Fall,2011.0,Casual,bottom,1.0,Casual,neutral,True,False,2549,3199,20,9158.jpg
+9160,Locomotive Men Cal Grey Jeans,Locomotive,Men,Apparel,Bottomwear,Jeans,Grey,Fall,2011.0,Casual,bottom,1.0,Casual,neutral,True,False,999,999,0,9160.jpg
+9161,Locomotive Men Cairo Blue Jeans,Locomotive,Men,Apparel,Bottomwear,Jeans,Blue,Fall,2011.0,Casual,bottom,1.0,Casual,blue,False,False,2549,2549,0,9161.jpg
+9162,Locomotive Men Callum Blue Jeans,Locomotive,Men,Apparel,Bottomwear,Jeans,Blue,Fall,2011.0,Casual,bottom,1.0,Casual,blue,False,False,1149,1449,20,9162.jpg
+9211,Puma Men Silly Point Orange Casual Shoes,Puma,Men,Footwear,Shoes,Casual Shoes,Orange,Fall,2011.0,Casual,footwear,1.0,Casual,orange,False,False,1549,2249,30,9211.jpg
+9236,Mark Taylor Men Brown Striped Shirt,Mark Taylor,Men,Apparel,Topwear,Shirts,Brown,Fall,2011.0,Formal,top,3.5,Formal,brown,True,False,2199,2199,0,9236.jpg
+9239,Mark Taylor Men Green Striped Shirt,Mark Taylor,Men,Apparel,Topwear,Shirts,Green,Fall,2011.0,Formal,top,3.5,Formal,green,False,False,1049,1349,20,9239.jpg
+9248,Mark Taylor Men Purple Striped Shirt,Mark Taylor,Men,Apparel,Topwear,Shirts,Purple,Fall,2011.0,Formal,top,3.5,Formal,purple,False,False,1449,1449,0,9248.jpg
+9250,Mark Taylor Men Red Striped Shirt,Mark Taylor,Men,Apparel,Topwear,Shirts,Red,Fall,2011.0,Formal,top,3.5,Formal,red,False,False,1549,1949,20,9250.jpg
+9251,Mark Taylor Men Green Striped Shirt,Mark Taylor,Men,Apparel,Topwear,Shirts,Green,Fall,2011.0,Formal,top,3.5,Formal,green,False,False,1399,1749,20,9251.jpg
+9252,Mark Taylor Men Brown Striped Shirt,Mark Taylor,Men,Apparel,Topwear,Shirts,Brown,Fall,2011.0,Formal,top,3.5,Formal,brown,True,False,2149,3099,30,9252.jpg
+9253,Mark Taylor Men Purple Striped Shirt,Mark Taylor,Men,Apparel,Topwear,Shirts,Purple,Fall,2011.0,Formal,top,3.5,Formal,purple,False,False,899,899,0,9253.jpg
+9261,Mark Taylor Men Red Striped Shirt,Mark Taylor,Men,Apparel,Topwear,Shirts,Red,Fall,2011.0,Formal,top,3.5,Formal,red,False,False,799,999,20,9261.jpg
+9343,Puma Men Chino Brown Shorts,Puma,Men,Apparel,Bottomwear,Shorts,Brown,Fall,2011.0,Casual,bottom,0.25,Relaxed,brown,True,False,699,1399,50,9343.jpg
+9428,Carlton London Women ManTara Black Sandals,Carlton London,Women,Footwear,Shoes,Flats,Black,Summer,2011.0,Sports,footwear,0.75,Casual,neutral,True,False,699,699,0,9428.jpg
+9573,Puma Women Fitness Large Hobo Purple Backpacks,Puma,Women,Accessories,Bags,Backpacks,Purple,Fall,2011.0,Casual,accessory,1.0,Casual,purple,False,False,1349,3399,60,9573.jpg
+9874,Spykar Men Rts Style Live Ride Navy Blue Sweaters,Spykar,Men,Apparel,Topwear,Sweaters,Navy Blue,Fall,2011.0,Casual,top,1.0,Casual,blue,True,False,1349,3399,60,9874.jpg
+9902,Spykar Men Skinny Low Waist Tight Fit Blue Jeans,Spykar,Men,Apparel,Bottomwear,Jeans,Navy Blue,Fall,2011.0,Casual,bottom,1.0,Casual,blue,True,False,2299,3849,40,9902.jpg
+9911,Puma Women Fitness Large Hobo Black Backpacks,Puma,Women,Accessories,Bags,Backpacks,Black,Fall,2011.0,Casual,accessory,1.0,Casual,neutral,True,False,1849,2649,30,9911.jpg
+9945,ADIDAS Men Frnt Str Navy Blue Sweaters,ADIDAS,Men,Apparel,Topwear,Sweaters,Navy Blue,Fall,2011.0,Sports,top,0.75,Casual,blue,True,False,1699,1699,0,9945.jpg
+9971,Nike Men As Squad Ft C Blue Sweatshirts,Nike,Men,Apparel,Topwear,Sweatshirts,Blue,Fall,2011.0,Sports,top,0.25,Relaxed,blue,False,False,1649,2399,30,9971.jpg
+9993,Urban Yoga Women Anga Beige Leggings,Urban Yoga,Women,Apparel,Bottomwear,Leggings,Beige,Fall,2011.0,Casual,bottom,1.0,Casual,neutral,True,False,699,1199,40,9993.jpg
+10017,Nike Women As The Windru Blue Jackets,Nike,Women,Apparel,Topwear,Jackets,Blue,Fall,2011.0,Sports,outerwear,0.75,Casual,blue,False,False,3849,5499,30,10017.jpg
+10029,Nike Women As Script Mas Navy Blue Sweatshirts,Nike,Women,Apparel,Topwear,Sweatshirts,Navy Blue,Fall,2011.0,Sports,top,0.25,Relaxed,blue,True,False,1249,2099,40,10029.jpg
+10258,John Miller Men Line Navy Blue Trousers,John Miller,Men,Apparel,Bottomwear,Trousers,Navy Blue,Fall,2011.0,Formal,bottom,3.5,Formal,blue,True,False,2599,3249,20,10258.jpg
+10297,Clarks Men Black Leather Loafers,Clarks,Men,Footwear,Shoes,Casual Shoes,Black,Fall,2012.0,Smart Casual,footwear,2.0,Smart Casual,neutral,True,False,1749,2949,40,10297.jpg
+10492,Flying Machine Women HS Orange Shirt,Flying Machine,Women,Apparel,Topwear,Shirts,Orange,Fall,2011.0,Casual,top,1.5,Smart Casual,orange,False,False,999,999,0,10492.jpg
+10572,Puma Men Knitted Red Sweaters,Puma,Men,Apparel,Topwear,Sweaters,Red,Fall,2011.0,Casual,top,1.0,Casual,red,False,False,2399,5999,60,10572.jpg
+11077,Scullers Men Stripes Purple Sweaters,Scullers,Men,Apparel,Topwear,Sweaters,Purple,Fall,2011.0,Casual,top,1.0,Casual,purple,False,False,1399,1999,30,11077.jpg
+11093,Scullers Women Knit White Sweaters,Scullers,Women,Apparel,Topwear,Sweaters,White,Fall,2011.0,Casual,top,1.0,Casual,neutral,True,False,999,1999,50,11093.jpg
+11096,Scullers Women Stripes Purple Sweaters,Scullers,Women,Apparel,Topwear,Sweaters,Purple,Fall,2011.0,Casual,top,1.0,Casual,purple,False,False,849,1449,40,11096.jpg
+11151,Indigo Nation Men Check Grey Ties,Indigo Nation,Men,Accessories,Ties,Ties,Grey,Fall,2011.0,Formal,accessory,4.0,Very Formal,neutral,True,False,599,599,0,11151.jpg
+11153,Indigo Nation Men Check Blue Ties,Indigo Nation,Men,Accessories,Ties,Ties,Blue,Fall,2011.0,Formal,accessory,4.0,Very Formal,blue,False,False,699,699,0,11153.jpg
+11156,Indigo Nation Men Check Red Ties,Indigo Nation,Men,Accessories,Ties,Ties,Red,Fall,2011.0,Formal,accessory,4.0,Very Formal,red,False,False,449,449,0,11156.jpg
+11167,John Miller Men Solid Brown Shirts,John Miller,Men,Apparel,Topwear,Shirts,Brown,Fall,2011.0,Formal,top,3.5,Formal,brown,True,False,1749,1749,0,11167.jpg
+11169,Scullers Men Stripes Green Sweaters,Scullers,Men,Apparel,Topwear,Sweaters,Green,Fall,2011.0,Casual,top,1.0,Casual,green,False,False,1049,1049,0,11169.jpg
+11170,Scullers Men Stripes Yellow Sweaters,Scullers,Men,Apparel,Topwear,Sweaters,Yellow,Fall,2011.0,Casual,top,1.0,Casual,yellow,False,False,1649,2099,20,11170.jpg
+11245,Urban Yoga Women Solid Black Churidar,Urban Yoga,Women,Apparel,Bottomwear,Churidar,Black,Fall,2011.0,Ethnic,bottom,2.0,Smart Casual,neutral,True,True,699,1399,50,11245.jpg
+11248,Indigo Nation Men Solid Khaki Trousers,Indigo Nation,Men,Apparel,Bottomwear,Trousers,Khaki,Fall,2011.0,Formal,bottom,3.5,Formal,brown,True,False,1999,1999,0,11248.jpg
+11253,Indigo Nation Men Tro Olive Trousers,Indigo Nation,Men,Apparel,Bottomwear,Trousers,Olive,Fall,2011.0,Formal,bottom,3.5,Formal,green,False,False,1899,1899,0,11253.jpg
+11276,Nike Men Running Maroon Sweatshirt,Nike,Men,Apparel,Topwear,Sweatshirts,Maroon,Fall,2011.0,Sports,top,0.25,Relaxed,red,False,False,1849,4649,60,11276.jpg
+11433,United Colors of Benetton Women Light Winter Mauve Vest,United Colors,Women,Apparel,Topwear,Sweaters,Mauve,Fall,2011.0,Casual,top,1.0,Casual,pink,False,False,1699,1699,0,11433.jpg
+11530,United Colors of Benetton Men Light Winter Green Sweatshirts,United Colors,Men,Apparel,Topwear,Sweatshirts,Green,Fall,2011.0,Casual,top,0.5,Relaxed,green,False,False,1549,1549,0,11530.jpg
+11581,W Women Printed Yellow Kurtas,W,Women,Apparel,Topwear,Kurtas,Yellow,Summer,2011.0,Ethnic,top,2.0,Smart Casual,yellow,False,True,1149,1949,40,11581.jpg
+11612,W Women Solid Brown Kurtas,W,Women,Apparel,Topwear,Kurtas,Brown,Summer,2011.0,Ethnic,top,2.0,Smart Casual,brown,True,True,899,1499,40,11612.jpg
+11788,Vishudh Women Multi Coloured Kurta,Vishudh,Women,Apparel,Topwear,Kurtas,Multi,Fall,2011.0,Ethnic,top,2.0,Smart Casual,multi,False,True,1699,1699,0,11788.jpg
+11874,Franco Leone Men Casual Black Sandals,Franco Leone,Men,Footwear,Shoes,Formal Shoes,Black,Summer,2013.0,Casual,footwear,2.0,Smart Casual,neutral,True,False,1849,1849,0,11874.jpg
+11875,Franco Leone Men Casual Brown Sandals,Franco Leone,Men,Footwear,Shoes,Formal Shoes,Brown,Summer,2013.0,Casual,footwear,2.0,Smart Casual,brown,True,False,1499,3749,60,11875.jpg
+11885,Franco Leone Men Formal Blue Formal Shoes,Franco Leone,Men,Footwear,Shoes,Formal Shoes,Blue,Summer,2011.0,Formal,footwear,4.0,Very Formal,blue,False,False,1649,3299,50,11885.jpg
+11899,Franco Leone Men Formal Maroon Formal Shoes,Franco Leone,Men,Footwear,Shoes,Formal Shoes,Maroon,Fall,2011.0,Formal,footwear,4.0,Very Formal,red,False,False,4249,7099,40,11899.jpg
+11901,Franco Leone Men Formal Maroon Formal Shoes,Franco Leone,Men,Footwear,Shoes,Formal Shoes,Maroon,Fall,2011.0,Formal,footwear,4.0,Very Formal,red,False,False,4599,7699,40,11901.jpg
+11967,Newfeel Unisex Green Shoes,Newfeel,Unisex,Footwear,Shoes,Casual Shoes,White,Spring,2012.0,Sports,footwear,0.75,Casual,neutral,True,False,1799,2999,40,11967.jpg
+12116,Aurelia Women Solid Orange Kurtas,Aurelia,Women,Apparel,Topwear,Kurtas,Orange,Fall,2011.0,Ethnic,top,2.0,Smart Casual,orange,False,True,649,949,30,12116.jpg
+12345,Xoxo Women Maroon Pure Georgette Solid Ready-to-wear Saree,Xoxo,Women,Apparel,Saree,Sarees,Maroon,Spring,2018.0,Ethnic,onepiece,2.75,Formal,red,False,True,1449,2099,30,12345.jpg
+12346,Reebok Women Grey Solid V-Neck T-shirt,Reebok,Women,Apparel,Topwear,Tshirts,Grey,Fall,2011.0,Formal,top,2.0,Smart Casual,neutral,True,False,599,999,40,12346.jpg
+12387,Reid & Taylor Men Stripes Orange Shirts,Reid &,Men,Apparel,Topwear,Shirts,Orange,Fall,2011.0,Formal,top,3.5,Formal,orange,False,False,1399,2799,50,12387.jpg
+12389,Reid & Taylor Men Stripes Green Ties,Reid &,Men,Accessories,Ties,Ties,Green,Fall,2011.0,Formal,accessory,4.0,Very Formal,green,False,False,399,599,30,12389.jpg
+12391,Reid & Taylor Men Printed Lavender Tie,Reid &,Men,Accessories,Ties,Ties,Lavender,Fall,2011.0,Formal,accessory,4.0,Very Formal,purple,False,False,999,1999,50,12391.jpg
+12437,Timberland Unisex Casual Green Caps,Timberland,Unisex,Accessories,Headwear,Caps,Green,Fall,2011.0,Casual,accessory,0.5,Relaxed,green,False,False,549,1399,60,12437.jpg
+12467,Reid & Taylor Men Stripes Brown Ties,Reid &,Men,Accessories,Ties,Ties,Brown,Fall,2011.0,Formal,accessory,4.0,Very Formal,brown,True,False,899,1299,30,12467.jpg
+12533,Puma Women Solid Purple Jackets,Puma,Women,Apparel,Topwear,Jackets,Purple,Fall,2011.0,Casual,outerwear,1.0,Casual,purple,False,False,1849,3699,50,12533.jpg
+12582,Tantra Unisex Printed White Tshirts,Tantra,Unisex,Apparel,Topwear,Tshirts,White,Fall,2011.0,Casual,top,0.75,Casual,neutral,True,False,649,649,0,12582.jpg
+12583,Tantra Unisex Printed Green Tshirts,Tantra,Unisex,Apparel,Topwear,Tshirts,Green,Fall,2011.0,Casual,top,0.75,Casual,green,False,False,649,649,0,12583.jpg
+12585,Tantra Unisex Printed Blue Tshirts,Tantra,Unisex,Apparel,Topwear,Tshirts,Blue,Fall,2011.0,Casual,top,0.75,Casual,blue,False,False,349,349,0,12585.jpg
+12587,Tantra Unisex Printed Brown Tshirts,Tantra,Unisex,Apparel,Topwear,Tshirts,Brown,Fall,2011.0,Casual,top,0.75,Casual,brown,True,False,649,1099,40,12587.jpg
+12598,Tantra Unisex Printed Orange Tshirts,Tantra,Unisex,Apparel,Topwear,Tshirts,Orange,Fall,2011.0,Casual,top,0.75,Casual,orange,False,False,799,799,0,12598.jpg
+12609,Jealous 21 Women Solid Blue Sweaters,Jealous 21,Women,Apparel,Topwear,Sweaters,Blue,Fall,2011.0,Casual,top,1.0,Casual,blue,False,False,1149,1149,0,12609.jpg
+12672,Probase Men Yellow Shorts,Probase,Men,Apparel,Bottomwear,Shorts,Yellow,Fall,2011.0,Casual,bottom,0.25,Relaxed,yellow,False,False,1099,1099,0,12672.jpg
+12719,Nike Women Butterfly Thong Green Flip Flops,Nike,Women,Footwear,Shoes,Flats,Green,Fall,2011.0,Casual,footwear,1.0,Casual,green,False,False,1399,2349,40,12719.jpg
+13095,ADIDAS Men Cfc Auth Hood Green Sweatshirts,ADIDAS,Men,Apparel,Topwear,Sweatshirts,Green,Fall,2011.0,Sports,top,0.25,Relaxed,green,False,False,1749,2499,30,13095.jpg
+13485,Rocia Women Rocia Black Formal Shoe Black Formal Shoes,Rocia,Women,Footwear,Shoes,Heels,Black,Fall,2011.0,Formal,footwear,3.5,Formal,neutral,True,False,1699,1699,0,13485.jpg
+13541,Carlton London Women Casual Purple Sandals,Carlton London,Women,Footwear,Shoes,Flats,Purple,Fall,2011.0,Casual,footwear,1.0,Casual,purple,False,False,1299,1649,20,13541.jpg
+13821,Proline Men Purple & Grey Striped Beanie,Proline,Men,Accessories,Headwear,Caps,Purple,Fall,2011.0,Casual,accessory,0.5,Relaxed,purple,False,False,749,749,0,13821.jpg
+14092,Flying Machine Women Stripes Green Sweaters,Flying Machine,Women,Apparel,Topwear,Sweaters,Green,Fall,2011.0,Casual,top,1.0,Casual,green,False,False,1799,1799,0,14092.jpg
+14108,Flying Machine Men Printed Brown Sweatshirts,Flying Machine,Men,Apparel,Topwear,Sweatshirts,Brown,Fall,2011.0,Casual,top,0.5,Relaxed,brown,True,False,699,999,30,14108.jpg
+14165,Belmonte Men Snake Skin Look Black Belts,Belmonte,Men,Accessories,Belts,Belts,Black,Fall,2011.0,Formal,accessory,3.0,Formal,neutral,True,False,649,849,20,14165.jpg
+14282,Timberland Women Tma All Mtn Low Sports Shoe,Timberland,Women,Footwear,Shoes,Sports Shoes,Brown,Fall,2011.0,Sports,footwear,0.5,Relaxed,brown,True,False,4049,8099,50,14282.jpg
+14391,Catwalk Women Lifestyle Black Wedges,Catwalk,Women,Footwear,Shoes,Heels,Black,Winter,2015.0,Formal,footwear,3.5,Formal,neutral,True,False,1949,2799,30,14391.jpg
+14398,Enroute Women DK.Grey shoes,Enroute,Women,Footwear,Shoes,Casual Shoes,Grey,Summer,2012.0,Formal,footwear,3.0,Formal,neutral,True,False,3149,3949,20,14398.jpg
+14589,United Colors of Benetton Women Solid Brown Belts,United Colors,Women,Accessories,Belts,Belts,Brown,Summer,2011.0,Casual,accessory,1.0,Casual,brown,True,False,499,749,30,14589.jpg
+14628,United Colors of Benetton Women Solid Blue Sweat Shirts,United Colors,Women,Apparel,Topwear,Sweatshirts,Blue,Fall,2011.0,Casual,top,0.5,Relaxed,blue,False,False,1299,1899,30,14628.jpg
+14892,United Colors of Benetton Women Solid Blue Backpacks,United Colors,Women,Accessories,Bags,Backpacks,Blue,Summer,2011.0,Casual,accessory,1.0,Casual,blue,False,False,1199,1499,20,14892.jpg
+14962,Newhide Vintage Wallet,Newhide Vintage,Men,Accessories,Wallets,Wallets,Brown,Fall,2011.0,Formal,accessory,3.0,Formal,brown,True,False,1099,1099,0,14962.jpg
+15040,ADIDAS Men Printed Purple Sweatshirts,ADIDAS,Men,Apparel,Topwear,Sweatshirts,Purple,Fall,2011.0,Casual,top,0.5,Relaxed,purple,False,False,1649,1649,0,15040.jpg
+15083,Mother Earth Men Solid Black Churidar,Mother Earth,Men,Apparel,Bottomwear,Churidar,Black,Fall,2011.0,Ethnic,bottom,2.0,Smart Casual,neutral,True,True,899,1499,40,15083.jpg
+15084,Mother Earth Men Solid White Churidar,Mother Earth,Men,Apparel,Bottomwear,Churidar,White,Fall,2011.0,Ethnic,bottom,2.0,Smart Casual,neutral,True,True,849,1249,30,15084.jpg
+15085,Mother Earth Men Black Printed Kurta,Mother Earth,Men,Apparel,Topwear,Kurtas,Black,Fall,2011.0,Ethnic,top,2.0,Smart Casual,neutral,True,True,799,1149,30,15085.jpg
+15088,Mother Earth Men Printed Black Kurtis,Mother Earth,Men,Apparel,Topwear,Kurtis,Black,Fall,2011.0,Ethnic,top,2.0,Smart Casual,neutral,True,True,1499,1499,0,15088.jpg
+15465,Puma Men Rime Down Vest Green Jackets,Puma,Men,Apparel,Topwear,Jackets,Green,Fall,2011.0,Casual,outerwear,1.0,Casual,green,False,False,3149,7899,60,15465.jpg
+15489,Carlton London Women Black Solid Pumps,Carlton London,Women,Footwear,Shoes,Heels,Black,Spring,2013.0,Formal,footwear,3.5,Formal,neutral,True,False,1949,3249,40,15489.jpg
+15490,Carlton London Women Black Heels,Carlton London,Women,Footwear,Shoes,Heels,Black,Spring,2013.0,Formal,footwear,3.5,Formal,neutral,True,False,1899,4749,60,15490.jpg
+15491,Carlton London Women Nude Heels,Carlton London,Women,Footwear,Shoes,Heels,Nude,Spring,2013.0,Formal,footwear,3.5,Formal,neutral,True,False,1049,1499,30,15491.jpg
+15492,Carlton London Women Black Heels,Carlton London,Women,Footwear,Shoes,Heels,Black,Summer,2015.0,Formal,footwear,3.5,Formal,neutral,True,False,2349,5899,60,15492.jpg
+15499,Carlton London Women Casual Red Stilettos,Carlton London,Women,Footwear,Shoes,Heels,Red,Spring,2013.0,Formal,footwear,3.5,Formal,red,False,False,1549,1549,0,15499.jpg
+15662,Belkin Unisex Black Dash Laptop 16 Toploader Handbag,Belkin,Unisex,Accessories,Bags,Laptop Bag,Black,Fall,2011.0,Formal,accessory,3.0,Formal,neutral,True,False,2349,3399,30,15662.jpg
+15962,Turtle Solid Men Khaki Jacket,Turtle Solid,Men,Apparel,Topwear,Jackets,Khaki,Fall,2011.0,Casual,outerwear,1.0,Casual,brown,True,False,1799,2999,40,15962.jpg
+16385,Peter England Men Stripes Red Shirt,Peter England,Men,Apparel,Topwear,Shirts,Orange,Fall,2011.0,Formal,top,3.5,Formal,orange,False,False,749,749,0,16385.jpg
+16567,AND by Anita Dongre Women Printed Red Dresses,AND by,Women,Apparel,Dress,Dresses,Red,Fall,2011.0,Casual,onepiece,1.0,Casual,red,False,False,2599,2599,0,16567.jpg
+16906,Status Quo Men Solid Maroon Sweatshirt,Status Quo,Men,Apparel,Topwear,Sweatshirts,Maroon,Fall,2011.0,Casual,top,0.5,Relaxed,red,False,False,1299,1299,0,16906.jpg
+16990,United Colors of Benetton Women Solid Red Sweater,United Colors,Women,Apparel,Topwear,Sweaters,Red,Summer,2011.0,Casual,top,1.0,Casual,red,False,False,1449,2449,40,16990.jpg
+17010,Rocia Women Brown Heels,Rocia,Women,Footwear,Shoes,Heels,Brown,Winter,2012.0,Formal,footwear,3.5,Formal,brown,True,False,2749,5499,50,17010.jpg
+17063,Lino Perros Women Floral Design Green Belt,Lino Perros,Women,Accessories,Belts,Belts,Green,Winter,2015.0,Casual,accessory,1.0,Casual,green,False,False,799,799,0,17063.jpg
+17064,Lino Perros Women Weaved  Navy Blue Belt,Lino Perros,Women,Accessories,Belts,Belts,Navy Blue,Winter,2015.0,Casual,accessory,1.0,Casual,blue,True,False,749,1249,40,17064.jpg
+17537,Mark Taylor Men Yellow & Blue Striped Shirt,Mark Taylor,Men,Apparel,Topwear,Shirts,Yellow,Fall,2011.0,Formal,top,3.5,Formal,yellow,False,False,1199,1199,0,17537.jpg
+17771,Reid & Taylor Men Classic Brown Belt,Reid &,Men,Accessories,Belts,Belts,Brown,Fall,2011.0,Formal,accessory,3.0,Formal,brown,True,False,549,549,0,17771.jpg
+17779,Reid & Taylor Men Olive Belt,Reid &,Men,Accessories,Belts,Belts,Olive,Fall,2011.0,Formal,accessory,3.0,Formal,green,False,False,1099,2199,50,17779.jpg
+17782,Reid & Taylor Men Stripes Yellow Tie,Reid &,Men,Accessories,Ties,Ties,Yellow,Fall,2011.0,Formal,accessory,4.0,Very Formal,yellow,False,False,749,1099,30,17782.jpg
+17917,Nike Men Purple Sweatshirt,Nike,Men,Apparel,Topwear,Sweatshirts,Purple,Fall,2011.0,Sports,top,0.25,Relaxed,purple,False,False,849,2149,60,17917.jpg
+17955,Nike Women Stay Cool Blue Cap,Nike,Women,Accessories,Headwear,Caps,Blue,Fall,2011.0,Sports,accessory,0.25,Relaxed,blue,False,False,649,949,30,17955.jpg
+17956,Nike Women Stay Cool Purple Cap,Nike,Women,Accessories,Headwear,Caps,Purple,Fall,2011.0,Sports,accessory,0.25,Relaxed,purple,False,False,699,1399,50,17956.jpg
+18628,Puma Men Knitted Chocolate Brown Sweaters,Puma,Men,Apparel,Topwear,Sweaters,Brown,Fall,2011.0,Casual,top,1.0,Casual,brown,True,False,1349,2249,40,18628.jpg
+18712,Arrow Women Solid Black Skirt,Arrow,Women,Apparel,Bottomwear,Skirts,Black,Fall,2011.0,Formal,bottom,3.0,Formal,neutral,True,False,1749,2499,30,18712.jpg
+18713,Arrow Woman Solid Grey Skirt,Arrow,Women,Apparel,Bottomwear,Skirts,Grey,Fall,2011.0,Formal,bottom,3.0,Formal,neutral,True,False,1599,2699,40,18713.jpg
+18726,Arrow Woman Venetia Brown Sweater,Arrow,Women,Apparel,Topwear,Sweaters,Brown,Fall,2011.0,Casual,top,1.0,Casual,brown,True,False,1449,2449,40,18726.jpg
+18763,Arrow Woman Ariella White Shirt,Arrow,Women,Apparel,Topwear,Shirts,White,Fall,2011.0,Formal,top,3.5,Formal,neutral,True,False,1599,2299,30,18763.jpg
+18880,Arrow Woman Kenzie Purple Shirt,Arrow,Women,Apparel,Topwear,Shirts,Purple,Fall,2011.0,Formal,top,3.5,Formal,purple,False,False,2499,3599,30,18880.jpg
+18885,Arrow Woman Simona Black Shirt,Arrow,Women,Apparel,Topwear,Shirts,Black,Fall,2011.0,Formal,top,3.5,Formal,neutral,True,False,1199,1199,0,18885.jpg
+18889,Arrow Woman Sylvia Blue Shirt,Arrow,Women,Apparel,Topwear,Shirts,Blue,Fall,2011.0,Formal,top,3.5,Formal,blue,False,False,1099,1849,40,18889.jpg
+18891,Arrow Woman Tyra Black & White Striped Shirt,Arrow,Women,Apparel,Topwear,Shirts,Black,Fall,2011.0,Formal,top,3.5,Formal,neutral,True,False,849,2149,60,18891.jpg
+18897,Arrow Woman Solid Green Dress,Arrow,Women,Apparel,Dress,Dresses,Green,Fall,2011.0,Casual,onepiece,1.0,Casual,green,False,False,1199,1999,40,18897.jpg
+18976,ADIDAS Originals Men Firebird Red Track Pants,ADIDAS Originals,Men,Apparel,Bottomwear,Track Pants,Red,Summer,2011.0,Casual,bottom,0.25,Relaxed,red,False,False,699,1749,60,18976.jpg
+19004,ADIDAS Originals Women Firebird Red Jacket,ADIDAS Originals,Women,Apparel,Topwear,Jackets,Red,Summer,2011.0,Casual,outerwear,1.0,Casual,red,False,False,4199,4199,0,19004.jpg
+20139,Wrangler Women Puff Brown Shirt,Wrangler,Women,Apparel,Topwear,Shirts,Brown,Fall,2011.0,Casual,top,1.5,Smart Casual,brown,True,False,1049,1049,0,20139.jpg
+20709,Buckaroo Men Dark Brown Cargo Leather Casual Shoes,Buckaroo,Men,Footwear,Shoes,Casual Shoes,Brown,Summer,2011.0,Smart Casual,footwear,2.0,Smart Casual,brown,True,False,3049,5099,40,20709.jpg
+20711,Red Tape Men Brown Leather Casual Shoes,Red Tape,Men,Footwear,Shoes,Casual Shoes,Brown,Winter,2018.0,Smart Casual,footwear,2.0,Smart Casual,brown,True,False,2849,5699,50,20711.jpg
+20715,Red Tape Men Black Leather Casual Shoes,Red Tape,Men,Footwear,Shoes,Casual Shoes,Black,Winter,2018.0,Smart Casual,footwear,2.0,Smart Casual,neutral,True,False,2899,5799,50,20715.jpg
+20798,Fila Men Madera Orange Flip Flops,Fila,Men,Footwear,Flip Flops,Flip Flops,Orange,Fall,2011.0,Casual,footwear,0.0,Relaxed,orange,False,False,249,249,0,20798.jpg
+20990,Fastrack Unisex Polyester Olive Belt,Fastrack,Unisex,Accessories,Belts,Belts,Olive,Winter,2016.0,Casual,accessory,1.0,Casual,green,False,False,899,1499,40,20990.jpg
+21163,s.Oliver Women Solid Grey Shrug,s.Oliver,Women,Apparel,Topwear,Shrug,Grey,Fall,2011.0,Casual,top,1.0,Casual,neutral,True,False,1099,1599,30,21163.jpg
+21253,Skybags Unisex Brown Duffle Bag,Skybags,Unisex,Accessories,Bags,Duffel Bag,Brown,Fall,2011.0,Casual,accessory,1.0,Casual,brown,True,False,2899,7249,60,21253.jpg
+21436,Roxy Women Pink Backpack,Roxy,Women,Accessories,Bags,Backpacks,Pink,Winter,2012.0,Casual,accessory,1.0,Casual,pink,False,False,1349,1949,30,21436.jpg
+21590,Tribord Men Solid Brown Short,Tribord,Men,Apparel,Bottomwear,Shorts,Brown,Summer,2011.0,Sports,bottom,0.0,Relaxed,brown,True,False,1199,1999,40,21590.jpg
+22454,Myntra Women Red Leggings,Myntra,Women,Apparel,Bottomwear,Leggings,Red,Fall,2011.0,Casual,bottom,1.0,Casual,red,False,False,599,999,40,22454.jpg
+22456,Myntra Women Blue Leggings,Myntra,Women,Apparel,Bottomwear,Leggings,Blue,Fall,2011.0,Casual,bottom,1.0,Casual,blue,False,False,349,899,60,22456.jpg
+22458,Myntra Women Pink Leggings,Myntra,Women,Apparel,Bottomwear,Leggings,Pink,Fall,2011.0,Casual,bottom,1.0,Casual,pink,False,False,499,849,40,22458.jpg
+22459,Myntra Women Purple Leggings,Myntra,Women,Apparel,Bottomwear,Leggings,Purple,Fall,2011.0,Casual,bottom,1.0,Casual,purple,False,False,399,799,50,22459.jpg
+22462,Myntra Women Mustard Leggings,Myntra,Women,Apparel,Bottomwear,Leggings,Mustard,Fall,2011.0,Casual,bottom,1.0,Casual,yellow,False,False,249,249,0,22462.jpg
+22581,Nike Women Solid Purple Sweatshirt,Nike,Women,Apparel,Topwear,Sweatshirts,Purple,Fall,2011.0,Sports,top,0.25,Relaxed,purple,False,False,949,1399,30,22581.jpg
+22821,Woodland Men Brown Trekking Shoes,Woodland,Men,Footwear,Shoes,Casual Shoes,Brown,Summer,2016.0,Sports,footwear,0.75,Casual,brown,True,False,2149,5399,60,22821.jpg
+23044,Arrow Woman Brown Jeggings,Arrow,Women,Apparel,Bottomwear,Leggings,Brown,Fall,2011.0,Casual,bottom,1.0,Casual,brown,True,False,599,599,0,23044.jpg
+23083,Arrow Sport Men Multi Coloured Check Shirt,Arrow Sport,Men,Apparel,Topwear,Shirts,Multi,Fall,2011.0,Casual,top,1.5,Smart Casual,multi,False,False,899,1299,30,23083.jpg
+23672,Converse Men Rainbow Purple Flip Flop,Converse,Men,Footwear,Flip Flops,Flip Flops,Purple,Summer,2011.0,Casual,footwear,0.0,Relaxed,purple,False,False,499,499,0,23672.jpg
+24076,Catwalk Women Orange Casual Shoes,Catwalk,Women,Footwear,Shoes,Flats,Orange,Winter,2015.0,Casual,footwear,1.0,Casual,orange,False,False,599,999,40,24076.jpg
+25256,Lino Perros Women Orange Backpacks,Lino Perros,Women,Accessories,Bags,Backpacks,Orange,Winter,2015.0,Casual,accessory,1.0,Casual,orange,False,False,2049,2949,30,25256.jpg
+25752,Lino Perros Men Canvas Mustard Belt,Lino Perros,Men,Accessories,Belts,Belts,Mustard,Winter,2015.0,Casual,accessory,1.0,Casual,yellow,False,False,1149,1149,0,25752.jpg
+25897,Femella Women Green Skinny Leggings,Femella,Women,Apparel,Bottomwear,Leggings,Green,Summer,2012.0,Casual,bottom,1.0,Casual,green,False,False,349,499,30,25897.jpg
+25966,Femella Women Brown Dress,Femella,Women,Apparel,Dress,Dresses,Brown,Summer,2012.0,Casual,onepiece,1.0,Casual,brown,True,False,2599,3749,30,25966.jpg
+26083,John Miller Men Striped Yellow Shirt,John Miller,Men,Apparel,Topwear,Shirts,Yellow,Summer,2012.0,Formal,top,3.5,Formal,yellow,False,False,1499,2499,40,26083.jpg
+26338,DKNY Women Silver-Toned Dial Chronograph Watch NY8062,DKNY,Women,Accessories,Watches,Watches,Silver,Winter,2016.0,Formal,accessory,3.0,Formal,neutral,True,False,4699,6749,30,26338.jpg
+26347,DKNY Women Beige Dial Chronograph Watch NY8322,DKNY,Women,Accessories,Watches,Watches,Beige,Winter,2016.0,Formal,accessory,3.0,Formal,neutral,True,False,3649,4599,20,26347.jpg
+26364,Arrow Woman Grey Skirt,Arrow,Women,Apparel,Bottomwear,Skirts,Grey,Summer,2012.0,Formal,bottom,3.0,Formal,neutral,True,False,1649,2099,20,26364.jpg
+26366,Arrow Woman Pink Shirt,Arrow,Women,Apparel,Topwear,Shirts,Pink,Summer,2012.0,Formal,top,3.5,Formal,pink,False,False,1999,2899,30,26366.jpg
+26371,Arrow Woman Check Pink Shirt,Arrow,Women,Apparel,Topwear,Shrug,Pink,Summer,2012.0,Casual,top,1.0,Casual,pink,False,False,1449,2449,40,26371.jpg
+26372,Arrow Woman Check Grey Trousers,Arrow,Women,Apparel,Bottomwear,Trousers,Grey,Summer,2012.0,Formal,bottom,3.5,Formal,neutral,True,False,1899,4749,60,26372.jpg
+26530,Gas Men Aishley Greyish Purple Casual Shoes,Gas,Men,Footwear,Shoes,Casual Shoes,Purple,Spring,2013.0,Casual,footwear,1.0,Casual,purple,False,False,2899,2899,0,26530.jpg
+26862,Jealous 21 Women Washed Blue Waistcoat,Jealous 21,Women,Apparel,Topwear,Waistcoat,Blue,Summer,2012.0,Casual,outerwear,2.0,Smart Casual,blue,False,False,1249,1799,30,26862.jpg
+27025,Jealous 21 Women Pink Jeans,Jealous 21,Women,Apparel,Bottomwear,Jeans,Pink,Summer,2012.0,Casual,bottom,1.0,Casual,pink,False,False,1599,1999,20,27025.jpg
+27267,Arrow Women Navy Blue Pinstripe Trousers,Arrow,Women,Apparel,Bottomwear,Trousers,Navy Blue,Winter,2012.0,Formal,bottom,3.5,Formal,blue,True,False,1199,1199,0,27267.jpg
+27845,Scullers For Her Black Blazer,Scullers For,Women,Apparel,Topwear,Blazers,Black,Summer,2012.0,Formal,outerwear,4.0,Very Formal,neutral,True,False,6099,6099,0,27845.jpg
+27846,Scullers For Her Charcoal Blazer,Scullers For,Women,Apparel,Topwear,Blazers,Charcoal,Summer,2012.0,Formal,outerwear,4.0,Very Formal,neutral,True,False,7149,11949,40,27846.jpg
+27868,Scullers For Her Women White Striped Shirt,Scullers For,Women,Apparel,Topwear,Shirts,White,Fall,2012.0,Smart Casual,top,2.5,Smart Casual,neutral,True,False,1049,1049,0,27868.jpg
+27884,Scullers For Her Blue Shirt,Scullers For,Women,Apparel,Topwear,Shirts,Blue,Summer,2012.0,Formal,top,3.5,Formal,blue,False,False,1799,1799,0,27884.jpg
+27885,Scullers For Her Blue Shirt,Scullers For,Women,Apparel,Topwear,Shirts,Blue,Summer,2012.0,Formal,top,3.5,Formal,blue,False,False,849,849,0,27885.jpg
+27886,Scullers For Her Women Pink Shirt,Scullers For,Women,Apparel,Topwear,Shirts,Pink,Summer,2012.0,Formal,top,3.5,Formal,pink,False,False,1799,1799,0,27886.jpg
+27889,Scullers For Her Lavender Shirt,Scullers For,Women,Apparel,Topwear,Shirts,Lavender,Summer,2012.0,Formal,top,3.5,Formal,purple,False,False,1649,1649,0,27889.jpg
+27891,Scullers For Her Purple Striped Shirt,Scullers For,Women,Apparel,Topwear,Shirts,Purple,Summer,2012.0,Formal,top,3.5,Formal,purple,False,False,1849,3699,50,27891.jpg
+27903,Scullers For Her Beige Trousers,Scullers For,Women,Apparel,Bottomwear,Trousers,Beige,Summer,2012.0,Formal,bottom,3.5,Formal,neutral,True,False,949,949,0,27903.jpg
+27904,Scullers For Her Grey Trousers,Scullers For,Women,Apparel,Bottomwear,Trousers,Grey,Summer,2012.0,Formal,bottom,3.5,Formal,neutral,True,False,2549,6399,60,27904.jpg
+27914,Scullers For Her Women Brown Trousers,Scullers For,Women,Apparel,Bottomwear,Trousers,Brown,Summer,2012.0,Formal,bottom,3.5,Formal,brown,True,False,1099,1099,0,27914.jpg
+27917,Scullers For Her Brown Striped Trousers,Scullers For,Women,Apparel,Bottomwear,Trousers,Brown,Summer,2012.0,Formal,bottom,3.5,Formal,brown,True,False,1999,1999,0,27917.jpg
+27919,Scullers For Her Light Brown Trousers,Scullers For,Women,Apparel,Bottomwear,Trousers,Brown,Summer,2012.0,Formal,bottom,3.5,Formal,brown,True,False,1349,2699,50,27919.jpg
+27935,Jealous 21 Women Lavender Magic Colour Jeans,Jealous 21,Women,Apparel,Bottomwear,Jeans,Lavender,Summer,2012.0,Casual,bottom,1.0,Casual,purple,False,False,1349,1349,0,27935.jpg
+28430,DKNY Women Beige Chronograph Watch NY8330,DKNY,Women,Accessories,Watches,Watches,Beige,Winter,2016.0,Formal,accessory,3.0,Formal,neutral,True,False,3999,5749,30,28430.jpg
+28433,DKNY Women Beige Dial Watch NY8308,DKNY,Women,Accessories,Watches,Watches,Beige,Winter,2016.0,Formal,accessory,3.0,Formal,neutral,True,False,1899,2749,30,28433.jpg
+28462,Urban Yoga Women Pink Capris,Urban Yoga,Women,Apparel,Bottomwear,Capris,Pink,Summer,2012.0,Casual,bottom,1.0,Casual,pink,False,False,899,1499,40,28462.jpg
+28489,Urban Yoga Men Solid Olive Kurtas,Urban Yoga,Men,Apparel,Topwear,Kurtas,Olive,Summer,2012.0,Ethnic,top,2.0,Smart Casual,green,False,True,1899,3799,50,28489.jpg
+28522,Nike Women Jersey Cuffed Pink Capris,Nike,Women,Apparel,Bottomwear,Capris,Pink,Summer,2012.0,Sports,bottom,0.75,Casual,pink,False,False,599,1499,60,28522.jpg
+28689,W Women Black Tunic,W,Women,Apparel,Topwear,Kurtas,Black,Summer,2012.0,Casual,top,1.0,Casual,neutral,True,True,699,999,30,28689.jpg
+30733,Fabindia Men Off White Churidar,Fabindia,Men,Apparel,Bottomwear,Churidar,Off White,Summer,2012.0,Ethnic,bottom,2.0,Smart Casual,neutral,True,True,799,1149,30,30733.jpg
+30734,Fabindia Men White Churidar,Fabindia,Men,Apparel,Bottomwear,Churidar,White,Summer,2012.0,Ethnic,bottom,2.0,Smart Casual,neutral,True,True,1149,1949,40,30734.jpg
+30735,Fabindia Men Beige Churidar,Fabindia,Men,Apparel,Bottomwear,Churidar,Beige,Summer,2012.0,Ethnic,bottom,2.0,Smart Casual,neutral,True,True,749,1099,30,30735.jpg
+30736,Fabindia Men White Churidar,Fabindia,Men,Apparel,Bottomwear,Churidar,White,Summer,2012.0,Ethnic,bottom,2.0,Smart Casual,neutral,True,True,1299,2199,40,30736.jpg
+30738,Fabindia Men Navy Blue Bhagalpur Nehru Jacket,Fabindia,Men,Apparel,Topwear,Nehru Jackets,Navy Blue,Summer,2012.0,Ethnic,outerwear,2.0,Smart Casual,blue,True,True,1949,3899,50,30738.jpg
+30743,Fabindia Men Striped White Kurta,Fabindia,Men,Apparel,Topwear,Kurtas,White,Summer,2012.0,Ethnic,top,2.0,Smart Casual,neutral,True,True,1349,1949,30,30743.jpg
+30744,Fabindia Men Blue Printed Kurta,Fabindia,Men,Apparel,Topwear,Kurtas,Blue,Summer,2012.0,Ethnic,top,2.0,Smart Casual,blue,False,True,999,2499,60,30744.jpg
+30746,Fabindia Men Printed Maroon Kurta,Fabindia,Men,Apparel,Topwear,Kurtas,Maroon,Summer,2012.0,Ethnic,top,2.0,Smart Casual,red,False,True,1149,2299,50,30746.jpg
+30755,Fabindia Men Striped Purple Khadi Kurta,Fabindia,Men,Apparel,Topwear,Kurtas,Purple,Summer,2012.0,Ethnic,top,2.0,Smart Casual,purple,False,True,1299,1299,0,30755.jpg
+30767,Fabindia Men Brown Silk Kurta,Fabindia,Men,Apparel,Topwear,Kurtas,Brown,Summer,2012.0,Ethnic,top,2.0,Smart Casual,brown,True,True,1549,2599,40,30767.jpg
+30769,Fabindia Men Mustard Matka Silk Kurta,Fabindia,Men,Apparel,Topwear,Kurtas,Mustard,Summer,2012.0,Ethnic,top,2.0,Smart Casual,yellow,False,True,749,1099,30,30769.jpg
+30776,Fabindia Men Maroon Ajrak Printed Kurti,Fabindia,Men,Apparel,Topwear,Kurtis,Maroon,Summer,2012.0,Ethnic,top,2.0,Smart Casual,red,False,True,1149,1149,0,30776.jpg
+30799,Fabindia Men Striped Blue Shirt,Fabindia,Men,Apparel,Topwear,Shirts,Blue,Summer,2012.0,Ethnic,top,2.5,Smart Casual,blue,False,True,2049,2599,20,30799.jpg
+30809,Fabindia Women Olive Cambric Churidar,Fabindia,Women,Apparel,Bottomwear,Churidar,Olive,Summer,2012.0,Ethnic,bottom,2.0,Smart Casual,green,False,True,749,1099,30,30809.jpg
+30823,Fabindia Women Blue Churidar,Fabindia,Women,Apparel,Bottomwear,Churidar,Blue,Summer,2012.0,Ethnic,bottom,2.0,Smart Casual,blue,False,True,449,449,0,30823.jpg
+30825,Fabindia Women Magenta Mangalgiri Churidar,Fabindia,Women,Apparel,Bottomwear,Churidar,Magenta,Summer,2012.0,Ethnic,bottom,2.0,Smart Casual,pink,False,True,1049,1049,0,30825.jpg
+30827,Fabindia Women Orange Churidar,Fabindia,Women,Apparel,Bottomwear,Churidar,Orange,Summer,2012.0,Ethnic,bottom,2.0,Smart Casual,orange,False,True,1199,1199,0,30827.jpg
+30906,Fabindia Women Reversible Jacket,Fabindia,Women,Apparel,Topwear,Jackets,Maroon,Summer,2012.0,Ethnic,outerwear,2.0,Smart Casual,red,False,True,3249,6499,50,30906.jpg
+31074,Fabindia Off White Embroidered Traditional Cotton Saree,Fabindia Off,Women,Apparel,Saree,Sarees,Off White,Summer,2012.0,Ethnic,onepiece,2.75,Formal,neutral,True,True,2599,2599,0,31074.jpg
+31329,Franco Leone Men Slip On Navy Blue Shoes,Franco Leone,Men,Footwear,Shoes,Casual Shoes,Blue,Summer,2013.0,Formal,footwear,3.0,Formal,blue,False,False,3499,8749,60,31329.jpg
+31729,Reid & Taylor Men Blue Blazer,Reid &,Men,Apparel,Topwear,Blazers,Blue,Summer,2012.0,Formal,outerwear,4.0,Very Formal,blue,False,False,3449,8649,60,31729.jpg
+31732,Reid & Taylor Men Brown Blazer,Reid &,Men,Apparel,Topwear,Blazers,Brown,Summer,2012.0,Formal,outerwear,4.0,Very Formal,brown,True,False,5499,9199,40,31732.jpg
+31733,Reid & Taylor Men Charcoal Grey Blazer,Reid &,Men,Apparel,Topwear,Blazers,Black,Summer,2012.0,Formal,outerwear,4.0,Very Formal,neutral,True,False,5149,5149,0,31733.jpg
+31742,Reid & Taylor Men Semi Formal Black Blazer,Reid &,Men,Apparel,Topwear,Blazers,Black,Summer,2012.0,Formal,outerwear,4.0,Very Formal,neutral,True,False,3799,3799,0,31742.jpg
+31743,Reid & Taylor Men Semi Formal Olive Blazer,Reid &,Men,Apparel,Topwear,Blazers,Olive,Summer,2012.0,Formal,outerwear,4.0,Very Formal,green,False,False,2649,4449,40,31743.jpg
+31876,Fabindia Women Blue Printed Kota Cotton Saree,Fabindia,Women,Apparel,Saree,Sarees,Blue,Summer,2012.0,Ethnic,onepiece,2.75,Formal,blue,False,True,4249,5349,20,31876.jpg
+31877,Fabindia Women Green Printed Kota Cotton Saree,Fabindia,Women,Apparel,Saree,Sarees,Green,Summer,2012.0,Ethnic,onepiece,2.75,Formal,green,False,True,3299,6599,50,31877.jpg
+31885,Fabindia Women White Cotton Silk Saree,Fabindia,Women,Apparel,Saree,Sarees,White,Summer,2012.0,Ethnic,onepiece,2.75,Formal,neutral,True,True,3349,3349,0,31885.jpg
+31886,Fabindia Women Orange Cotton Silk Saree,Fabindia,Women,Apparel,Saree,Sarees,Orange,Summer,2012.0,Ethnic,onepiece,2.75,Formal,orange,False,True,2849,4099,30,31886.jpg
+31977,Nike Women Lunarswift +3 Olive Sports Shoes,Nike,Women,Footwear,Shoes,Sports Shoes,Olive,Summer,2012.0,Sports,footwear,0.5,Relaxed,green,False,False,1349,1349,0,31977.jpg
+32389,Arrow Woman Striped Blue Top,Arrow,Women,Apparel,Topwear,Tops,Blue,Summer,2012.0,Formal,top,3.0,Formal,blue,False,False,1549,2599,40,32389.jpg
+32391,Arrow Woman Blue Shirt,Arrow,Women,Apparel,Topwear,Shirts,Blue,Summer,2012.0,Formal,top,3.5,Formal,blue,False,False,2449,2449,0,32391.jpg
+32397,Arrow Woman Pink Stiped Shirt,Arrow,Women,Apparel,Topwear,Shirts,Pink,Summer,2012.0,Formal,top,3.5,Formal,pink,False,False,1099,1399,20,32397.jpg
+32405,Arrow Woman Navy Blue Trousers,Arrow,Women,Apparel,Bottomwear,Trousers,Navy Blue,Fall,2012.0,Formal,bottom,3.5,Formal,blue,True,False,2999,4999,40,32405.jpg
+32576,ONLY Women Orange Party Dress,ONLY,Women,Apparel,Dress,Dresses,Orange,Summer,2012.0,Casual,onepiece,1.0,Casual,orange,False,False,999,1449,30,32576.jpg
+32582,ONLY Women Yellow Dotted Print Dress,ONLY,Women,Apparel,Dress,Dresses,Yellow,Summer,2012.0,Casual,onepiece,1.0,Casual,yellow,False,False,1149,1949,40,32582.jpg
+32685,Rocia Women Gold Coloured Clutch,Rocia,Women,Accessories,Bags,Clutches,Gold,Fall,2012.0,Party,accessory,2.5,Smart Casual,yellow,False,False,1149,1149,0,32685.jpg
+32757,Fila Men Glam II Multi Coloured Shoes,Fila,Men,Footwear,Shoes,Casual Shoes,Multi,Fall,2012.0,Casual,footwear,1.0,Casual,multi,False,False,2599,3249,20,32757.jpg
+33115,Catwalk Women Orange Shoes,Catwalk,Women,Footwear,Shoes,Casual Shoes,Orange,Winter,2015.0,Casual,footwear,1.0,Casual,orange,False,False,949,1199,20,33115.jpg
+33697,Cobblerz Women Brown Sandals,Cobblerz,Women,Footwear,Sandal,Sandals,Brown,Summer,2016.0,Smart Casual,footwear,1.5,Smart Casual,brown,True,False,1099,1099,0,33697.jpg
+33862,Puma Men Black Helium Sports Sandals,Puma,Men,Footwear,Sandal,Sports Sandals,Black,Winter,2012.0,Sports,footwear,0.25,Relaxed,neutral,True,False,1599,2299,30,33862.jpg
+33969,Femella Women Black Dress,Femella,Women,Apparel,Dress,Dresses,Black,Spring,2012.0,Party,onepiece,2.5,Smart Casual,neutral,True,False,3349,5599,40,33969.jpg
+34069,Clarks Women Black Leather Flat Shoes,Clarks,Women,Footwear,Shoes,Flats,Black,Fall,2012.0,Formal,footwear,3.0,Formal,neutral,True,False,1349,1949,30,34069.jpg
+34302,Fabindia Women H& Printed Green Silk Sari,Fabindia,Women,Apparel,Saree,Sarees,Green,Summer,2012.0,Ethnic,onepiece,2.75,Formal,green,False,True,2149,4299,50,34302.jpg
+34456,Rocia Women Brown Shoes,Rocia,Women,Footwear,Shoes,Heels,Brown,Winter,2012.0,Formal,footwear,3.5,Formal,brown,True,False,1199,1999,40,34456.jpg
+34492,Van Heusen Woman Black Skirt,Van Heusen,Women,Apparel,Bottomwear,Skirts,Black,Summer,2012.0,Formal,bottom,3.0,Formal,neutral,True,False,1749,2199,20,34492.jpg
+34498,Van Heusen Woman Striped Blue Top,Van Heusen,Women,Apparel,Topwear,Tops,Blue,Summer,2012.0,Formal,top,3.0,Formal,blue,False,False,1299,1899,30,34498.jpg
+34958,Fabindia Red Jaipur Print Cotton Sari,Fabindia Red,Women,Apparel,Saree,Sarees,Red,Summer,2012.0,Ethnic,onepiece,2.75,Formal,red,False,True,1499,3749,60,34958.jpg
+34988,Fabindia H& Printed Navy Blue Cotton Mull Sari,Fabindia H&,Women,Apparel,Saree,Sarees,Navy Blue,Summer,2012.0,Ethnic,onepiece,2.75,Formal,blue,True,True,3849,3849,0,34988.jpg
+34994,Fabindia H& Printed Mustard Cotton Mull Sari,Fabindia H&,Women,Apparel,Saree,Sarees,Mustard,Summer,2012.0,Ethnic,onepiece,2.75,Formal,yellow,False,True,1499,1499,0,34994.jpg
+34997,Fabindia Pink Hand Printed Sari,Fabindia Pink,Women,Apparel,Saree,Sarees,Pink,Summer,2012.0,Ethnic,onepiece,2.75,Formal,pink,False,True,2449,4899,50,34997.jpg
+35037,Fabindia Women Purple Churidar,Fabindia,Women,Apparel,Bottomwear,Churidar,Purple,Summer,2012.0,Ethnic,bottom,2.0,Smart Casual,purple,False,True,1149,2299,50,35037.jpg
+35077,Allen Solly Men Canvas Peach Belt,Allen Solly,Men,Accessories,Belts,Belts,Peach,Summer,2012.0,Casual,accessory,1.0,Casual,pink,False,False,999,1449,30,35077.jpg
+35129,Allen Solly Woman Red Bangle,Allen Solly,Women,Accessories,Jewellery,Bangle,Red,Winter,2012.0,Casual,accessory,1.0,Casual,red,False,False,449,449,0,35129.jpg
+35130,Allen Solly Woman Green Bangle,Allen Solly,Women,Accessories,Jewellery,Bangle,Green,Winter,2012.0,Casual,accessory,1.0,Casual,green,False,False,249,399,30,35130.jpg
+35131,Allen Solly Woman Purple Bangle,Allen Solly,Women,Accessories,Jewellery,Bangle,Purple,Winter,2012.0,Casual,accessory,1.0,Casual,purple,False,False,649,1299,50,35131.jpg
+36087,OTLS Unisex Pink Cap,OTLS,Unisex,Accessories,Headwear,Caps,Pink,Summer,2012.0,Casual,accessory,0.5,Relaxed,pink,False,False,449,449,0,36087.jpg
+36089,OTLS Unisex Brown Cap,OTLS,Unisex,Accessories,Headwear,Caps,Brown,Summer,2012.0,Casual,accessory,0.5,Relaxed,brown,True,False,649,949,30,36089.jpg
+36342,Reid & Taylor Men Pink Tie,Reid &,Men,Accessories,Ties,Ties,Pink,Summer,2012.0,Formal,accessory,4.0,Very Formal,pink,False,False,749,1499,50,36342.jpg
+37204,United Colors of Benetton Women Printed Teal Jumpsuit,United Colors,Women,Apparel,Dress,Jumpsuit,Teal,Summer,2012.0,Casual,onepiece,1.0,Casual,blue,False,False,1599,2299,30,37204.jpg
+37225,United Colors of Benetton Men Olive Duffle Bag,United Colors,Men,Accessories,Bags,Duffel Bag,Olive,Summer,2012.0,Casual,accessory,1.0,Casual,green,False,False,2349,2349,0,37225.jpg
+38563,Nike Men Orange & Charcoal Shorts,Nike,Men,Apparel,Bottomwear,Shorts,Orange,Summer,2012.0,Casual,bottom,0.25,Relaxed,orange,False,False,849,849,0,38563.jpg
+39720,Arrow Woman Olive Jumpsuit,Arrow,Women,Apparel,Dress,Jumpsuit,Olive,Summer,2012.0,Casual,onepiece,1.0,Casual,green,False,False,2149,5399,60,39720.jpg
+39728,Arrow Woman Women Pink Shirt,Arrow,Women,Apparel,Topwear,Shirts,Pink,Summer,2012.0,Formal,top,3.5,Formal,pink,False,False,1199,1749,30,39728.jpg
+40396,Tonga Women Multi Colored Shirt,Tonga,Women,Apparel,Topwear,Shirts,Multi,Summer,2012.0,Casual,top,1.5,Smart Casual,multi,False,False,749,749,0,40396.jpg
+40756,Roxy Women Multi Coloured Flip Flops,Roxy,Women,Footwear,Flip Flops,Flip Flops,Multi,Winter,2012.0,Casual,footwear,0.0,Relaxed,multi,False,False,299,299,0,40756.jpg
+40762,Quiksilver Men Multi Coloured Backpack,Quiksilver,Men,Accessories,Bags,Backpacks,Multi,Summer,2012.0,Casual,accessory,1.0,Casual,multi,False,False,949,1599,40,40762.jpg
+41027,Lee Men Brown Cap,Lee,Men,Accessories,Headwear,Caps,Brown,Summer,2012.0,Casual,accessory,0.5,Relaxed,brown,True,False,499,499,0,41027.jpg
+42217,Sepia Women Black Dress,Sepia,Women,Apparel,Dress,Dresses,Black,Summer,2012.0,Party,onepiece,2.5,Smart Casual,neutral,True,False,2999,2999,0,42217.jpg
+42308,Prafful Magenta Crepe Printed Saree,Prafful Magenta,Women,Apparel,Saree,Sarees,Magenta,Summer,2012.0,Ethnic,onepiece,2.75,Formal,pink,False,True,2899,2899,0,42308.jpg
+42320,Prafful Purple Crepe Printed Saree,Prafful Purple,Women,Apparel,Saree,Sarees,Purple,Summer,2012.0,Ethnic,onepiece,2.75,Formal,purple,False,True,3649,4599,20,42320.jpg
+42330,Prafful Multicoloured Crepe Printed Saree,Prafful Multicoloured,Women,Apparel,Saree,Sarees,Multi,Summer,2012.0,Ethnic,onepiece,2.75,Formal,multi,False,True,1849,3699,50,42330.jpg
+42640,W Women Red Dress,W,Women,Apparel,Topwear,Kurtas,Red,Summer,2012.0,Casual,top,1.0,Casual,red,False,True,1699,1699,0,42640.jpg
+42964,French Connection Men Multi Coloured Belt,French Connection,Men,Accessories,Belts,Belts,Multi,Summer,2012.0,Casual,accessory,1.0,Casual,multi,False,False,399,399,0,42964.jpg
+43045,Nike Men Pink Shorts,Nike,Men,Apparel,Bottomwear,Shorts,Pink,Summer,2012.0,Casual,bottom,0.25,Relaxed,pink,False,False,1149,1149,0,43045.jpg
+43314,United Colors of Benetton Women Yellow Sweater,United Colors,Women,Apparel,Topwear,Sweaters,Yellow,Summer,2012.0,Casual,top,1.0,Casual,yellow,False,False,2299,3849,40,43314.jpg
+43511,French Connection Women Navy Blue Dress,French Connection,Women,Apparel,Dress,Dresses,Navy Blue,Summer,2012.0,Formal,onepiece,3.0,Formal,blue,True,False,1499,1499,0,43511.jpg
+43520,French Connection Women Navy Blue Skirt,French Connection,Women,Apparel,Bottomwear,Skirts,Navy Blue,Summer,2012.0,Formal,bottom,3.0,Formal,blue,True,False,949,949,0,43520.jpg
+43522,French Connection Women Navy Trouser,French Connection,Women,Apparel,Bottomwear,Trousers,Navy Blue,Summer,2012.0,Formal,bottom,3.5,Formal,blue,True,False,1949,2799,30,43522.jpg
+43643,Vero Moda Women Magenta Dress,Vero Moda,Women,Apparel,Dress,Dresses,Magenta,Summer,2012.0,Party,onepiece,2.5,Smart Casual,pink,False,False,1549,1549,0,43643.jpg
+43644,Vero Moda Women Black Dress,Vero Moda,Women,Apparel,Dress,Dresses,Black,Summer,2012.0,Party,onepiece,2.5,Smart Casual,neutral,True,False,3149,4499,30,43644.jpg
+43655,ONLY Women Multi Coloured Short Jumpsuit,ONLY,Women,Apparel,Dress,Jumpsuit,Multi,Summer,2012.0,Casual,onepiece,1.0,Casual,multi,False,False,2499,2499,0,43655.jpg
+43671,ONLY Women Pink Waistcoat,ONLY,Women,Apparel,Topwear,Waistcoat,Pink,Summer,2012.0,Casual,outerwear,2.0,Smart Casual,pink,False,False,2049,2049,0,43671.jpg
+43710,Royal Diadem Set of 2 Golden Bangles,Royal Diadem,Women,Accessories,Jewellery,Bangle,Gold,Summer,2012.0,Casual,accessory,1.0,Casual,yellow,False,False,549,1099,50,43710.jpg
+43711,Royal Diadem Set of 2 Golden Bangles,Royal Diadem,Women,Accessories,Jewellery,Bangle,Gold,Summer,2012.0,Ethnic,accessory,2.0,Smart Casual,yellow,False,True,399,699,40,43711.jpg
+43718,Royal Diadem Set of 2 Silver Bangles,Royal Diadem,Women,Accessories,Jewellery,Bangle,Silver,Summer,2012.0,Casual,accessory,1.0,Casual,neutral,True,False,749,1899,60,43718.jpg
+43730,Royal Diadem Set of 2 Green & Gold Bangles,Royal Diadem,Women,Accessories,Jewellery,Bangle,Green,Summer,2012.0,Ethnic,accessory,2.0,Smart Casual,green,False,True,799,1349,40,43730.jpg
+43731,Royal Diadem Bracelet,Royal Diadem,Women,Accessories,Jewellery,Bracelet,Gold,Summer,2012.0,Ethnic,accessory,2.0,Smart Casual,yellow,False,True,699,699,0,43731.jpg
+43744,Royal Diadem Set of 2 Turquoise Blue Bangles,Royal Diadem,Women,Accessories,Jewellery,Bangle,Turquoise Blue,Summer,2012.0,Casual,accessory,1.0,Casual,blue,False,False,699,1749,60,43744.jpg
+43754,Royal Diadem Set of 2 White & Maroon Bangles,Royal Diadem,Women,Accessories,Jewellery,Bangle,White,Summer,2012.0,Ethnic,accessory,2.0,Smart Casual,neutral,True,True,399,399,0,43754.jpg
+44680,Wills Lifestyle Women Black Jaydon Top,Wills Lifestyle,Women,Apparel,Topwear,Tops,Black,Summer,2012.0,Party,top,2.5,Smart Casual,neutral,True,False,599,899,30,44680.jpg
+45122,CASIO ENTICER Women Black Dial Watch A253 LTP-1283D-1ADF,CASIO ENTICER,Women,Accessories,Watches,Watches,Black,Winter,2016.0,Smart Casual,accessory,2.0,Smart Casual,neutral,True,False,4399,7349,40,45122.jpg
+45137,CASIO Enticer Women Black Dial Watch A376 LTP-2037A-1CDF,CASIO Enticer,Women,Accessories,Watches,Watches,Black,Winter,2016.0,Smart Casual,accessory,2.0,Smart Casual,neutral,True,False,3149,7899,60,45137.jpg
+45209,CASIO ENTICER Women Black Dial Analogue Watch A664,CASIO ENTICER,Women,Accessories,Watches,Watches,Black,Winter,2016.0,Smart Casual,accessory,2.0,Smart Casual,neutral,True,False,2649,2649,0,45209.jpg
+45240,CASIO Baby-G Women Blue Analogue & Digital Watch BX005,CASIO Baby-G,Women,Accessories,Watches,Watches,Blue,Winter,2016.0,Smart Casual,accessory,2.0,Smart Casual,blue,False,False,2599,2599,0,45240.jpg
+45748,Folklore Women Purple Kurta,Folklore,Women,Apparel,Topwear,Kurtas,Lavender,Summer,2012.0,Casual,top,1.0,Casual,purple,False,True,899,899,0,45748.jpg
+46003,Fabindia Purple & Blue Striped Saree,Fabindia Purple,Women,Apparel,Saree,Sarees,Purple,Summer,2012.0,Ethnic,onepiece,2.75,Formal,purple,False,True,1349,1949,30,46003.jpg
+46458,Timex Women Brown Dial Watch,Timex,Women,Accessories,Watches,Watches,Brown,Winter,2016.0,Smart Casual,accessory,2.0,Smart Casual,brown,True,False,2249,2249,0,46458.jpg
+47312,Backpackgit Women Brown Backpack,Backpackgit,Women,Accessories,Bags,Backpacks,Brown,Summer,2012.0,Casual,accessory,1.0,Casual,brown,True,False,949,2399,60,47312.jpg
+47534,Portia Women Turquoise Blue & Gold Flats,Portia,Women,Footwear,Shoes,Flats,Turquoise Blue,Winter,2012.0,Ethnic,footwear,2.0,Smart Casual,blue,False,True,1299,1299,0,47534.jpg
+47582,Portia Women Blue Flats,Portia,Women,Footwear,Shoes,Flats,Brown,Winter,2012.0,Ethnic,footwear,2.0,Smart Casual,brown,True,True,1049,1749,40,47582.jpg
+48457,French Connection Men Multi Coloured Cargo Shorts,French Connection,Men,Apparel,Bottomwear,Shorts,Multi,Summer,2012.0,Casual,bottom,0.25,Relaxed,multi,False,False,599,1199,50,48457.jpg
+48466,French Connection Women Black Dress,French Connection,Women,Apparel,Dress,Dresses,Black,Winter,2011.0,Party,onepiece,2.5,Smart Casual,neutral,True,False,2649,3799,30,48466.jpg
+48479,French Connection Women Black Dress,French Connection,Women,Apparel,Dress,Dresses,Black,Winter,2011.0,Party,onepiece,2.5,Smart Casual,neutral,True,False,3699,7399,50,48479.jpg
+48559,Revv Men Steel Bracelet,Revv,Men,Accessories,Jewellery,Bracelet,Steel,Summer,2012.0,Casual,accessory,1.0,Casual,neutral,True,False,299,449,30,48559.jpg
+48731,Revv Men Steel Bangle,Revv,Men,Accessories,Jewellery,Bangle,Steel,Summer,2012.0,Casual,accessory,1.0,Casual,neutral,True,False,399,599,30,48731.jpg
+49234,Arrow Men Yellow Cap,Arrow,Men,Accessories,Headwear,Caps,Yellow,Fall,2012.0,Casual,accessory,0.5,Relaxed,yellow,False,False,749,749,0,49234.jpg
+49700,Park Avenue Men Navy Blue Tie,Park Avenue,Men,Accessories,Ties,Ties,Navy Blue,Summer,2012.0,Ethnic,accessory,3.0,Formal,blue,True,True,999,2499,60,49700.jpg
+49915,Fabindia Brown Hand Printed Sari,Fabindia Brown,Women,Apparel,Saree,Sarees,Brown,Fall,2012.0,Ethnic,onepiece,2.75,Formal,brown,True,True,2749,2749,0,49915.jpg
+49918,Fabindia Brown Printed Ajrakh Dhonekhali Saree,Fabindia Brown,Women,Apparel,Saree,Sarees,Brown,Fall,2012.0,Ethnic,onepiece,2.75,Formal,brown,True,True,4199,5999,30,49918.jpg
+50173,Rocia Women Multi Coloured Ballerina,Rocia,Women,Footwear,Shoes,Flats,Multi,Winter,2012.0,Casual,footwear,1.0,Casual,multi,False,False,1499,1499,0,50173.jpg
+50870,Prafful Multi Coloured Printed Sari,Prafful Multi,Women,Apparel,Saree,Sarees,Multi,Fall,2012.0,Ethnic,onepiece,2.75,Formal,multi,False,True,2899,2899,0,50870.jpg
+51222,Satya Paul Women Beige Kurti,Satya Paul,Women,Apparel,Topwear,Kurtis,Beige,Summer,2012.0,Casual,top,1.0,Casual,neutral,True,True,549,549,0,51222.jpg
+51231,Satya Paul Women Orange & Brown Kurti,Satya Paul,Women,Apparel,Topwear,Kurtis,Orange,Summer,2012.0,Casual,top,1.0,Casual,orange,False,True,899,2249,60,51231.jpg
+51331,Wildcraft Men Black Rain Cheater'13,Wildcraft,Men,Apparel,Topwear,Rain Jacket,Black,Summer,2015.0,Casual,outerwear,1.0,Casual,neutral,True,False,1249,2099,40,51331.jpg
+52313,ToniQ Women Multi Coloured Bangle,ToniQ,Women,Accessories,Jewellery,Bangle,Multi,Winter,2016.0,Casual,accessory,1.0,Casual,multi,False,False,299,749,60,52313.jpg
+52315,ToniQ Women Brown Set of 2 Bangles,ToniQ,Women,Accessories,Jewellery,Bangle,Brown,Winter,2016.0,Casual,accessory,1.0,Casual,brown,True,False,299,449,30,52315.jpg
+52325,ToniQ Women Orange Bangle,ToniQ,Women,Accessories,Jewellery,Bangle,Orange,Winter,2016.0,Casual,accessory,1.0,Casual,orange,False,False,349,349,0,52325.jpg
+52329,ToniQ Women Pink Set of 6 Bangles,ToniQ,Women,Accessories,Jewellery,Bangle,Pink,Winter,2016.0,Casual,accessory,1.0,Casual,pink,False,False,449,449,0,52329.jpg
+52884,FNF Orange Printed Sari,FNF Orange,Women,Apparel,Saree,Sarees,Orange,Fall,2012.0,Ethnic,onepiece,2.75,Formal,orange,False,True,2849,4749,40,52884.jpg
+54687,Shree Women Blue and Red Printed Kurta,Shree,Women,Apparel,Topwear,Kurtas,Blue,Fall,2012.0,Casual,top,1.0,Casual,blue,False,True,649,649,0,54687.jpg
+57067,Elle Women Green Retro Jacket,Elle,Women,Apparel,Topwear,Jackets,Green,Summer,2012.0,Casual,outerwear,1.0,Casual,green,False,False,2599,2599,0,57067.jpg
+57099,Elle Women Purple Capris,Elle,Women,Apparel,Bottomwear,Capris,Purple,Summer,2012.0,Casual,bottom,1.0,Casual,purple,False,False,549,1399,60,57099.jpg
+57116,Elle Women White Semiformal Top,Elle,Women,Apparel,Topwear,Tops,White,Summer,2012.0,Formal,top,3.0,Formal,neutral,True,False,499,849,40,57116.jpg
+57812,United Colors of Benetton Women Brown Jumpsuit,United Colors,Women,Apparel,Dress,Jumpsuit,Brown,Summer,2012.0,Casual,onepiece,1.0,Casual,brown,True,False,1149,1449,20,57812.jpg
+58158,Latin Quarters Women Maroon Shrug,Latin Quarters,Women,Apparel,Topwear,Shrug,Maroon,Fall,2012.0,Casual,top,1.0,Casual,red,False,False,1249,1249,0,58158.jpg
+58526,Wildcraft Men Blue Rain Jacket,Wildcraft,Men,Apparel,Topwear,Rain Jacket,Blue,Summer,2015.0,Casual,outerwear,1.0,Casual,blue,False,False,2799,4699,40,58526.jpg
+59045,Carlton London Women Turquoise Blue Pumps,Carlton London,Women,Footwear,Shoes,Heels,Turquoise Blue,Winter,2012.0,Party,footwear,3.0,Formal,blue,False,False,1949,2799,30,59045.jpg
+59103,Just Natural Men Military Shade Rain Jacket,Just Natural,Men,Apparel,Topwear,Rain Jacket,Olive,Summer,2012.0,Casual,outerwear,1.0,Casual,green,False,False,2849,2849,0,59103.jpg
+59104,Just Natural Men Brown Rain Jacket,Just Natural,Men,Apparel,Topwear,Rain Jacket,Brown,Summer,2012.0,Casual,outerwear,1.0,Casual,brown,True,False,1899,2749,30,59104.jpg
+59287,Titan Raga Women Gold Dial Watch,Titan Raga,Women,Accessories,Watches,Watches,Gold,Winter,2016.0,Smart Casual,accessory,2.0,Smart Casual,yellow,False,False,2099,3499,40,59287.jpg
+59984,Avirate Women Purple Dress,Avirate,Women,Apparel,Dress,Dresses,Purple,Fall,2012.0,Party,onepiece,2.5,Smart Casual,purple,False,False,1399,1399,0,59984.jpg
