@@ -80,7 +80,7 @@ returns 429.
 
 ```bash
 pip install -r requirements-dev.txt
-pytest                                   # 258 tests
+pytest                                   # 268 tests
 python scripts/evaluate.py               # → docs/EVALUATION.md
 ```
 
@@ -116,7 +116,20 @@ numbers it operates on are simulated.
 | Explicit item satisfied ("black shirt") | 100% |
 | Constraints, completeness, budget | 100% |
 | Graceful failure | 100% |
-| Latency p50 / p95 | 19.6 / 26.3 ms |
+| Preference match (colour) | 0.965 |
+| Catalog coverage across the run | 36.4% (195 of 536) |
+| Latency p50 / p95 | 73 / 95 ms |
+
+Latency is engine time only, excluding any LLM call, and is regenerated with
+the table above — so it tracks whatever machine last ran `scripts/evaluate.py`
+and moves by tens of milliseconds between runs. **~84% of it is the Sentence
+Transformer forward pass**; `IndexFlatIP` search over 536 vectors is 0.3 ms.
+Before semantic retrieval was added the p50 was ~4 ms — that is the price of the
+feature, measured rather than estimated.
+
+Catalog coverage is there deliberately: it is the check against a recommender
+that always returns the same few items. It sat at 29.9% until the tie-breaking
+and colour fixes in [D12–D14](docs/decision_log.md).
 
 No Precision@K / NDCG / MAP — they need relevance labels, and none exist for this
 catalog. Inventing them would produce a number that looks earned and isn't.
@@ -149,8 +162,19 @@ documented experiment, and a test asserts it can't leak into ranking.
 - **Metadata only, no vision.** Two items labelled "Blue" can be very different
   blues; every print collapses to one `Multi` bucket.
 - **536 products** means genuinely sparse cells, so tight constraints can fail.
-- Semantic retrieval costs ~16 ms and drops preference-match from 0.963 to 0.919.
-- First LLM request takes ~10 s (encoder load); later ones ~400 ms.
+  Formal requests are the worst case: ~20 tops and ~14 bottoms survive filtering,
+  which is thin enough that most candidates score identically.
+- **Semantic retrieval is the whole latency budget.** ~84% of a request, taking
+  p50 from ~4 ms to tens of ms, for a measured *tie* against TF-IDF. It earns its
+  place on free-text requests ("nothing too flashy") and on paraphrase, not on
+  throughput.
+- **Scores are coarse.** `preference_match` takes only 3–12 distinct values
+  across a filtered pool, so ~10 of 29 candidates routinely tie. Tie-breaking is
+  now request-derived rather than catalog-order, but the underlying coarseness
+  is unfixed — the colour term is a constant whenever no colour is requested.
+- The first request pays a one-off encoder load (~30 s cold, seconds when the
+  model is already in the local Hugging Face cache); later ones are in the
+  tens of milliseconds.
 
 ---
 
@@ -170,10 +194,11 @@ src/
   nlu.py                keyword parser (fallback + baseline)
   data.py               catalog; the only product-id resolution point
   similarity.py         TF-IDF similar products
+  ui.py                 CSS, product cards, layout primitives
   ml/                   Random Forest experiment
 scripts/                catalog build, index build, evaluation
 docs/                   architecture, evaluation, assumptions, decisions
-tests/                  258 tests
+tests/                  268 tests
 ```
 
 More detail: [architecture](docs/ARCHITECTURE.md) ·
@@ -185,3 +210,4 @@ More detail: [architecture](docs/ARCHITECTURE.md) ·
 
 Independent prototype. Not affiliated with any marketplace; no third-party
 branding or assets are used.
+"# ai-stylist" 
