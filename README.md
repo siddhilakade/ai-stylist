@@ -1,5 +1,6 @@
 ﻿# AI Stylist
 YouTube Explanation Video: https://youtu.be/PyvfDrC5Ysc?si=G-vEfIBjXZEs1bLk
+
 Outfit recommendation for a fashion marketplace. You describe an occasion in
 plain English and get back complete, budget-valid outfits with the reasoning
 shown.
