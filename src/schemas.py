@@ -266,6 +266,12 @@ class ExtractionResult(BaseModel):
     model: Optional[str] = None
     raw_model_output: Optional[str] = None
     warning: Optional[str] = None
+    # True when `warning` describes the SYSTEM (no key, provider down, invalid
+    # response) rather than the user's request. A shopper cannot act on
+    # infrastructure status and should not be shown it as an alert; the
+    # provenance badge already states which path answered. Warnings about the
+    # request itself are actionable and stay visible.
+    degraded: bool = False
 
 
 # --------------------------------------------------------------------------

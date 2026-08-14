@@ -72,28 +72,47 @@ def get_api_key() -> str | None:
     if key and key.strip() and key.strip() != "your_key_here":
         return key.strip()
 
-    # Streamlit secrets, but only when we are actually running inside Streamlit
-    # AND a secrets file genuinely exists. Touching `st.secrets` when there is no
-    # secrets.toml makes Streamlit render a red error box in the app, which a
-    # try/except here cannot suppress - so we check for the file first.
-    if "streamlit" in sys.modules and _secrets_file_exists():
-        try:
-            secret = sys.modules["streamlit"].secrets.get("GEMINI_API_KEY")
-            if secret and str(secret).strip():
-                return str(secret).strip()
-        except Exception:
-            pass
+    return _streamlit_secret("GEMINI_API_KEY")
+
+
+def _streamlit_secret(name: str) -> str | None:
+    """Read one key from Streamlit secrets, when that is safe to attempt."""
+    if "streamlit" not in sys.modules or not _secrets_are_readable():
+        return None
+    try:
+        secret = sys.modules["streamlit"].secrets.get(name)
+        if secret and str(secret).strip():
+            return str(secret).strip()
+    except Exception:
+        pass
     return None
 
 
-def _secrets_file_exists() -> bool:
-    """The locations Streamlit itself reads secrets from."""
+# Streamlit Community Cloud checks out the repository here. Deployed apps have
+# NO secrets.toml on disk - secrets are pasted into the dashboard and injected
+# into the running process - so the file check below is never satisfied there.
+CLOUD_MOUNT = Path("/mount/src")
+
+
+def _secrets_are_readable() -> bool:
+    """Whether it is safe to touch `st.secrets`.
+
+    Locally, reading `st.secrets` with no secrets.toml anywhere makes Streamlit
+    render an error box in the app, and a try/except here cannot suppress it -
+    so a file has to exist first.
+
+    On Streamlit Community Cloud there is no such file, and checking only for
+    one meant a deployed app ignored its configured key and ran on the keyword
+    fallback forever. Detecting the cloud mount is what makes both cases work.
+    """
     candidates = (
         Path.cwd() / ".streamlit" / "secrets.toml",
         Path(__file__).resolve().parents[1] / ".streamlit" / "secrets.toml",
         Path.home() / ".streamlit" / "secrets.toml",
     )
-    return any(path.is_file() for path in candidates)
+    if any(path.is_file() for path in candidates):
+        return True
+    return CLOUD_MOUNT.exists() or bool(os.environ.get("STREAMLIT_RUNTIME_ENV"))
 
 
 # --------------------------------------------------------------------------
@@ -121,14 +140,7 @@ def get_groq_key() -> str | None:
     key = os.environ.get("GROQ_API_KEY")
     if key and key.strip() and key.strip() != "your_key_here":
         return key.strip()
-    if "streamlit" in sys.modules and _secrets_file_exists():
-        try:
-            secret = sys.modules["streamlit"].secrets.get("GROQ_API_KEY")
-            if secret and str(secret).strip():
-                return str(secret).strip()
-        except Exception:
-            pass
-    return None
+    return _streamlit_secret("GROQ_API_KEY")
 
 
 def provider_key(provider: str) -> str | None:
@@ -398,6 +410,7 @@ def extract_preferences(
             preferences=rule_based,
             source=ExtractionSource.RULE_BASED,
             warning=warning,
+            degraded=True,
         )
 
     # Try each configured provider in order. A provider that fails trips only
@@ -424,6 +437,7 @@ def extract_preferences(
             preferences=rule_based,
             source=ExtractionSource.RULE_BASED,
             warning=FRIENDLY_UNAVAILABLE,
+            degraded=True,
         )
 
     # Validate before trusting. An invalid or malformed response is discarded
@@ -438,9 +452,10 @@ def extract_preferences(
             source=ExtractionSource.RULE_BASED,
             raw_model_output=raw[:500],
             warning=(
-                "Gemini returned a response that did not match the expected "
-                f"schema, so keyword rules were used. ({_safe_error(exc)})"
+                "The language model returned a response that did not match the "
+                f"expected schema, so keyword rules were used. ({_safe_error(exc)})"
             ),
+            degraded=True,
         )
 
     warning = None

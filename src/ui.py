@@ -22,12 +22,15 @@ THE VISUAL LANGUAGE
 
 from __future__ import annotations
 
+import base64
+from functools import lru_cache
 from html import escape
+from pathlib import Path
 from typing import Any, Mapping
 
 import streamlit as st
 
-from src.data import image_url
+from src.data import image_path, image_url
 from src.features import SLOT_LABELS, extract_short_name
 
 Product = Mapping[str, Any]
@@ -57,9 +60,42 @@ def rupees(amount: float | int) -> str:
     return f"₹{int(round(amount)):,}"
 
 
+@lru_cache(maxsize=1)
+def _static_serving_enabled() -> bool:
+    """Whether Streamlit is actually serving `static/` over HTTP.
+
+    `enableStaticServing` lives in .streamlit/config.toml, which Streamlit reads
+    from the working directory rather than from app.py's location. Launch the
+    app from anywhere else and the option silently reverts to its default of
+    False, at which point every product image 404s and the whole catalogue
+    renders blank.
+    """
+    try:
+        return bool(st.get_option("server.enableStaticServing"))
+    except Exception:
+        return False
+
+
+@lru_cache(maxsize=2048)
+def _image_data_uri(path_str: str) -> str:
+    """Inline a product image, for when static serving is unavailable."""
+    try:
+        encoded = base64.b64encode(Path(path_str).read_bytes()).decode("ascii")
+        return "data:image/jpeg;base64," + encoded
+    except Exception:
+        return ""
+
+
 def product_image_uri(product: Product) -> str:
-    """Static URL for a product image (served by Streamlit from static/)."""
-    return image_url(product)
+    """URL the browser uses for a product image.
+
+    Prefers the static route, which lets the browser cache each file once.
+    Falls back to an inline data URI so the app still looks right when it is
+    run from outside the project directory - slower, but never blank.
+    """
+    if _static_serving_enabled():
+        return image_url(product)
+    return _image_data_uri(str(image_path(product)))
 
 
 def brand_of(product: Product) -> str:
@@ -114,6 +150,58 @@ header[data-testid="stHeader"] { height: 0; background: transparent; }
 [data-testid="stVerticalBlock"] { gap: 0.4rem; }
 [data-testid="stHorizontalBlock"] { gap: 0.8rem; }
 hr { margin: 1rem 0; border-color: var(--line); }
+
+/* ---------- theme independence ----------
+   Streamlit resolves .streamlit/config.toml from the CURRENT WORKING DIRECTORY,
+   not from the location of app.py. Run the app from anywhere else - which is
+   what happens on a fresh clone - and the theme is never loaded. Streamlit then
+   falls back to its own defaults and follows the browser's colour scheme, so on
+   a machine in dark mode every widget label rendered near-white (250,250,250)
+   on this stylesheet's ivory background and became invisible.
+
+   The fix is to stop depending on the config file for appearance: every piece
+   of Streamlit-owned text gets an explicit colour here, and the dark-scheme
+   media query pins the same palette. config.toml still sets the pre-paint
+   background colour, but nothing is now *only* defined there. */
+.stApp, .stApp p, .stApp li, .stApp span, .stApp div,
+label, [data-testid="stWidgetLabel"], [data-testid="stWidgetLabel"] p,
+[data-testid="stMarkdownContainer"], [data-testid="stMarkdownContainer"] p,
+[data-testid="stCaptionContainer"], [data-testid="stCaptionContainer"] p,
+[data-testid="stMetricValue"], [data-testid="stMetricLabel"],
+.stSelectbox label, .stSlider label, .stMultiSelect label,
+.stCheckbox label, .stCheckbox label p, .stRadio label,
+[data-baseweb="select"] div, [data-baseweb="tab"] {
+    color: var(--ink);
+}
+[data-testid="stCaptionContainer"], [data-testid="stCaptionContainer"] p {
+    color: var(--muted);
+}
+[data-baseweb="popover"], [data-baseweb="menu"], [role="listbox"] {
+    background: var(--card); color: var(--ink);
+}
+[role="option"] { color: var(--ink); }
+
+@media (prefers-color-scheme: dark) {
+    .stApp { background: var(--ground); }
+    .stApp, .stApp p, .stApp li, .stApp span, .stApp div,
+    label, [data-testid="stWidgetLabel"], [data-testid="stWidgetLabel"] p,
+    [data-testid="stMarkdownContainer"], [data-testid="stMarkdownContainer"] p,
+    .stSelectbox label, .stSlider label, .stMultiSelect label,
+    .stCheckbox label, .stCheckbox label p, .stRadio label,
+    [data-baseweb="select"] div, [role="option"] {
+        color: var(--ink);
+    }
+    [data-testid="stCaptionContainer"], [data-testid="stCaptionContainer"] p {
+        color: var(--muted);
+    }
+    .stTextInput input, .stTextArea textarea,
+    [data-baseweb="select"] > div, [data-baseweb="popover"], [role="listbox"] {
+        background: var(--card); color: var(--ink);
+    }
+    [data-testid="stExpander"], [data-testid="stExpander"] summary {
+        background: var(--card); color: var(--ink);
+    }
+}
 
 html, body, [class*="css"], .stMarkdown, button, input, textarea, select {
     font-family: var(--sans);

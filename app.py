@@ -288,7 +288,11 @@ def render_understanding(extraction) -> None:
         )
     if prefs.notes:
         st.caption(f"Also noted: _{prefs.notes}_")
-    if extraction.warning:
+    # A warning about the REQUEST is actionable, so it stays visible. A warning
+    # about the system is not: the badge above already says which path answered,
+    # and a shopper shown "AI understanding is unavailable" in an alert box reads
+    # it as the app being broken. Full provider detail stays on How it works.
+    if extraction.warning and not extraction.degraded:
         st.info(extraction.warning)
 
 
